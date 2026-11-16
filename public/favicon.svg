@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <circle cx="32" cy="32" r="30" fill="#F5EBDD" stroke="#C9973F" stroke-width="3" />
+  <!-- Arch -->
+  <path d="M 20 46 L 20 28 A 12 12 0 0 1 44 28 L 44 46 Z" fill="none" stroke="#8B5A2B" stroke-width="2" />
+  <!-- Flame -->
+  <path d="M 32 20 C 29 25, 29 28, 32 30 C 35 28, 35 25, 32 20 Z" fill="#C9973F" />
+  <!-- Candle body -->
+  <rect x="29" y="30" width="6" height="14" rx="1.5" fill="#8B5A2B" />
+</svg>
