@@ -377,7 +377,7 @@ export default function CheckoutPage() {
                 {items.map((item) => (
                   <div key={`${item.productId}-${item.variantId}`} className="pt-2 flex items-center gap-3">
                     <div className="relative w-12 h-14 rounded-lg overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
-                      <Image src={item.imageUrl} alt={item.title} fill className="object-cover" />
+                      <Image src={item.imageUrl || `/placeholders/${item.slug}.svg` || '/logo.png'} alt={item.title} fill className="object-cover" />
                       <span className="absolute top-0 right-0 bg-deep text-cream-50 text-[9px] font-bold w-4 h-4 rounded-bl flex items-center justify-center">
                         {item.quantity}
                       </span>

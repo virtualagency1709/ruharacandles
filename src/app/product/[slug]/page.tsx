@@ -20,6 +20,7 @@ import {
   Share2,
   MapPin,
   Check,
+  MessageCircle,
 } from 'lucide-react';
 import { getProductBySlug, getRelatedProducts, getProductReviews } from '@/lib/products';
 import { formatPrice, calculateDiscount } from '@/lib/utils';
@@ -247,18 +248,19 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
 
               {/* Price Row */}
               <div className="pt-3 flex items-baseline gap-3">
-                <span className="font-serif text-3xl font-bold text-deep">
-                  {formatPrice(currentPrice)}
-                </span>
-                {currentMrp > currentPrice && (
-                  <span className="text-base text-deep/45 line-through">
-                    {formatPrice(currentMrp)}
+                {product.isPricePending ? (
+                  <span className="font-serif text-3xl font-bold text-primary italic">
+                    Price Pending
+                  </span>
+                ) : (
+                  <span className="font-serif text-3xl font-bold text-deep">
+                    {formatPrice(currentPrice)}
                   </span>
                 )}
-                {discount > 0 && (
-                  <Badge variant="sage" size="md">
-                    Save {formatPrice(currentMrp - currentPrice)}
-                  </Badge>
+                {product.isFlaggedForReview && (
+                  <span className="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold px-2.5 py-0.5 rounded-full">
+                    Verification Entry
+                  </span>
                 )}
               </div>
               <p className="text-[11px] text-deep/60">Inclusive of all taxes • Free Shipping above ₹999</p>
@@ -296,49 +298,70 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
 
             {/* Quantity Selector & Action Buttons */}
             <div className="space-y-4 pt-2">
-              <div className="flex items-center gap-4">
-                {/* Quantity */}
-                <div className="flex items-center border border-gold/40 rounded-full bg-ivory shadow-warm-sm overflow-hidden">
-                  <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="p-3 text-deep hover:bg-cream-200 transition-colors"
-                    aria-label="Decrease quantity"
+              {product.isPricePending ? (
+                <div className="bg-amber-50/80 border border-amber-200/80 rounded-2xl p-5 space-y-3">
+                  <div className="flex items-center gap-2 text-amber-900">
+                    <Clock className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-bold uppercase tracking-wider">Pricing Awaiting Confirmation</span>
+                  </div>
+                  <p className="text-xs text-deep/75 leading-relaxed">
+                    Official pricing for this piece is currently being finalized. You can reserve this piece or inquire directly via WhatsApp.
+                  </p>
+                  <a
+                    href={`https://wa.me/919999999999?text=${encodeURIComponent(`Hi Ruhara Candles, I would like to inquire about the price and availability of "${product.title}" (SKU: ${product.sku}).`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full py-3 px-4 bg-primary hover:bg-primary-dark text-white rounded-xl text-xs font-bold tracking-wider uppercase transition-colors shadow-warm-sm"
                   >
-                    <Minus className="w-3.5 h-3.5" />
-                  </button>
-                  <span className="px-4 text-xs font-bold text-deep min-w-[36px] text-center">
-                    {quantity}
-                  </span>
-                  <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="p-3 text-deep hover:bg-cream-200 transition-colors"
-                    aria-label="Increase quantity"
-                  >
-                    <Plus className="w-3.5 h-3.5" />
-                  </button>
+                    <MessageCircle className="w-4 h-4" />
+                    Inquire via WhatsApp
+                  </a>
                 </div>
+              ) : (
+                <div className="flex items-center gap-4">
+                  {/* Quantity */}
+                  <div className="flex items-center border border-gold/40 rounded-full bg-ivory shadow-warm-sm overflow-hidden">
+                    <button
+                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                      className="p-3 text-deep hover:bg-cream-200 transition-colors"
+                      aria-label="Decrease quantity"
+                    >
+                      <Minus className="w-3.5 h-3.5" />
+                    </button>
+                    <span className="px-4 text-xs font-bold text-deep min-w-[36px] text-center">
+                      {quantity}
+                    </span>
+                    <button
+                      onClick={() => setQuantity(quantity + 1)}
+                      className="p-3 text-deep hover:bg-cream-200 transition-colors"
+                      aria-label="Increase quantity"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
 
-                {/* Add to Bag Button */}
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="flex-1"
-                  leftIcon={<ShoppingBag className="w-4 h-4 text-gold" />}
-                  onClick={handleAddToCart}
-                >
-                  Add to Bag
-                </Button>
+                  {/* Add to Bag Button */}
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="flex-1"
+                    leftIcon={<ShoppingBag className="w-4 h-4 text-gold" />}
+                    onClick={handleAddToCart}
+                  >
+                    Add to Bag
+                  </Button>
 
-                {/* Buy Now Button */}
-                <Button
-                  variant="gold"
-                  size="lg"
-                  className="flex-1"
-                  onClick={handleBuyNow}
-                >
-                  Buy Now
-                </Button>
-              </div>
+                  {/* Buy Now Button */}
+                  <Button
+                    variant="gold"
+                    size="lg"
+                    className="flex-1"
+                    onClick={handleBuyNow}
+                  >
+                    Buy Now
+                  </Button>
+                </div>
+              )}
             </div>
 
             {/* Delivery Pincode Checker */}

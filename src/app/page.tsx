@@ -153,7 +153,7 @@ export default function LuxuryHomePage() {
               {/* Main Arch-Masked Hero Image */}
               <div className="w-full max-w-sm sm:max-w-md">
                 <ArchImage
-                  src="https://images.unsplash.com/photo-1608755728617-aefab37d2edd?q=80&w=1200"
+                  src="/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg"
                   alt="Ruhara Royal Festive Urli Candle"
                   aspectRatio="portrait"
                   priority={true}
@@ -178,19 +178,19 @@ export default function LuxuryHomePage() {
               <div className="absolute -bottom-6 -left-4 sm:-left-8 bg-ivory/95 backdrop-blur-md p-3 rounded-2xl border border-gold/35 shadow-warm-lg flex items-center gap-3 z-20 animate-float-slow">
                 <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
                   <Image
-                    src="https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=400"
-                    alt="Peony Bloom"
+                    src={PRODUCTS[0]?.images[0]?.url || "/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg"}
+                    alt={PRODUCTS[0]?.title || "White Concrete Tray And Ribbed Vase With Peony Candle"}
                     fill
                     className="object-cover"
                   />
                 </div>
-                <div className="pr-2">
-                  <p className="font-serif text-xs font-bold text-deep leading-snug">Peony Bloom</p>
-                  <p className="text-[10px] text-primary font-bold">₹699</p>
+                <div className="pr-2 max-w-[130px]">
+                  <p className="font-serif text-xs font-bold text-deep leading-snug truncate">{PRODUCTS[0]?.title}</p>
+                  <p className="text-[10px] text-primary font-bold">{formatPrice(PRODUCTS[0]?.basePrice || 549)}</p>
                 </div>
                 <button
                   onClick={() => handleQuickAdd(PRODUCTS[0])}
-                  className="w-7 h-7 rounded-full bg-deep text-cream-50 flex items-center justify-center hover:bg-deep-dark shadow-sm"
+                  className="w-7 h-7 rounded-full bg-deep text-cream-50 flex items-center justify-center hover:bg-deep-dark shadow-sm shrink-0"
                   title="Quick Add"
                 >
                   <Plus className="w-3.5 h-3.5" />
@@ -201,19 +201,19 @@ export default function LuxuryHomePage() {
               <div className="hidden sm:flex absolute top-1/3 -right-6 bg-ivory/95 backdrop-blur-md p-3 rounded-2xl border border-gold/35 shadow-warm-lg items-center gap-3 z-20 animate-float-delayed">
                 <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
                   <Image
-                    src="https://images.unsplash.com/photo-1596433809252-260c2745dfdd?q=80&w=400"
-                    alt="Lavender Jar"
+                    src={PRODUCTS[1]?.images[0]?.url || "/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg"}
+                    alt={PRODUCTS[1]?.title || "Pink Tulip Bouquet Decorative Candle"}
                     fill
                     className="object-cover"
                   />
                 </div>
-                <div className="pr-2">
-                  <p className="font-serif text-xs font-bold text-deep leading-snug">French Lavender</p>
-                  <p className="text-[10px] text-primary font-bold">₹599</p>
+                <div className="pr-2 max-w-[130px]">
+                  <p className="font-serif text-xs font-bold text-deep leading-snug truncate">{PRODUCTS[1]?.title}</p>
+                  <p className="text-[10px] text-primary font-bold">{formatPrice(PRODUCTS[1]?.basePrice || 199)}</p>
                 </div>
                 <button
-                  onClick={() => handleQuickAdd(PRODUCTS[5])}
-                  className="w-7 h-7 rounded-full bg-deep text-cream-50 flex items-center justify-center hover:bg-deep-dark shadow-sm"
+                  onClick={() => handleQuickAdd(PRODUCTS[1])}
+                  className="w-7 h-7 rounded-full bg-deep text-cream-50 flex items-center justify-center hover:bg-deep-dark shadow-sm shrink-0"
                   title="Quick Add"
                 >
                   <Plus className="w-3.5 h-3.5" />
@@ -359,7 +359,7 @@ export default function LuxuryHomePage() {
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-md aspect-[4/5] rounded-[160px_160px_24px_24px] overflow-hidden border-2 border-gold/40 shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?q=80&w=1200"
+                src="/placeholders/scented-peony-flower-candle-with-premiu.svg"
                 alt="Slow living candle ambiance"
                 fill
                 className="object-cover"
@@ -545,7 +545,7 @@ export default function LuxuryHomePage() {
           {/* Visual Bundle Showcase */}
           <div className="lg:col-span-6 relative aspect-square rounded-2xl overflow-hidden bg-cream-200 border border-gold/30 shadow-inner">
             <Image
-              src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1200"
+              src="/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg"
               alt="Curated gift hamper bundle"
               fill
               className="object-cover"
@@ -607,12 +607,12 @@ export default function LuxuryHomePage() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {[
-            'https://images.unsplash.com/photo-1608755728617-aefab37d2edd?q=80&w=600',
-            'https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=600',
-            'https://images.unsplash.com/photo-1596433809252-260c2745dfdd?q=80&w=600',
-            'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=600',
-            'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=600',
-            'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=600',
+            '/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg',
+            '/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg',
+            '/placeholders/daisy-floating-candles-soy-wax-smokeless-long-lasting-decorati.svg',
+            '/placeholders/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg',
+            '/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg',
+            '/placeholders/wine-rose-bear-shaped-decorative-candle.svg',
           ].map((url, i) => (
             <a
               key={i}

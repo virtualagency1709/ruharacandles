@@ -201,11 +201,10 @@ export default function CollectionPage({ params }: CollectionPageProps) {
           <div className="mt-8 flex items-center gap-2 overflow-x-auto scrollbar-none pb-2">
             <Link
               href="/collection/all"
-              className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all shadow-sm ${
-                currentSlug === 'all' || currentSlug === 'all-candles' || currentSlug === 'candles'
-                  ? 'bg-deep text-cream-50 border border-deep'
-                  : 'bg-ivory text-deep/80 hover:bg-cream-100 border border-gold/30'
-              }`}
+              className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all shadow-sm ${currentSlug === 'all' || currentSlug === 'all-candles' || currentSlug === 'candles'
+                ? 'bg-deep text-cream-50 border border-deep'
+                : 'bg-ivory text-deep/80 hover:bg-cream-100 border border-gold/30'
+                }`}
             >
               All Candles
             </Link>
@@ -213,11 +212,10 @@ export default function CollectionPage({ params }: CollectionPageProps) {
               <Link
                 key={cat.id}
                 href={`/collection/${cat.slug}`}
-                className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all shadow-sm ${
-                  currentSlug === cat.slug
-                    ? 'bg-deep text-cream-50 border border-deep'
-                    : 'bg-ivory text-deep/80 hover:bg-cream-100 border border-gold/30'
-                }`}
+                className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all shadow-sm ${currentSlug === cat.slug
+                  ? 'bg-deep text-cream-50 border border-deep'
+                  : 'bg-ivory text-deep/80 hover:bg-cream-100 border border-gold/30'
+                  }`}
               >
                 {cat.name}
               </Link>
@@ -244,18 +242,16 @@ export default function CollectionPage({ params }: CollectionPageProps) {
             <div className="hidden lg:flex items-center gap-1 bg-ivory border border-gold/30 rounded-xl p-1 shadow-sm">
               <button
                 onClick={() => setGridCols('3')}
-                className={`p-1.5 rounded-lg transition-colors ${
-                  gridCols === '3' ? 'bg-cream text-deep' : 'text-deep/40 hover:text-deep'
-                }`}
+                className={`p-1.5 rounded-lg transition-colors ${gridCols === '3' ? 'bg-cream text-deep' : 'text-deep/40 hover:text-deep'
+                  }`}
                 title="3 Columns"
               >
                 <Grid3X3 className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setGridCols('4')}
-                className={`p-1.5 rounded-lg transition-colors ${
-                  gridCols === '4' ? 'bg-cream text-deep' : 'text-deep/40 hover:text-deep'
-                }`}
+                className={`p-1.5 rounded-lg transition-colors ${gridCols === '4' ? 'bg-cream text-deep' : 'text-deep/40 hover:text-deep'
+                  }`}
                 title="4 Columns"
               >
                 <LayoutGrid className="w-4 h-4" />
@@ -393,11 +389,10 @@ export default function CollectionPage({ params }: CollectionPageProps) {
               </div>
             ) : (
               <div
-                className={`grid grid-cols-2 gap-3 sm:gap-6 ${
-                  gridCols === '3'
-                    ? 'sm:grid-cols-2 md:grid-cols-3'
-                    : 'sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'
-                }`}
+                className={`grid grid-cols-2 gap-3 sm:gap-6 ${gridCols === '3'
+                  ? 'sm:grid-cols-2 md:grid-cols-3'
+                  : 'sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'
+                  }`}
               >
                 {products.map((product, idx) => (
                   <ProductCard key={product.id} product={product} priority={idx < 4} />
@@ -454,11 +449,10 @@ export default function CollectionPage({ params }: CollectionPageProps) {
                     <button
                       key={scent}
                       onClick={() => toggleScent(scent)}
-                      className={`p-2 rounded-xl text-[11px] font-medium border text-left truncate transition-colors ${
-                        isChecked
-                          ? 'bg-primary text-cream-50 border-primary'
-                          : 'bg-ivory text-deep border-gold/30'
-                      }`}
+                      className={`p-2 rounded-xl text-[11px] font-medium border text-left truncate transition-colors ${isChecked
+                        ? 'bg-primary text-cream-50 border-primary'
+                        : 'bg-ivory text-deep border-gold/30'
+                        }`}
                     >
                       {scent}
                     </button>

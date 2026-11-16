@@ -98,9 +98,14 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
               className="object-cover transition-all duration-300"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-            {discount > 0 && (
-              <span className="absolute top-3 left-3 bg-sage text-cream-50 text-xs font-bold px-2.5 py-0.5 rounded-full shadow-sm">
-                {discount}% OFF
+            {product.isPricePending && (
+              <span className="absolute top-3 left-3 bg-amber-800 text-cream-50 text-xs font-bold px-2.5 py-0.5 rounded-full shadow-sm">
+                Price Pending
+              </span>
+            )}
+            {product.isFlaggedForReview && (
+              <span className="absolute top-3 right-3 bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+                Verification Entry
               </span>
             )}
           </div>
@@ -141,12 +146,13 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
 
             {/* Price Row */}
             <div className="flex items-baseline gap-2.5 pt-1">
-              <span className="font-serif text-2xl font-bold text-deep">
-                {formatPrice(activeVariant.price)}
-              </span>
-              {activeVariant.mrp > activeVariant.price && (
-                <span className="text-sm text-deep/40 line-through">
-                  {formatPrice(activeVariant.mrp)}
+              {product.isPricePending ? (
+                <span className="font-serif text-2xl font-bold text-primary italic">
+                  Price Pending
+                </span>
+              ) : (
+                <span className="font-serif text-2xl font-bold text-deep">
+                  {formatPrice(activeVariant.price)}
                 </span>
               )}
               <span className="text-xs text-sage font-bold">Inclusive of all taxes</span>
@@ -214,27 +220,37 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
               </div>
 
               {/* Add to Cart Button */}
-              <button
-                onClick={handleAddToCart}
-                disabled={addedAnimation}
-                className={`flex-1 py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-warm-md transition-all ${
-                  addedAnimation
-                    ? 'bg-sage text-cream-50'
-                    : 'bg-primary hover:bg-deep text-cream-50 active:scale-[0.98]'
-                }`}
-              >
-                {addedAnimation ? (
-                  <>
-                    <Check className="w-4 h-4 text-cream-50" />
-                    <span>Added to Bag!</span>
-                  </>
-                ) : (
-                  <>
-                    <ShoppingBag className="w-4 h-4 text-gold" />
-                    <span>Add to Bag</span>
-                  </>
-                )}
-              </button>
+              {product.isPricePending ? (
+                <Link
+                  href={`/product/${product.slug}`}
+                  onClick={onClose}
+                  className="flex-1 py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 bg-cream-200 text-deep/80 hover:bg-cream-300 transition-all text-center"
+                >
+                  <span>View Product Details</span>
+                </Link>
+              ) : (
+                <button
+                  onClick={handleAddToCart}
+                  disabled={addedAnimation}
+                  className={`flex-1 py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-warm-md transition-all ${
+                    addedAnimation
+                      ? 'bg-sage text-cream-50'
+                      : 'bg-primary hover:bg-deep text-cream-50 active:scale-[0.98]'
+                  }`}
+                >
+                  {addedAnimation ? (
+                    <>
+                      <Check className="w-4 h-4 text-cream-50" />
+                      <span>Added to Bag!</span>
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingBag className="w-4 h-4 text-gold" />
+                      <span>Add to Bag</span>
+                    </>
+                  )}
+                </button>
+              )}
 
               {/* Wishlist Button */}
               <button

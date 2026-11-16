@@ -76,6 +76,10 @@ export interface Product {
   isFeatured?: boolean; // Featured Product
   isBestseller?: boolean; // Best Seller
   isNewArrival?: boolean; // New Arrival
+  isPricePending?: boolean; // True for products with price marked as pending
+  isFlaggedForReview?: boolean; // Flagged for duplicate or manual verification
+  gallery?: string[]; // Product Gallery images
+  createdAt?: string; // Creation Date
   categoryId: string; // Product Category ID
   categoryName?: string; // Product Category
   categorySlug?: string;

@@ -40,7 +40,7 @@ export function getCategoryBySlug(slug: string): Category | undefined {
       name: 'Best Selling Candles',
       slug: 'bestsellers',
       description: 'Our most-loved hand-poured creations, cherished by over 2,000+ homes across India.',
-      imageUrl: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1200&auto=format&fit=crop',
+      imageUrl: '/placeholders/wine-rose-bear-shaped-decorative-candle.svg',
       sortOrder: 0,
       isFeatured: true,
     };
@@ -51,7 +51,7 @@ export function getCategoryBySlug(slug: string): Category | undefined {
       name: 'New Arrivals',
       slug: 'new-arrivals',
       description: 'The latest artisanal batch poured with seasonal botanical essences and fresh sculptural designs.',
-      imageUrl: 'https://images.unsplash.com/photo-1596433809252-260c2745dfdd?q=80&w=1200&auto=format&fit=crop',
+      imageUrl: '/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg',
       sortOrder: 0,
       isFeatured: true,
     };

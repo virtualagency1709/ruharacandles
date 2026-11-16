@@ -37,6 +37,10 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    if (product.isPricePending) {
+      window.location.href = `/product/${product.slug}`;
+      return;
+    }
     addItem({
       productId: product.id,
       variantId: defaultVariant?.id,
@@ -96,19 +100,24 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           )}
         </Link>
 
-        {/* Top Badges (Discount, Bestseller, Urgency) */}
+        {/* Top Badges */}
         <div className="absolute top-2.5 left-2.5 flex flex-col gap-1.5 z-10 pointer-events-none">
-          {discount > 0 && (
-            <span className="bg-sage text-cream-50 text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full shadow-sm tracking-wide">
-              {discount}% OFF
+          {product.isPricePending && (
+            <span className="bg-amber-900/90 backdrop-blur-sm text-cream-50 text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm tracking-wide">
+              Price Pending
             </span>
           )}
-          {product.isBestseller && (
+          {product.isFlaggedForReview && (
+            <span className="bg-amber-100 text-amber-900 border border-amber-300 text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+              Verification Entry
+            </span>
+          )}
+          {product.isBestseller && !product.isPricePending && (
             <span className="bg-deep/90 backdrop-blur-sm text-gold text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm border border-gold/30">
               Bestseller
             </span>
           )}
-          {product.isNewArrival && !product.isBestseller && (
+          {product.isNewArrival && !product.isBestseller && !product.isPricePending && (
             <span className="bg-primary text-cream-50 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
               New
             </span>
@@ -163,7 +172,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             className="flex-1 py-2.5 px-3 bg-deep/95 hover:bg-deep text-cream-50 backdrop-blur-md rounded-xl text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase flex items-center justify-center gap-1.5 shadow-warm-md hover:shadow-warm-hover active:scale-[0.98] transition-all"
           >
             <ShoppingBag className="w-3.5 h-3.5 text-gold" />
-            <span>Quick Add</span>
+            <span>{product.isPricePending ? 'Details' : 'Quick Add'}</span>
           </button>
           <button
             onClick={(e) => {
@@ -233,12 +242,13 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
         {/* Price & Add Action Footer */}
         <div className="pt-2 border-t border-cream-200/80 flex items-center justify-between">
           <div className="flex items-baseline gap-1.5">
-            <span className="font-serif text-base sm:text-lg font-bold text-deep">
-              {formatPrice(product.basePrice)}
-            </span>
-            {product.baseMrp > product.basePrice && (
-              <span className="text-xs text-deep/40 line-through">
-                {formatPrice(product.baseMrp)}
+            {product.isPricePending ? (
+              <span className="font-serif text-sm font-semibold text-primary italic">
+                Price Pending
+              </span>
+            ) : (
+              <span className="font-serif text-base sm:text-lg font-bold text-deep">
+                {formatPrice(product.basePrice)}
               </span>
             )}
           </div>

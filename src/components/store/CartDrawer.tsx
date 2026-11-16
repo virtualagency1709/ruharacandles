@@ -145,7 +145,7 @@ export default function CartDrawer() {
                 {/* Thumbnail */}
                 <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
                   <Image
-                    src={item.imageUrl}
+                    src={item.imageUrl || `/placeholders/${item.slug}.svg` || '/logo.png'}
                     alt={item.title}
                     fill
                     className="object-cover"

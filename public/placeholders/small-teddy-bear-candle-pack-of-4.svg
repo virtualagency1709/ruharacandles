@@ -1,96 +1,64 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750">
   <defs>
-    <linearGradient id="bgGrad_RUH_06fH9q6V" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FCF9F3"/>
-      <stop offset="50%" stop-color="#F8F1E5"/>
-      <stop offset="100%" stop-color="#F2E6D5"/>
+    <linearGradient id="bgGrad_16" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF6F0"/>
+      <stop offset="50%" stop-color="#F5EFE6"/>
+      <stop offset="100%" stop-color="#ECE3D4"/>
     </linearGradient>
-    <radialGradient id="flameGlow_RUH_06fH9q6V" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#FFE4A0" stop-opacity="0.85"/>
-      <stop offset="50%" stop-color="#D8A94A" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#D8A94A" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="goldGrad_RUH_06fH9q6V" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E5C16C"/>
+    <linearGradient id="goldGrad_16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D8A94A"/>
       <stop offset="50%" stop-color="#C9973F"/>
       <stop offset="100%" stop-color="#8B5A2B"/>
     </linearGradient>
-    <filter id="softShadow_RUH_06fH9q6V" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#4A2E15" flood-opacity="0.08"/>
+    <filter id="cardShadow_16" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#3B2412" flood-opacity="0.05"/>
     </filter>
   </defs>
 
-  <!-- Background -->
-  <rect width="600" height="750" rx="20" fill="url(#bgGrad_RUH_06fH9q6V)"/>
+  <!-- Clean Warm Cream Background -->
+  <rect width="600" height="750" rx="16" fill="url(#bgGrad_16)"/>
+
+  <!-- Minimal Hairline Border -->
+  <rect x="18" y="18" width="564" height="714" rx="12" fill="none" stroke="url(#goldGrad_16)" stroke-width="1.2" stroke-opacity="0.4"/>
+  <rect x="24" y="24" width="552" height="702" rx="8" fill="none" stroke="#D8A94A" stroke-width="0.7" stroke-opacity="0.2" stroke-dasharray="3,3"/>
+
+  <!-- Architectural Arch Motif Outline -->
+  <path d="M 210,105 A 90,90 0 0,1 390,105 L 390,260 L 210,260 Z" fill="#FFFFFF" fill-opacity="0.45" stroke="url(#goldGrad_16)" stroke-width="1.2" stroke-opacity="0.45"/>
+
+  <!-- Minimal Line Art Candle & Flame -->
+  <circle cx="300" cy="150" r="45" fill="#FFEAA7" fill-opacity="0.25"/>
+  <path d="M 300,128 C 304,140 307,146 304,154 C 301,159 298,159 296,154 C 293,146 296,140 300,128 Z" fill="#D8A94A"/>
+  <circle cx="300" cy="150" r="2.5" fill="#FAF6F0"/>
+  <line x1="300" y1="154" x2="300" y2="164" stroke="#4A2E15" stroke-width="2" stroke-linecap="round"/>
   
-  <!-- Outer hairline border -->
-  <rect x="16" y="16" width="568" height="718" rx="14" fill="none" stroke="url(#goldGrad_RUH_06fH9q6V)" stroke-width="1.2" stroke-opacity="0.45"/>
-  <rect x="22" y="22" width="556" height="706" rx="10" fill="none" stroke="#D8A94A" stroke-width="0.8" stroke-opacity="0.2" stroke-dasharray="3,3"/>
-
-  <!-- Brand Arch / Mihrab Motif -->
-  <path d="M 180,95 A 120,120 0 0,1 420,95 L 420,290 L 180,290 Z" fill="#FFFFFF" fill-opacity="0.5" stroke="url(#goldGrad_RUH_06fH9q6V)" stroke-width="1.2" stroke-opacity="0.4"/>
-
-  <!-- Ambient Flame Glow -->
-  <circle cx="300" cy="165" r="95" fill="url(#flameGlow_RUH_06fH9q6V)"/>
-
-  <!-- Candle Flame -->
-  <path d="M 300,125 C 308,142 312,152 307,162 C 303,170 297,170 293,162 C 288,152 292,142 300,125 Z" fill="#D8A94A"/>
-  <path d="M 300,135 C 304,146 306,152 304,158 C 302,163 298,163 296,158 C 294,152 296,146 300,135 Z" fill="#FFF2BD"/>
-  
-  <!-- Candle Wick -->
-  <line x1="300" y1="162" x2="300" y2="175" stroke="#4A2E15" stroke-width="2" stroke-linecap="round"/>
-
-  <!-- Candle Vessel Body -->
-  <rect x="250" y="175" width="100" height="95" rx="10" fill="#FFFFFF" stroke="url(#goldGrad_RUH_06fH9q6V)" stroke-width="1.5" filter="url(#softShadow_RUH_06fH9q6V)"/>
-  <rect x="258" y="185" width="84" height="75" rx="6" fill="#FBF6EE" stroke="#D8A94A" stroke-width="0.8" stroke-dasharray="2,2"/>
-  
-  <!-- Candle Ribs/Texture inside vessel -->
-  <line x1="275" y1="188" x2="275" y2="257" stroke="#D8A94A" stroke-width="1" stroke-opacity="0.3"/>
-  <line x1="300" y1="188" x2="300" y2="257" stroke="#D8A94A" stroke-width="1" stroke-opacity="0.3"/>
-  <line x1="325" y1="188" x2="325" y2="257" stroke="#D8A94A" stroke-width="1" stroke-opacity="0.3"/>
-
-  <!-- Decorative Botanical Leaves below candle -->
-  <path d="M 230,290 Q 255,275 285,285 Q 260,295 230,290 Z" fill="#7A8B6A" opacity="0.6"/>
-  <path d="M 370,290 Q 345,275 315,285 Q 340,295 370,290 Z" fill="#7A8B6A" opacity="0.6"/>
+  <!-- Candle Vessel Line Art -->
+  <rect x="260" y="164" width="80" height="75" rx="8" fill="#FFFFFF" stroke="url(#goldGrad_16)" stroke-width="1.2" filter="url(#cardShadow_16)"/>
+  <line x1="260" y1="174" x2="340" y2="174" stroke="#D8A94A" stroke-width="0.8" stroke-opacity="0.4"/>
+  <circle cx="300" cy="201" r="14" fill="none" stroke="#D8A94A" stroke-width="0.8" stroke-opacity="0.4"/>
 
   <!-- Brand Typography -->
-  <text x="300" y="340" font-family="'Cinzel', 'Playfair Display', 'Cormorant Garamond', Georgia, serif" font-size="12" font-weight="700" fill="#8B5A2B" letter-spacing="4" text-anchor="middle">RUHARA CANDLES</text>
-  <text x="300" y="360" font-family="'DM Sans', 'Inter', sans-serif" font-size="10" font-weight="600" fill="#7A8B6A" letter-spacing="2" text-anchor="middle">100% PURE SOY WAX · HAND-POURED</text>
+  <text x="300" y="305" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="11.5" font-weight="700" fill="#8B5A2B" letter-spacing="4" text-anchor="middle">RUHARA CANDLES</text>
 
-  <!-- Divider Line -->
-  <line x1="210" y1="380" x2="390" y2="380" stroke="#D8A94A" stroke-width="0.8" stroke-opacity="0.5"/>
-  <circle cx="300" cy="380" r="2.5" fill="#C9973F"/>
+  <!-- Divider -->
+  <line x1="230" y1="322" x2="370" y2="322" stroke="#D8A94A" stroke-width="0.8" stroke-opacity="0.45"/>
+  <circle cx="300" cy="322" r="2.5" fill="#C9973F"/>
 
-  <!-- Product Title & Category -->
-  <text x="300" y="420" font-family="'Cinzel', 'Playfair Display', 'Cormorant Garamond', Georgia, serif" font-size="18" font-weight="700" fill="#3B2412" text-anchor="middle">
-    Small Teddy Bear Candle (Pack of...
-  </text>
-  <text x="300" y="445" font-family="'DM Sans', 'Inter', sans-serif" font-size="11" font-weight="600" fill="#8B5A2B" letter-spacing="1.5" text-anchor="middle">
-    CANDLES
-  </text>
+  <!-- REQUIRED PROMINENT PLACEHOLDER TEXT -->
+  <text x="300" y="380" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="24" font-weight="700" fill="#3B2412" text-anchor="middle" letter-spacing="0.5">Product Image Coming Soon</text>
+  <text x="300" y="405" font-family="'DM Sans', 'Inter', sans-serif" font-size="10.5" font-weight="600" fill="#8B5A2B" letter-spacing="1.5" text-anchor="middle">AWAITING ORIGINAL PHOTOGRAPHY</text>
 
-  <!-- Pricing Tag Preview -->
-  <rect x="210" y="475" width="180" height="38" rx="19" fill="#FFFFFF" stroke="#D8A94A" stroke-width="1" filter="url(#softShadow_RUH_06fH9q6V)"/>
-  <text x="270" y="499" font-family="'DM Sans', sans-serif" font-size="16" font-weight="700" fill="#3B2412" text-anchor="middle">₹199</text>
-  <text x="335" y="499" font-family="'DM Sans', sans-serif" font-size="12" font-weight="500" fill="#8B5A2B" opacity="0.6" text-decoration="line-through" text-anchor="middle">₹799</text>
-
-  <!-- Color Variant Dots Preview -->
-  <text x="300" y="555" font-family="'DM Sans', sans-serif" font-size="10" font-weight="500" fill="#7A8B6A" letter-spacing="1" text-anchor="middle">AUTHENTIC HANDCRAFTED EDITION</text>
-  <g>
-    <circle cx="270" cy="575" r="6" fill="#F4C430" stroke="#8B5A2B" stroke-width="1" />
-      <circle cx="290" cy="575" r="6" fill="#F4B8B8" stroke="#8B5A2B" stroke-width="1" />
-  </g>
-
-  <!-- Upload Placeholder Notice Box -->
-  <rect x="60" y="625" width="480" height="65" rx="12" fill="#FFFFFF" fill-opacity="0.85" stroke="#D8A94A" stroke-width="1" stroke-dasharray="4,4"/>
+  <!-- Product Details Card inside Placeholder -->
+  <rect x="45" y="445" width="510" height="110" rx="14" fill="#FFFFFF" fill-opacity="0.8" stroke="#D8A94A" stroke-width="0.9" stroke-opacity="0.5" filter="url(#cardShadow_16)"/>
+  <text x="300" y="482" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="14.5" font-weight="700" fill="#3B2412" text-anchor="middle">Small Teddy Bear Candle (Pack of 4)</text>
+  <text x="300" y="508" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#7A8B6A" letter-spacing="1" text-anchor="middle">FLORAL CANDLES</text>
   
-  <!-- Camera / Upload Icon -->
-  <g transform="translate(85, 642)">
-    <circle cx="15" cy="15" r="14" fill="#F8F1E5" stroke="#C9973F" stroke-width="1"/>
-    <path d="M 9,18 L 11,13 L 13,13 L 14,11 L 18,11 L 19,13 L 21,13 L 23,18 Z" fill="none" stroke="#8B5A2B" stroke-width="1.5"/>
-    <circle cx="16" cy="15" r="3" fill="none" stroke="#8B5A2B" stroke-width="1.2"/>
-  </g>
+  <rect x="230" y="520" width="140" height="26" rx="13" fill="#FAF6F0" stroke="#D8A94A" stroke-width="0.8"/>
+  <text x="300" y="537" font-family="'DM Sans', sans-serif" font-size="12" font-weight="700" fill="#8B5A2B" text-anchor="middle">₹199</text>
 
-  <text x="130" y="654" font-family="'DM Sans', 'Inter', sans-serif" font-size="11" font-weight="700" fill="#3B2412">Awaiting Original Photograph</text>
-  <text x="130" y="670" font-family="'DM Sans', 'Inter', sans-serif" font-size="9.5" font-weight="500" fill="#8B5A2B">Upload high-res product photos via Admin Panel (RUH-06fH9q6V)</text>
+  
+
+  <!-- Admin Upload Callout Area -->
+  <rect x="65" y="618" width="470" height="60" rx="12" fill="#FAF6F0" fill-opacity="0.9" stroke="#D8A94A" stroke-width="0.9" stroke-dasharray="3,3"/>
+  <text x="300" y="642" font-family="'DM Sans', sans-serif" font-size="10.5" font-weight="700" fill="#3B2412" text-anchor="middle">Unique Upload Slot: SKU RUH-16-FLO</text>
+  <text x="300" y="660" font-family="'DM Sans', sans-serif" font-size="9.5" font-weight="500" fill="#8B5A2B" opacity="0.8" text-anchor="middle">Upload high-res photo in Admin Panel to replace placeholder</text>
 </svg>

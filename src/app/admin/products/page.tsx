@@ -306,12 +306,22 @@ export default function AdminProductsPage() {
 
                       {/* Sale Price */}
                       <td className="p-4 font-serif font-bold text-deep text-sm">
-                        {formatPrice(prod.basePrice)}
+                        {prod.isPricePending ? (
+                          <span className="text-amber-800 text-xs italic font-sans font-bold">Price Pending</span>
+                        ) : (
+                          formatPrice(prod.basePrice)
+                        )}
                       </td>
 
                       {/* MRP */}
-                      <td className="p-4 text-deep/45 line-through">
-                        {formatPrice(prod.baseMrp)}
+                      <td className="p-4 text-deep/45">
+                        {prod.isPricePending ? (
+                          <span className="text-deep/40 text-xs">-</span>
+                        ) : prod.baseMrp > prod.basePrice ? (
+                          <span className="line-through">{formatPrice(prod.baseMrp)}</span>
+                        ) : (
+                          formatPrice(prod.baseMrp)
+                        )}
                       </td>
 
                       {/* Stock Quantity */}
