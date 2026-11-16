@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import ProductCard from '@/components/store/ProductCard';
 import { getCategoryBySlug, getFilteredProducts, getAllCategories } from '@/lib/products';
+import { useProductStore, getMergedProducts } from '@/store/productStore';
+import { PRODUCTS } from '@/data/seedData';
 import { formatPrice } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
@@ -42,26 +44,95 @@ export default function CollectionPage({ params }: CollectionPageProps) {
   const category = getCategoryBySlug(currentSlug);
   const allCategories = getAllCategories();
 
-  // Filter & Sort State
+  // Dynamic store integration
+  const { customImages, productOverrides, deletedProductIds, newProducts } = useProductStore();
+
+  // Filter & Sort State (Default A to Z)
   const [minPrice, setMinPrice] = useState<number>(0);
   const [maxPrice, setMaxPrice] = useState<number>(3000);
   const [selectedScents, setSelectedScents] = useState<string[]>([]);
   const [inStockOnly, setInStockOnly] = useState<boolean>(false);
-  const [sortBy, setSortBy] = useState<string>('popularity');
+  const [sortBy, setSortBy] = useState<string>('a-z');
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState<boolean>(false);
-  const [gridCols, setGridCols] = useState<'3' | '4'>('4');
+  const [gridCols, setGridCols] = useState<'3' | '4'>('3');
 
-  // Filtered Products
+  // Filtered Products merged with store overrides
   const products = useMemo(() => {
-    return getFilteredProducts({
-      categorySlug: currentSlug,
-      minPrice,
-      maxPrice,
-      scents: selectedScents,
-      sortBy,
-      inStockOnly,
-    });
-  }, [currentSlug, minPrice, maxPrice, selectedScents, sortBy, inStockOnly]);
+    // Merge base products with client storage overrides
+    const mergedAll = getMergedProducts(
+      PRODUCTS,
+      customImages,
+      productOverrides,
+      deletedProductIds,
+      newProducts
+    );
+
+    let list = [...mergedAll];
+
+    // Category filter
+    if (currentSlug !== 'all' && currentSlug !== 'all-candles' && currentSlug !== 'candles') {
+      if (currentSlug === 'bestsellers') {
+        list = list.filter((p) => p.isBestseller);
+      } else if (currentSlug === 'new-arrivals') {
+        list = list.filter((p) => p.isNewArrival);
+      } else if (currentSlug === 'featured') {
+        list = list.filter((p) => p.isFeatured);
+      } else {
+        list = list.filter((p) => p.categorySlug === currentSlug);
+      }
+    }
+
+    // Price filter
+    list = list.filter((p) => p.basePrice >= minPrice && p.basePrice <= maxPrice);
+
+    // Scent filter
+    if (selectedScents.length > 0) {
+      list = list.filter((p) =>
+        p.variants.some((v) => v.scent && selectedScents.includes(v.scent))
+      );
+    }
+
+    // Stock filter
+    if (inStockOnly) {
+      list = list.filter((p) => p.variants.some((v) => v.stock > 0));
+    }
+
+    // Sorting: Default A to Z
+    if (sortBy === 'a-z') {
+      list.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortBy === 'z-a') {
+      list.sort((a, b) => b.title.localeCompare(a.title));
+    } else if (sortBy === 'price-low') {
+      list.sort((a, b) => a.basePrice - b.basePrice);
+    } else if (sortBy === 'price-high') {
+      list.sort((a, b) => b.basePrice - a.basePrice);
+    } else if (sortBy === 'discount') {
+      list.sort((a, b) => {
+        const discA = ((a.baseMrp - a.basePrice) / a.baseMrp) * 100;
+        const discB = ((b.baseMrp - b.basePrice) / b.baseMrp) * 100;
+        return discB - discA;
+      });
+    } else if (sortBy === 'newest') {
+      list.sort((a, b) => (b.isNewArrival ? 1 : 0) - (a.isNewArrival ? 1 : 0));
+    } else if (sortBy === 'bestsellers' || sortBy === 'popularity') {
+      list.sort((a, b) => (b.isBestseller ? 1 : 0) - (a.isBestseller ? 1 : 0) || (b.rating || 0) - (a.rating || 0));
+    } else {
+      list.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    return list;
+  }, [
+    currentSlug,
+    minPrice,
+    maxPrice,
+    selectedScents,
+    sortBy,
+    inStockOnly,
+    customImages,
+    productOverrides,
+    deletedProductIds,
+    newProducts,
+  ]);
 
   const toggleScent = (scent: string) => {
     if (selectedScents.includes(scent)) {
@@ -76,7 +147,7 @@ export default function CollectionPage({ params }: CollectionPageProps) {
     setMaxPrice(3000);
     setSelectedScents([]);
     setInStockOnly(false);
-    setSortBy('popularity');
+    setSortBy('a-z');
   };
 
   const hasActiveFilters =
@@ -121,7 +192,7 @@ export default function CollectionPage({ params }: CollectionPageProps) {
             {/* Product Count Pill */}
             <div className="flex-shrink-0">
               <Badge variant="ivory" size="md">
-                Showing {products.length} Products
+                Showing {products.length} Candles
               </Badge>
             </div>
           </div>
@@ -131,12 +202,12 @@ export default function CollectionPage({ params }: CollectionPageProps) {
             <Link
               href="/collection/all"
               className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all shadow-sm ${
-                currentSlug === 'all'
+                currentSlug === 'all' || currentSlug === 'all-candles' || currentSlug === 'candles'
                   ? 'bg-deep text-cream-50 border border-deep'
                   : 'bg-ivory text-deep/80 hover:bg-cream-100 border border-gold/30'
               }`}
             >
-              All Items
+              All Candles
             </Link>
             {allCategories.map((cat) => (
               <Link
@@ -212,11 +283,12 @@ export default function CollectionPage({ params }: CollectionPageProps) {
                 onChange={(e) => setSortBy(e.target.value)}
                 className="appearance-none bg-ivory border border-gold/35 text-deep text-xs font-semibold rounded-xl pl-3 pr-8 py-2.5 shadow-warm-sm focus:outline-none focus:border-gold cursor-pointer"
               >
-                <option value="popularity">Most Popular</option>
+                <option value="a-z">A to Z (Alphabetical)</option>
+                <option value="z-a">Z to A (Reverse Alphabetical)</option>
                 <option value="price-low">Price: Low to High</option>
                 <option value="price-high">Price: High to Low</option>
-                <option value="discount">Highest Discount</option>
-                <option value="newest">Newest Arrivals</option>
+                <option value="newest">Newest First</option>
+                <option value="bestsellers">Best Selling</option>
               </select>
               <ChevronDown className="w-3.5 h-3.5 text-deep/60 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>

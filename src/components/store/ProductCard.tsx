@@ -10,6 +10,8 @@ import { useWishlistStore } from '@/store/wishlistStore';
 import { formatPrice, calculateDiscount } from '@/lib/utils';
 import { RatingStars } from '@/components/ui/RatingStars';
 import { Badge } from '@/components/ui/Badge';
+import { useProductStore } from '@/store/productStore';
+import QuickViewModal from './QuickViewModal';
 
 interface ProductCardProps {
   product: Product;
@@ -18,12 +20,15 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, priority = false }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
   const { addItem } = useCartStore();
   const { toggleItem, hasItem } = useWishlistStore();
+  const { customImages } = useProductStore();
 
   const isWishlisted = hasItem(product.id);
-  const primaryImg = product.images[0]?.url || 'https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=800';
-  const hoverImg = product.images[1]?.url || primaryImg;
+  const productCustomImgs = customImages[product.id];
+  const primaryImg = productCustomImgs?.[0]?.url || product.images[0]?.url || `/placeholders/${product.slug}.svg`;
+  const hoverImg = productCustomImgs?.[1]?.url || product.images[1]?.url || primaryImg;
   const discount = calculateDiscount(product.basePrice, product.baseMrp);
 
   const defaultVariant = product.variants[0];
@@ -110,22 +115,37 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           )}
         </div>
 
-        {/* Wishlist Button */}
-        <button
-          onClick={handleWishlistToggle}
-          aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
-          className={`absolute top-2.5 right-2.5 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 z-10 shadow-sm ${
-            isWishlisted
-              ? 'bg-primary text-cream-50 scale-110'
-              : 'bg-white/85 backdrop-blur-sm text-deep/70 hover:text-primary hover:bg-white hover:scale-110'
-          }`}
-        >
-          <Heart
-            className={`w-4 h-4 transition-transform duration-200 ${
-              isWishlisted ? 'fill-cream-50' : ''
+        {/* Action Buttons: Wishlist & Quick View */}
+        <div className="absolute top-2.5 right-2.5 flex flex-col gap-1.5 z-10">
+          <button
+            onClick={handleWishlistToggle}
+            aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+            className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm ${
+              isWishlisted
+                ? 'bg-primary text-cream-50 scale-110'
+                : 'bg-white/85 backdrop-blur-sm text-deep/70 hover:text-primary hover:bg-white hover:scale-110'
             }`}
-          />
-        </button>
+          >
+            <Heart
+              className={`w-4 h-4 transition-transform duration-200 ${
+                isWishlisted ? 'fill-cream-50' : ''
+              }`}
+            />
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsQuickViewOpen(true);
+            }}
+            aria-label="Quick View"
+            className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm bg-white/85 backdrop-blur-sm text-deep/70 hover:text-primary hover:bg-white hover:scale-110 sm:opacity-0 sm:group-hover:opacity-100"
+            title="Quick View"
+          >
+            <Eye className="w-4 h-4" />
+          </button>
+        </div>
 
         {/* Stock / Urgency Tag */}
         {totalStock <= 5 && totalStock > 0 && (
@@ -136,14 +156,26 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           </div>
         )}
 
-        {/* Slide-Up Quick Add Bar (Desktop Hover / Mobile Accessible) */}
-        <div className="absolute inset-x-2 bottom-2 z-10 transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+        {/* Slide-Up Quick Add & Quick View Bar */}
+        <div className="absolute inset-x-2 bottom-2 z-10 transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 flex items-center gap-1.5">
           <button
             onClick={handleQuickAdd}
-            className="w-full py-2.5 px-3 bg-deep/95 hover:bg-deep text-cream-50 backdrop-blur-md rounded-xl text-[11px] font-semibold tracking-wider uppercase flex items-center justify-center gap-2 shadow-warm-md hover:shadow-warm-hover active:scale-[0.98] transition-all"
+            className="flex-1 py-2.5 px-3 bg-deep/95 hover:bg-deep text-cream-50 backdrop-blur-md rounded-xl text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase flex items-center justify-center gap-1.5 shadow-warm-md hover:shadow-warm-hover active:scale-[0.98] transition-all"
           >
             <ShoppingBag className="w-3.5 h-3.5 text-gold" />
             <span>Quick Add</span>
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsQuickViewOpen(true);
+            }}
+            className="p-2.5 bg-ivory/95 hover:bg-white text-deep border border-gold/30 rounded-xl shadow-warm-md hover:text-primary transition-all flex items-center justify-center"
+            title="Quick View"
+            aria-label="Quick View"
+          >
+            <Eye className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
@@ -219,6 +251,13 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           </Link>
         </div>
       </div>
+
+      {/* Quick View Modal */}
+      <QuickViewModal
+        product={product}
+        isOpen={isQuickViewOpen}
+        onClose={() => setIsQuickViewOpen(false)}
+      />
     </div>
   );
 }

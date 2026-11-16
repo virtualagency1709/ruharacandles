@@ -53,29 +53,38 @@ export interface Review {
 export interface Product {
   id: string;
   title: string;
-  slug: string;
+  name?: string; // Product Name alias
+  slug: string; // Product Slug
   subtitle?: string;
-  description: string;
+  description: string; // Product Description
   burnTime?: string;
   waxType?: string;
   careInstructions?: string;
   shippingDetails?: string;
-  basePrice: number;
-  baseMrp: number;
+  basePrice: number; // Sale Price
+  salePrice?: number; // Sale Price alias
+  baseMrp: number; // Product Price (MRP)
+  price?: number; // Product Price alias
+  sku?: string; // Product SKU
+  stock?: number; // Stock Quantity
+  availability?: 'in_stock' | 'out_of_stock' | 'pre_order'; // Product Availability
+  status?: 'active' | 'draft' | 'archived'; // Product Status
+  tags?: string[]; // Product Tags
   weightInGrams: number;
   dimensions?: string;
   isActive: boolean;
-  isFeatured?: boolean;
-  isBestseller?: boolean;
-  isNewArrival?: boolean;
-  categoryId: string;
-  categoryName?: string;
+  isFeatured?: boolean; // Featured Product
+  isBestseller?: boolean; // Best Seller
+  isNewArrival?: boolean; // New Arrival
+  categoryId: string; // Product Category ID
+  categoryName?: string; // Product Category
   categorySlug?: string;
-  images: ProductImage[];
+  images: ProductImage[]; // Product Images (with individual upload placeholders)
   variants: ProductVariant[];
   reviews?: Review[];
   rating?: number;
   reviewCount?: number;
+  sortOrder?: number;
 }
 
 export interface Category {

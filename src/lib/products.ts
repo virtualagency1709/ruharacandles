@@ -14,7 +14,7 @@ export function getProductById(id: string): Product | undefined {
 }
 
 export function getProductsByCategory(categorySlug: string): Product[] {
-  if (categorySlug === 'all') return PRODUCTS;
+  if (categorySlug === 'all' || categorySlug === 'all-candles' || categorySlug === 'candles') return PRODUCTS;
   if (categorySlug === 'bestsellers') return PRODUCTS.filter((p) => p.isBestseller);
   if (categorySlug === 'new-arrivals') return PRODUCTS.filter((p) => p.isNewArrival);
   if (categorySlug === 'featured') return PRODUCTS.filter((p) => p.isFeatured);
@@ -23,13 +23,13 @@ export function getProductsByCategory(categorySlug: string): Product[] {
 }
 
 export function getCategoryBySlug(slug: string): Category | undefined {
-  if (slug === 'all') {
+  if (slug === 'all' || slug === 'all-candles' || slug === 'candles') {
     return {
       id: 'cat-all',
-      name: 'All Candles & Decor',
-      slug: 'all',
-      description: 'Explore the complete Ruhara artisanal collection of 100% pure soy wax candles, brass festive urlis, concrete vessels, and warm Indian home accents.',
-      imageUrl: 'https://images.unsplash.com/photo-1608755728617-aefab37d2edd?q=80&w=1200&auto=format&fit=crop',
+      name: 'All Candles',
+      slug: slug,
+      description: 'Explore the complete Ruhara artisanal collection of 100% pure botanical soy wax candles, sculptural floral designs, brass urlis, and modern concrete jars.',
+      imageUrl: '/placeholders/terracotta-bowl-pink-daisy-candle.svg',
       sortOrder: 0,
       isFeatured: true,
     };
@@ -76,7 +76,7 @@ export function getFilteredProducts({
   minPrice = 0,
   maxPrice = 5000,
   scents = [],
-  sortBy = 'popularity',
+  sortBy = 'a-z',
   search = '',
   inStockOnly = false,
 }: {
@@ -88,7 +88,7 @@ export function getFilteredProducts({
   search?: string;
   inStockOnly?: boolean;
 }): Product[] {
-  let list = getProductsByCategory(categorySlug);
+  let list = [...getProductsByCategory(categorySlug)];
 
   // Search filter
   if (search.trim()) {
@@ -119,7 +119,11 @@ export function getFilteredProducts({
   }
 
   // Sort
-  if (sortBy === 'price-low') {
+  if (sortBy === 'a-z') {
+    list.sort((a, b) => a.title.localeCompare(b.title));
+  } else if (sortBy === 'z-a') {
+    list.sort((a, b) => b.title.localeCompare(a.title));
+  } else if (sortBy === 'price-low') {
     list.sort((a, b) => a.basePrice - b.basePrice);
   } else if (sortBy === 'price-high') {
     list.sort((a, b) => b.basePrice - a.basePrice);
@@ -130,10 +134,12 @@ export function getFilteredProducts({
       return discB - discA;
     });
   } else if (sortBy === 'newest') {
-    list.sort((a, b) => (b.isNewArrival ? 1 : 0) - (a.isNewArrival ? 1 : 0));
-  } else {
-    // popularity / default
+    list.sort((a, b) => (b.isNewArrival ? 1 : 0) - (a.isNewArrival ? 1 : 0) || (b.sortOrder || 0) - (a.sortOrder || 0));
+  } else if (sortBy === 'bestsellers' || sortBy === 'popularity') {
     list.sort((a, b) => (b.isBestseller ? 1 : 0) - (a.isBestseller ? 1 : 0) || (b.rating || 0) - (a.rating || 0));
+  } else {
+    // Default to A to Z
+    list.sort((a, b) => a.title.localeCompare(b.title));
   }
 
   return list;

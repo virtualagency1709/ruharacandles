@@ -25,6 +25,7 @@ import { getProductBySlug, getRelatedProducts, getProductReviews } from '@/lib/p
 import { formatPrice, calculateDiscount } from '@/lib/utils';
 import { useCartStore } from '@/store/cartStore';
 import { useWishlistStore } from '@/store/wishlistStore';
+import { useProductStore } from '@/store/productStore';
 import { RatingStars } from '@/components/ui/RatingStars';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
@@ -38,7 +39,29 @@ interface ProductDetailPageProps {
 
 export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const router = useRouter();
-  const product = getProductBySlug(params.slug);
+  const { customImages, productOverrides } = useProductStore();
+  const baseProduct = getProductBySlug(params.slug);
+  
+  const product = baseProduct
+    ? {
+        ...baseProduct,
+        ...(productOverrides[baseProduct.id] || {}),
+        images:
+          customImages[baseProduct.id] && customImages[baseProduct.id].length > 0
+            ? customImages[baseProduct.id]
+            : baseProduct.images && baseProduct.images.length > 0
+            ? baseProduct.images
+            : [
+                {
+                  id: 'ph',
+                  url: `/placeholders/${baseProduct.slug}.svg`,
+                  isPrimary: true,
+                  sortOrder: 1,
+                  altText: `${baseProduct.title} - Ruhara Candles`,
+                },
+              ],
+      }
+    : undefined;
 
   if (!product) {
     return (
@@ -76,7 +99,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const discount = calculateDiscount(currentPrice, currentMrp);
 
   const images = product.images.length > 0 ? product.images : [
-    { id: 'default', url: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=800', altText: product.title, isPrimary: true, sortOrder: 0 }
+    { id: 'default', url: `/placeholders/${product.slug}.svg`, altText: product.title, isPrimary: true, sortOrder: 0 }
   ];
 
   const reviews = getProductReviews(product.id);
