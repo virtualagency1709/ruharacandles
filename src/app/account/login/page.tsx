@@ -36,7 +36,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-cream py-16 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-      <div className="max-w-md w-full bg-ivory rounded-3xl p-8 sm:p-10 border border-gold/30 shadow-warm-lg space-y-6">
+      <div className="max-w-md w-full bg-ivory rounded-3xl p-5 sm:p-8 md:p-10 border border-gold/30 shadow-warm-lg space-y-6">
         <div className="text-center space-y-2">
           <span className="text-[10px] font-bold text-primary tracking-widest uppercase">
             Ruhara Member Portal

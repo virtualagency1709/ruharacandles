@@ -175,7 +175,7 @@ export default function CartPage() {
                       </div>
 
                       {/* Quantity & Subtotal */}
-                      <div className="flex items-center justify-between pt-1">
+                      <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 pt-1">
                         <div className="flex items-center border border-gold/40 rounded-lg bg-white overflow-hidden shadow-inner">
                           <button
                             onClick={() =>

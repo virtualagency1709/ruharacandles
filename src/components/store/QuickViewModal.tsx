@@ -70,7 +70,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-deep/75 backdrop-blur-md transition-opacity animate-in fade-in duration-300"
@@ -78,19 +78,19 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
       />
 
       {/* Modal Dialog */}
-      <div className="relative bg-cream-50 w-full max-w-3xl rounded-3xl border border-gold/35 shadow-warm-xl overflow-hidden z-10 animate-in zoom-in-95 duration-300 max-h-[90vh] flex flex-col md:flex-row">
+      <div className="relative bg-cream-50 w-full max-w-3xl rounded-3xl border border-gold/35 shadow-warm-xl overflow-hidden z-10 animate-in zoom-in-95 duration-300 max-h-[92vh] flex flex-col md:flex-row">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-deep/70 hover:text-deep border border-gold/25 flex items-center justify-center transition-all shadow-sm"
+          className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-deep/70 hover:text-deep border border-gold/25 flex items-center justify-center transition-all shadow-sm"
           aria-label="Close Quick View"
         >
           <X className="w-4 h-4" />
         </button>
 
         {/* Left: Product Images */}
-        <div className="w-full md:w-1/2 p-6 bg-ivory flex flex-col justify-between border-b md:border-b-0 md:border-r border-gold/20">
-          <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-cream-200/50 border border-gold/20 shadow-inner">
+        <div className="w-full md:w-1/2 p-4 sm:p-6 bg-ivory flex flex-col justify-between border-b md:border-b-0 md:border-r border-gold/20 shrink-0">
+          <div className="relative aspect-square sm:aspect-[4/5] w-full rounded-2xl overflow-hidden bg-cream-200/50 border border-gold/20 shadow-inner max-h-56 sm:max-h-none">
             <Image
               src={currentImg}
               alt={product.title}
@@ -112,12 +112,12 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
 
           {/* Thumbnails if multiple images exist */}
           {images.length > 1 && (
-            <div className="flex items-center gap-2 mt-4 overflow-x-auto pb-1">
+            <div className="flex items-center gap-2 mt-3 sm:mt-4 overflow-x-auto pb-1">
               {images.map((img, i) => (
                 <button
                   key={img.id || i}
                   onClick={() => setSelectedImageIndex(i)}
-                  className={`relative w-12 h-12 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
+                  className={`relative w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
                     selectedImageIndex === i ? 'border-primary ring-2 ring-primary/20 scale-105' : 'border-gold/30 opacity-70'
                   }`}
                 >
@@ -129,7 +129,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
         </div>
 
         {/* Right: Product Details & Purchase Actions */}
-        <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto space-y-5">
+        <div className="w-full md:w-1/2 p-4 sm:p-6 md:p-8 flex flex-col justify-between overflow-y-auto space-y-4 sm:space-y-5">
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-bold text-primary tracking-widest uppercase">

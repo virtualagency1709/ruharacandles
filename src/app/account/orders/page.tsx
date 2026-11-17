@@ -44,7 +44,7 @@ export default function OrdersPage() {
                 variantName: 'Antique Gold Brass / 600g',
                 price: 1299,
                 quantity: 1,
-                imageUrl: 'https://images.unsplash.com/photo-1608755728617-aefab37d2edd?q=80&w=800',
+                imageUrl: '/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg',
               },
             ],
             shippingAddress: {
@@ -121,7 +121,7 @@ export default function OrdersPage() {
           filteredOrders.map((order, idx) => (
             <div
               key={order.orderNumber || idx}
-              className="bg-ivory rounded-2xl border border-gold/30 shadow-warm-sm p-6 space-y-6"
+              className="bg-ivory rounded-2xl border border-gold/30 shadow-warm-sm p-4 sm:p-6 space-y-5"
             >
               {/* Order Meta Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-cream-200">

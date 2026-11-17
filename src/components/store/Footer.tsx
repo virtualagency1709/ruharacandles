@@ -228,13 +228,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Payments & Copyright */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-cream-200/60">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-cream-200/60 text-center md:text-left">
           <p>© {new Date().getFullYear()} Ruhara Candles. All rights reserved. Handcrafted with love.</p>
 
           {/* Payment Badges */}
-          <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-cream-200/80 font-medium">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 text-[10px] uppercase tracking-wider text-cream-200/80 font-medium">
             <span>Secure Indian Payments:</span>
-            <div className="flex items-center gap-1.5">
+            <div className="flex flex-wrap items-center justify-center gap-1.5">
               <span className="px-2 py-0.5 bg-white text-deep font-bold rounded text-[10px]">
                 UPI
               </span>

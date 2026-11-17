@@ -56,12 +56,12 @@ export default function AnnouncementBar() {
         </div>
 
         {/* Center: Rotating announcement with link */}
-        <div className="flex-1 flex items-center justify-center text-center px-4">
+        <div className="flex-1 flex items-center justify-center text-center px-1 sm:px-4 overflow-hidden">
           <Link
             href={current.link}
-            className="hover:underline flex items-center gap-2 transition-all duration-300 font-medium tracking-wide text-[11px] sm:text-xs"
+            className="hover:underline flex items-center justify-center gap-1.5 transition-all duration-300 font-medium tracking-wide text-[10px] sm:text-xs truncate max-w-full"
           >
-            <span>{current.text}</span>
+            <span className="truncate">{current.text}</span>
           </Link>
         </div>
 

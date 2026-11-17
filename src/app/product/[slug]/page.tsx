@@ -318,44 +318,46 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                   </a>
                 </div>
               ) : (
-                <div className="flex items-center gap-4">
-                  {/* Quantity */}
-                  <div className="flex items-center border border-gold/40 rounded-full bg-ivory shadow-warm-sm overflow-hidden">
-                    <button
-                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="p-3 text-deep hover:bg-cream-200 transition-colors"
-                      aria-label="Decrease quantity"
-                    >
-                      <Minus className="w-3.5 h-3.5" />
-                    </button>
-                    <span className="px-4 text-xs font-bold text-deep min-w-[36px] text-center">
-                      {quantity}
-                    </span>
-                    <button
-                      onClick={() => setQuantity(quantity + 1)}
-                      className="p-3 text-deep hover:bg-cream-200 transition-colors"
-                      aria-label="Increase quantity"
-                    >
-                      <Plus className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                  <div className="flex items-center gap-3">
+                    {/* Quantity */}
+                    <div className="flex items-center border border-gold/40 rounded-full bg-ivory shadow-warm-sm overflow-hidden shrink-0">
+                      <button
+                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                        className="p-2.5 sm:p-3 text-deep hover:bg-cream-200 transition-colors"
+                        aria-label="Decrease quantity"
+                      >
+                        <Minus className="w-3.5 h-3.5" />
+                      </button>
+                      <span className="px-3 sm:px-4 text-xs font-bold text-deep min-w-[32px] sm:min-w-[36px] text-center">
+                        {quantity}
+                      </span>
+                      <button
+                        onClick={() => setQuantity(quantity + 1)}
+                        className="p-2.5 sm:p-3 text-deep hover:bg-cream-200 transition-colors"
+                        aria-label="Increase quantity"
+                      >
+                        <Plus className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
 
-                  {/* Add to Bag Button */}
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    className="flex-1"
-                    leftIcon={<ShoppingBag className="w-4 h-4 text-gold" />}
-                    onClick={handleAddToCart}
-                  >
-                    Add to Bag
-                  </Button>
+                    {/* Add to Bag Button */}
+                    <Button
+                      variant="primary"
+                      size="lg"
+                      className="flex-1"
+                      leftIcon={<ShoppingBag className="w-4 h-4 text-gold" />}
+                      onClick={handleAddToCart}
+                    >
+                      Add to Bag
+                    </Button>
+                  </div>
 
                   {/* Buy Now Button */}
                   <Button
                     variant="gold"
                     size="lg"
-                    className="flex-1"
+                    className="w-full sm:flex-1"
                     onClick={handleBuyNow}
                   >
                     Buy Now
@@ -576,7 +578,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {relatedProducts.map((rel) => (
                 <ProductCard key={rel.id} product={rel} />
               ))}
@@ -586,30 +588,45 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
       </div>
 
       {/* Sticky Mobile Add To Bag Bar */}
-      <div className="lg:hidden fixed bottom-14 left-0 right-0 z-30 bg-cream-50/95 backdrop-blur-md border-t border-gold/30 p-3 shadow-lg flex items-center justify-between gap-3">
-        <div>
-          <span className="text-[10px] text-deep/60 block line-clamp-1">{product.title}</span>
-          <span className="font-serif text-base font-bold text-deep">
-            {formatPrice(currentPrice)}
-          </span>
+      <div className="lg:hidden fixed bottom-14 left-0 right-0 z-30 bg-cream-50/95 backdrop-blur-md border-t border-gold/30 px-3 py-2.5 shadow-lg flex items-center justify-between gap-2.5">
+        <div className="min-w-0 flex-1">
+          <span className="text-[10px] text-deep/60 block truncate">{product.title}</span>
+          {product.isPricePending ? (
+            <span className="font-serif text-xs font-semibold text-primary italic">Price Pending</span>
+          ) : (
+            <span className="font-serif text-sm sm:text-base font-bold text-deep">
+              {formatPrice(currentPrice)}
+            </span>
+          )}
         </div>
-        <div className="flex gap-2">
-          <Button
-            variant="primary"
-            size="sm"
-            onClick={handleAddToCart}
-            leftIcon={<ShoppingBag className="w-3.5 h-3.5 text-gold" />}
+        {product.isPricePending ? (
+          <a
+            href={`https://wa.me/919999999999?text=${encodeURIComponent(`Hi Ruhara Candles, I would like to inquire about "${product.title}" (SKU: ${product.sku}).`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3.5 py-2 bg-primary text-white rounded-xl text-xs font-bold uppercase tracking-wider shrink-0 shadow-sm"
           >
-            Add to Bag
-          </Button>
-          <Button
-            variant="gold"
-            size="sm"
-            onClick={handleBuyNow}
-          >
-            Buy Now
-          </Button>
-        </div>
+            Inquire
+          </a>
+        ) : (
+          <div className="flex items-center gap-1.5 shrink-0">
+            <Button
+              variant="primary"
+              size="sm"
+              onClick={handleAddToCart}
+              leftIcon={<ShoppingBag className="w-3.5 h-3.5 text-gold" />}
+            >
+              Add
+            </Button>
+            <Button
+              variant="gold"
+              size="sm"
+              onClick={handleBuyNow}
+            >
+              Buy Now
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

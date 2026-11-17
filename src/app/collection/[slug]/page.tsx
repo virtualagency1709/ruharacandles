@@ -389,7 +389,7 @@ export default function CollectionPage({ params }: CollectionPageProps) {
               </div>
             ) : (
               <div
-                className={`grid grid-cols-2 gap-3 sm:gap-6 ${gridCols === '3'
+                className={`grid grid-cols-2 gap-2.5 xs:gap-3 sm:gap-5 lg:gap-6 ${gridCols === '3'
                   ? 'sm:grid-cols-2 md:grid-cols-3'
                   : 'sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'
                   }`}

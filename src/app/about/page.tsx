@@ -28,9 +28,9 @@ export default function AboutPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Image with Arch mask */}
-          <div className="relative aspect-[4/5] rounded-[140px_140px_24px_24px] overflow-hidden border-2 border-gold/40 shadow-warm-lg">
+          <div className="relative aspect-[4/5] rounded-[80px_80px_20px_20px] sm:rounded-[140px_140px_24px_24px] overflow-hidden border-2 border-gold/40 shadow-warm-lg max-w-md mx-auto w-full">
             <Image
-              src="https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?q=80&w=1200"
+              src="/placeholders/scented-peony-flower-candle-with-premiu.svg"
               alt="Artisan pouring soy wax in Delhi NCR studio"
               fill
               className="object-cover"

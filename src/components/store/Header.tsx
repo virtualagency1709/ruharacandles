@@ -66,20 +66,20 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-40 bg-cream-100/95 backdrop-blur-md border-b border-gold/20 shadow-soft transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20 sm:h-24 gap-4">
+          <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24 gap-2 sm:gap-4">
             {/* Mobile Menu Trigger Button */}
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden p-2 text-deep hover:text-primary transition-colors focus:outline-none"
+              className="lg:hidden p-1.5 sm:p-2 text-deep hover:text-primary transition-colors focus:outline-none"
               aria-label="Open navigation menu"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
             {/* Brand Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="flex items-center gap-3 group">
-                <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full border border-gold/40 p-0.5 shadow-sm bg-cream-50 group-hover:scale-105 transition-transform duration-300">
+              <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
+                <div className="relative w-9 h-9 sm:w-11 sm:h-11 md:w-13 md:h-13 rounded-full border border-gold/40 p-0.5 shadow-sm bg-cream-50 group-hover:scale-105 transition-transform duration-300 shrink-0">
                   <Image
                     src="/images/logo.svg"
                     alt="Ruhara Candles Logo"
@@ -90,10 +90,10 @@ export default function Header() {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-deep leading-none group-hover:text-primary transition-colors">
+                  <span className="font-serif text-lg sm:text-2xl md:text-3xl font-bold tracking-wider text-deep leading-none group-hover:text-primary transition-colors">
                     RUHARA
                   </span>
-                  <span className="text-[9px] sm:text-[10px] tracking-[0.25em] font-sans font-medium text-primary uppercase mt-1">
+                  <span className="text-[7px] sm:text-[9px] md:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] font-sans font-medium text-primary uppercase mt-0.5 sm:mt-1">
                     Candles &amp; Home Decor
                   </span>
                 </div>
@@ -194,14 +194,14 @@ export default function Header() {
             </div>
 
             {/* Quick Actions (Orders, Wishlist, Account, Cart) */}
-            <div className="flex items-center gap-2 sm:gap-4">
+            <div className="flex items-center gap-1.5 sm:gap-3">
               {/* Mobile Search Toggle */}
               <button
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="md:hidden p-2 text-deep hover:text-primary transition-colors"
+                className="md:hidden p-1.5 sm:p-2 text-deep hover:text-primary transition-colors"
                 aria-label="Search"
               >
-                <Search className="w-5 h-5" />
+                <Search className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
 
               {/* Order Tracking Link */}
@@ -217,12 +217,12 @@ export default function Header() {
               {/* Wishlist Link */}
               <Link
                 href="/account/wishlist"
-                className="relative p-2 text-deep hover:text-primary transition-colors"
+                className="relative p-1.5 sm:p-2 text-deep hover:text-primary transition-colors"
                 aria-label="View Wishlist"
               >
-                <Heart className="w-5 h-5" />
+                <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
                 {wishlistCount > 0 && (
-                  <span className="absolute top-1 right-1 w-4 h-4 bg-primary text-cream-50 text-[10px] font-bold rounded-full flex items-center justify-center">
+                  <span className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-primary text-cream-50 text-[9px] sm:text-[10px] font-bold rounded-full flex items-center justify-center">
                     {wishlistCount}
                   </span>
                 )}
@@ -231,7 +231,7 @@ export default function Header() {
               {/* Customer Account / Login */}
               <Link
                 href="/account/login"
-                className="p-2 text-deep hover:text-primary transition-colors"
+                className="hidden sm:flex p-2 text-deep hover:text-primary transition-colors"
                 aria-label="Account Login"
                 title="Account"
               >
@@ -241,14 +241,14 @@ export default function Header() {
               {/* Bag / Cart Button */}
               <button
                 onClick={openCartDrawer}
-                className="relative flex items-center gap-2 bg-primary text-cream-50 px-3.5 py-2 rounded-full hover:bg-primary-hover shadow-soft transition-all duration-200 group"
+                className="relative flex items-center gap-1.5 sm:gap-2 bg-primary text-cream-50 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-full hover:bg-primary-hover shadow-soft transition-all duration-200 group"
                 aria-label="Open Shopping Bag"
               >
-                <ShoppingBag className="w-4 h-4 transition-transform group-hover:scale-110" />
+                <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:scale-110" />
                 <span className="text-xs font-semibold tracking-wide hidden sm:inline">
                   Bag
                 </span>
-                <span className="bg-gold text-deep font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="bg-gold text-deep font-bold text-[9px] sm:text-[10px] w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full flex items-center justify-center">
                   {itemCount}
                 </span>
               </button>

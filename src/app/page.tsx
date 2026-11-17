@@ -144,14 +144,14 @@ export default function LuxuryHomePage() {
             </div>
 
             {/* RIGHT 45% (5 cols on desktop): Large Arch Mask with Floating Mini-Cards */}
-            <div className="lg:col-span-5 relative flex justify-center">
+            <div className="lg:col-span-5 relative flex justify-center px-2 sm:px-0">
               {/* Rotating Circular Text Hallmark Seal */}
-              <div className="absolute -top-8 -right-4 sm:-right-8 z-20">
-                <RotatingSeal size={110} />
+              <div className="absolute -top-6 -right-2 sm:-top-8 sm:-right-8 z-20 scale-75 sm:scale-100 origin-top-right pointer-events-none">
+                <RotatingSeal size={100} />
               </div>
 
               {/* Main Arch-Masked Hero Image */}
-              <div className="w-full max-w-sm sm:max-w-md">
+              <div className="w-full max-w-[290px] xs:max-w-sm sm:max-w-md">
                 <ArchImage
                   src="/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg"
                   alt="Ruhara Royal Festive Urli Candle"
@@ -160,14 +160,14 @@ export default function LuxuryHomePage() {
                   showGlow={true}
                   showOffsetBorder={true}
                 >
-                  <div className="p-6 text-cream-50 flex flex-col justify-end h-full">
-                    <span className="text-[10px] tracking-widest font-bold uppercase text-gold">
+                  <div className="p-4 sm:p-6 text-cream-50 flex flex-col justify-end h-full">
+                    <span className="text-[9px] sm:text-[10px] tracking-widest font-bold uppercase text-gold">
                       Masterpiece
                     </span>
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold">
+                    <h3 className="font-serif text-lg sm:text-2xl font-bold">
                       Royal Festive Brass Urli
                     </h3>
-                    <p className="text-xs text-cream-200/90 mt-1">
+                    <p className="text-[11px] sm:text-xs text-cream-200/90 mt-0.5 sm:mt-1">
                       Pure Marigold &amp; Oudh • 3 Crackling Wood Wicks
                     </p>
                   </div>
@@ -175,8 +175,8 @@ export default function LuxuryHomePage() {
               </div>
 
               {/* Floating Product Mini-Card 1 (Left Overlap) */}
-              <div className="absolute -bottom-6 -left-4 sm:-left-8 bg-ivory/95 backdrop-blur-md p-3 rounded-2xl border border-gold/35 shadow-warm-lg flex items-center gap-3 z-20 animate-float-slow">
-                <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
+              <div className="absolute -bottom-4 left-0 sm:-bottom-6 sm:-left-6 bg-ivory/95 backdrop-blur-md p-2.5 sm:p-3 rounded-2xl border border-gold/35 shadow-warm-lg flex items-center gap-2.5 sm:gap-3 z-20 animate-float-slow max-w-[210px] sm:max-w-none">
+                <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
                   <Image
                     src={PRODUCTS[0]?.images[0]?.url || "/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg"}
                     alt={PRODUCTS[0]?.title || "White Concrete Tray And Ribbed Vase With Peony Candle"}
@@ -184,21 +184,21 @@ export default function LuxuryHomePage() {
                     className="object-cover"
                   />
                 </div>
-                <div className="pr-2 max-w-[130px]">
-                  <p className="font-serif text-xs font-bold text-deep leading-snug truncate">{PRODUCTS[0]?.title}</p>
+                <div className="pr-1 sm:pr-2 min-w-0">
+                  <p className="font-serif text-xs font-bold text-deep leading-snug truncate max-w-[100px] sm:max-w-[130px]">{PRODUCTS[0]?.title}</p>
                   <p className="text-[10px] text-primary font-bold">{formatPrice(PRODUCTS[0]?.basePrice || 549)}</p>
                 </div>
                 <button
                   onClick={() => handleQuickAdd(PRODUCTS[0])}
-                  className="w-7 h-7 rounded-full bg-deep text-cream-50 flex items-center justify-center hover:bg-deep-dark shadow-sm shrink-0"
+                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-deep text-cream-50 flex items-center justify-center hover:bg-deep-dark shadow-sm shrink-0"
                   title="Quick Add"
                 >
-                  <Plus className="w-3.5 h-3.5" />
+                  <Plus className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 </button>
               </div>
 
               {/* Floating Product Mini-Card 2 (Right Overlap) */}
-              <div className="hidden sm:flex absolute top-1/3 -right-6 bg-ivory/95 backdrop-blur-md p-3 rounded-2xl border border-gold/35 shadow-warm-lg items-center gap-3 z-20 animate-float-delayed">
+              <div className="hidden md:flex absolute top-1/3 -right-4 lg:-right-6 bg-ivory/95 backdrop-blur-md p-3 rounded-2xl border border-gold/35 shadow-warm-lg items-center gap-3 z-20 animate-float-delayed">
                 <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
                   <Image
                     src={PRODUCTS[1]?.images[0]?.url || "/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg"}
@@ -309,10 +309,10 @@ export default function LuxuryHomePage() {
           </div>
 
           {/* Interactive Tabs */}
-          <div className="flex items-center gap-2 bg-ivory p-1.5 rounded-full border border-gold/30 shadow-warm-sm">
+          <div className="flex items-center gap-1.5 sm:gap-2 bg-ivory p-1 sm:p-1.5 rounded-full border border-gold/30 shadow-warm-sm overflow-x-auto scrollbar-none max-w-full">
             <button
               onClick={() => setBestsellerTab('candles')}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+              className={`px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-all ${
                 bestsellerTab === 'candles'
                   ? 'bg-deep text-cream-50 shadow-sm'
                   : 'text-deep/70 hover:text-deep'
@@ -322,7 +322,7 @@ export default function LuxuryHomePage() {
             </button>
             <button
               onClick={() => setBestsellerTab('decor')}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+              className={`px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-all ${
                 bestsellerTab === 'decor'
                   ? 'bg-deep text-cream-50 shadow-sm'
                   : 'text-deep/70 hover:text-deep'
@@ -332,7 +332,7 @@ export default function LuxuryHomePage() {
             </button>
             <button
               onClick={() => setBestsellerTab('hampers')}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+              className={`px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-all ${
                 bestsellerTab === 'hampers'
                   ? 'bg-deep text-cream-50 shadow-sm'
                   : 'text-deep/70 hover:text-deep'
@@ -343,7 +343,7 @@ export default function LuxuryHomePage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {tabProducts.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
@@ -401,7 +401,7 @@ export default function LuxuryHomePage() {
           SECTION 6: FESTIVE SALE SPOTLIGHT WITH LIVE COUNTDOWN
           ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-b from-ivory to-cream-100 rounded-3xl p-8 sm:p-12 border border-gold/40 shadow-warm-lg space-y-10">
+        <div className="bg-gradient-to-b from-ivory to-cream-100 rounded-3xl p-5 sm:p-8 md:p-12 border border-gold/40 shadow-warm-lg space-y-8 sm:space-y-10">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-gold/25">
             <div className="space-y-2">
               <span className="text-xs font-bold text-primary tracking-widest uppercase flex items-center gap-1.5">
@@ -417,18 +417,18 @@ export default function LuxuryHomePage() {
             </div>
 
             {/* Countdown Badge */}
-            <div className="bg-deep text-cream-100 p-4 rounded-2xl flex items-center gap-4 shadow-sm border border-gold/30">
-              <Clock className="w-5 h-5 text-gold" />
+            <div className="bg-deep text-cream-100 p-3.5 sm:p-4 rounded-2xl flex items-center gap-3 sm:gap-4 shadow-sm border border-gold/30 self-start lg:self-auto">
+              <Clock className="w-5 h-5 text-gold shrink-0" />
               <div className="text-xs">
                 <span className="text-gold font-bold block uppercase tracking-wider text-[10px]">
                   Sale Ends In
                 </span>
-                <span className="font-mono text-base font-bold text-cream-50">14h : 28m : 45s</span>
+                <span className="font-mono text-sm sm:text-base font-bold text-cream-50">14h : 28m : 45s</span>
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {festiveProducts.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
@@ -496,7 +496,7 @@ export default function LuxuryHomePage() {
           SECTION 8: INTERACTIVE GIFT HAMPER BUILDER TEASER
           ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-ivory rounded-3xl p-8 sm:p-12 border border-gold/35 shadow-warm-lg grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="bg-ivory rounded-3xl p-5 sm:p-8 md:p-12 border border-gold/35 shadow-warm-lg grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           <div className="lg:col-span-6 space-y-6">
             <span className="text-xs font-bold text-primary tracking-widest uppercase">
               Custom Gifting Studio
@@ -512,20 +512,20 @@ export default function LuxuryHomePage() {
             {/* Selection Steps */}
             <div className="space-y-3 pt-2">
               <div className="p-3 bg-cream-100/70 rounded-xl border border-gold/20 flex items-center justify-between text-xs">
-                <span className="font-semibold text-deep">1. Candle: {hamperCandle.title}</span>
-                <span className="font-bold text-primary">{formatPrice(hamperCandle.basePrice)}</span>
+                <span className="font-semibold text-deep truncate max-w-[200px]">1. Candle: {hamperCandle.title}</span>
+                <span className="font-bold text-primary shrink-0">{formatPrice(hamperCandle.basePrice)}</span>
               </div>
               <div className="p-3 bg-cream-100/70 rounded-xl border border-gold/20 flex items-center justify-between text-xs">
-                <span className="font-semibold text-deep">2. Decor: {hamperVase.title}</span>
-                <span className="font-bold text-primary">{formatPrice(hamperVase.basePrice)}</span>
+                <span className="font-semibold text-deep truncate max-w-[200px]">2. Decor: {hamperVase.title}</span>
+                <span className="font-bold text-primary shrink-0">{formatPrice(hamperVase.basePrice)}</span>
               </div>
               <div className="p-3 bg-cream-100/70 rounded-xl border border-gold/20 flex items-center justify-between text-xs">
-                <span className="font-semibold text-deep">3. Tray: {hamperTray.title}</span>
-                <span className="font-bold text-primary">{formatPrice(hamperTray.basePrice)}</span>
+                <span className="font-semibold text-deep truncate max-w-[200px]">3. Tray: {hamperTray.title}</span>
+                <span className="font-bold text-primary shrink-0">{formatPrice(hamperTray.basePrice)}</span>
               </div>
             </div>
 
-            <div className="pt-2 flex items-center justify-between">
+            <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <span className="text-[11px] text-deep/60 block">Bundle Price</span>
                 <span className="font-serif text-2xl font-bold text-deep">
@@ -534,8 +534,8 @@ export default function LuxuryHomePage() {
                 <span className="text-[10px] text-emerald-700 font-bold ml-2">Save ₹200</span>
               </div>
 
-              <Link href="/collection/gift-hampers">
-                <Button variant="primary" size="md">
+              <Link href="/collection/gift-hampers" className="w-full sm:w-auto">
+                <Button variant="primary" size="md" className="w-full sm:w-auto">
                   Explore Curated Hampers
                 </Button>
               </Link>
@@ -634,7 +634,7 @@ export default function LuxuryHomePage() {
           SECTION 11: NEWSLETTER CIRCLING
           ========================================================================= */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-ivory rounded-3xl p-8 sm:p-12 border border-gold/35 shadow-warm-lg text-center space-y-4">
+        <div className="bg-ivory rounded-3xl p-6 sm:p-8 md:p-12 border border-gold/35 shadow-warm-lg text-center space-y-4">
           <Badge variant="gold" size="md">Exclusive Member Circle</Badge>
           <h2 className="text-fluid-h2 font-serif font-bold text-deep">
             Receive 10% Off Your First Order

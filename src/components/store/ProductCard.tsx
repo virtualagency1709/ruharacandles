@@ -240,24 +240,34 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
         )}
 
         {/* Price & Add Action Footer */}
-        <div className="pt-2 border-t border-cream-200/80 flex items-center justify-between">
-          <div className="flex items-baseline gap-1.5">
+        <div className="pt-2 border-t border-cream-200/80 flex items-center justify-between gap-1.5">
+          <div className="flex items-baseline gap-1.5 min-w-0">
             {product.isPricePending ? (
-              <span className="font-serif text-sm font-semibold text-primary italic">
+              <span className="font-serif text-xs sm:text-sm font-semibold text-primary italic truncate">
                 Price Pending
               </span>
             ) : (
-              <span className="font-serif text-base sm:text-lg font-bold text-deep">
+              <span className="font-serif text-sm sm:text-base md:text-lg font-bold text-deep truncate">
                 {formatPrice(product.basePrice)}
               </span>
             )}
           </div>
 
+          {/* Mobile Tap Quick Add / Details Action */}
+          <button
+            onClick={handleQuickAdd}
+            aria-label={product.isPricePending ? 'View Details' : 'Add to Bag'}
+            className="sm:hidden p-1.5 xs:p-2 rounded-xl bg-deep text-cream-50 hover:bg-primary transition-colors flex items-center justify-center shrink-0 shadow-sm active:scale-95"
+            title={product.isPricePending ? 'View Details' : 'Add to Bag'}
+          >
+            <ShoppingBag className="w-3.5 h-3.5 text-gold" />
+          </button>
+
           <Link
             href={`/product/${product.slug}`}
-            className="text-xs font-semibold text-primary hover:text-deep transition-colors sm:hidden"
+            className="text-xs font-semibold text-primary hover:text-deep transition-colors hidden sm:inline"
           >
-            View →
+            View Details →
           </Link>
         </div>
       </div>

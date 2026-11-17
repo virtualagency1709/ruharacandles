@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '420px',
+        '3xl': '1920px',
+      },
       colors: {
         cream: {
           DEFAULT: "#F5EBDD", // Base cream

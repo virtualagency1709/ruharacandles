@@ -150,18 +150,18 @@ export default function CheckoutPage() {
   return (
     <div className="min-h-screen bg-cream pb-24">
       {/* Distraction-Free Luxury Checkout Header */}
-      <header className="border-b border-gold/25 bg-ivory/80 backdrop-blur-md py-4 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <Link href="/cart" className="flex items-center gap-1.5 text-xs font-semibold text-deep/70 hover:text-primary transition-colors">
+      <header className="border-b border-gold/25 bg-ivory/80 backdrop-blur-md py-4 px-3 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto flex items-center justify-between gap-2">
+          <Link href="/cart" className="flex items-center gap-1.5 text-xs font-semibold text-deep/70 hover:text-primary transition-colors shrink-0">
             <ArrowLeft className="w-4 h-4" />
-            <span>Return to Bag</span>
+            <span className="hidden xs:inline">Return to Bag</span>
           </Link>
 
-          <Link href="/" className="font-serif text-xl sm:text-2xl font-bold tracking-wider text-deep">
+          <Link href="/" className="font-serif text-lg sm:text-2xl font-bold tracking-wider text-deep text-center truncate">
             RUHARA CANDLES
           </Link>
 
-          <div className="flex items-center gap-1.5 text-xs text-emerald-800 font-medium">
+          <div className="flex items-center gap-1.5 text-xs text-emerald-800 font-medium shrink-0">
             <Lock className="w-3.5 h-3.5 text-emerald-600" />
             <span className="hidden sm:inline">256-Bit SSL Secure</span>
           </div>
@@ -169,12 +169,12 @@ export default function CheckoutPage() {
       </header>
 
       {/* Main Checkout Layout */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        <form onSubmit={handlePlaceOrder} className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 pt-6 sm:pt-8">
+        <form onSubmit={handlePlaceOrder} className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
           {/* Left Column (Inputs: Contact, Shipping, Payment) - 7 cols */}
           <div className="lg:col-span-7 space-y-6">
             {/* Step 1: Contact Details */}
-            <div className="bg-ivory rounded-2xl p-6 border border-gold/30 shadow-warm-sm space-y-4">
+            <div className="bg-ivory rounded-2xl p-4 sm:p-6 border border-gold/30 shadow-warm-sm space-y-4">
               <h2 className="font-serif text-lg font-bold text-deep flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-deep text-cream-50 text-xs flex items-center justify-center font-sans">
                   1
@@ -211,7 +211,7 @@ export default function CheckoutPage() {
             </div>
 
             {/* Step 2: Shipping Address */}
-            <div className="bg-ivory rounded-2xl p-6 border border-gold/30 shadow-warm-sm space-y-4">
+            <div className="bg-ivory rounded-2xl p-4 sm:p-6 border border-gold/30 shadow-warm-sm space-y-4">
               <h2 className="font-serif text-lg font-bold text-deep flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-deep text-cream-50 text-xs flex items-center justify-center font-sans">
                   2
@@ -295,7 +295,7 @@ export default function CheckoutPage() {
             </div>
 
             {/* Step 3: Payment Method */}
-            <div className="bg-ivory rounded-2xl p-6 border border-gold/30 shadow-warm-sm space-y-4">
+            <div className="bg-ivory rounded-2xl p-4 sm:p-6 border border-gold/30 shadow-warm-sm space-y-4">
               <h2 className="font-serif text-lg font-bold text-deep flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-deep text-cream-50 text-xs flex items-center justify-center font-sans">
                   3
@@ -367,7 +367,7 @@ export default function CheckoutPage() {
 
           {/* Right Column (Order Summary & Place Order Button) - 5 cols */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-ivory rounded-2xl p-6 border border-gold/30 shadow-warm-sm space-y-5 sticky top-8">
+            <div className="bg-ivory rounded-2xl p-4 sm:p-6 border border-gold/30 shadow-warm-sm space-y-5 sticky top-8">
               <h3 className="font-serif text-lg font-bold text-deep pb-3 border-b border-cream-200">
                 Order Review ({items.length} {items.length === 1 ? 'item' : 'items'})
               </h3>
