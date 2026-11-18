@@ -19,7 +19,7 @@ export default function CollectionsOverviewPage() {
           </h1>
           <p className="text-sm sm:text-base text-deep/75 font-light leading-relaxed">
             From sculpted floral blooms and apothecary glass jars to hand-hammered brass urlis and
-            dessert mithai candles — explore each handcrafted category poured with 100% pure soy wax.
+            botanical wax sachets — explore each handcrafted category poured with 100% pure soy wax.
           </p>
         </div>
       </div>

@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     'Soy Wax Candles',
     'Urli Candles',
     'Festive Diwali Candles',
-    'Mithai Candles',
+    'Wax Sachets',
     'Indian Home Decor',
     'Aromatherapy Candles',
   ],
