@@ -60,7 +60,7 @@ export function ArchImage({
         />
 
         {/* Ambient warm gradient vignette at bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-deep/50 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-deep/20 via-transparent to-transparent pointer-events-none" />
 
         {/* Optional Inner Overlay Children */}
         {children && <div className="absolute inset-0 z-10">{children}</div>}

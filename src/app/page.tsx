@@ -144,14 +144,15 @@ export default function LuxuryHomePage() {
             </div>
 
             {/* RIGHT 45% (5 cols on desktop): Large Arch Mask with Floating Mini-Cards */}
-            <div className="lg:col-span-5 relative flex justify-center px-2 sm:px-0">
-              {/* Rotating Circular Text Hallmark Seal */}
-              <div className="absolute -top-6 -right-2 sm:-top-8 sm:-right-8 z-20 scale-75 sm:scale-100 origin-top-right pointer-events-none">
-                <RotatingSeal size={100} />
-              </div>
+            <div className="lg:col-span-5 relative flex justify-center px-4 sm:px-6">
+              {/* Centered Arch Container with Precise Relative Floating Anchors */}
+              <div className="relative w-full max-w-[290px] xs:max-w-sm sm:max-w-md">
+                {/* Rotating Circular Text Hallmark Seal */}
+                <div className="absolute -top-6 -right-3 sm:-top-8 sm:-right-8 z-20 scale-75 sm:scale-100 origin-top-right pointer-events-none">
+                  <RotatingSeal size={100} />
+                </div>
 
-              {/* Main Arch-Masked Hero Image */}
-              <div className="w-full max-w-[290px] xs:max-w-sm sm:max-w-md">
+                {/* Main Arch-Masked Hero Image */}
                 <ArchImage
                   src="/images/hero-candle.jpg"
                   alt="Ruhara Artisanal Sculpted Soy Candle"
@@ -160,64 +161,73 @@ export default function LuxuryHomePage() {
                   showGlow={true}
                   showOffsetBorder={true}
                 >
-                  <div className="p-4 sm:p-6 text-cream-50 flex flex-col justify-end h-full">
-                    <span className="text-[9px] sm:text-[10px] tracking-widest font-bold uppercase text-gold">
-                      Masterpiece
-                    </span>
-                    <h3 className="font-serif text-lg sm:text-2xl font-bold">
-                      Sculptural Ribbed Swirl Candle
-                    </h3>
-                    <p className="text-[11px] sm:text-xs text-cream-200/90 mt-0.5 sm:mt-1">
-                      100% Pure Botanical Soy Wax • Handcrafted Luxury
-                    </p>
+                  {/* Subtle Elegant Glass Badge at Bottom (Does not obstruct candle or marble tray) */}
+                  <div className="p-3 sm:p-5 flex flex-col justify-end h-full">
+                    <div className="inline-flex items-center gap-2 bg-deep/80 backdrop-blur-md px-3 sm:px-3.5 py-1.5 rounded-full border border-gold/40 text-cream-50 self-start shadow-warm-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse shrink-0" />
+                      <span className="font-serif text-xs sm:text-sm font-semibold tracking-wide">
+                        Sculptural Swirl Candle
+                      </span>
+                      <span className="text-[10px] text-gold font-sans uppercase tracking-wider hidden sm:inline">
+                        • 100% Pure Soy
+                      </span>
+                    </div>
                   </div>
                 </ArchImage>
-              </div>
 
-              {/* Floating Product Mini-Card 1 (Left Overlap) */}
-              <div className="absolute -bottom-4 left-0 sm:-bottom-6 sm:-left-6 bg-ivory/95 backdrop-blur-md p-2.5 sm:p-3 rounded-2xl border border-gold/35 shadow-warm-lg flex items-center gap-2.5 sm:gap-3 z-20 animate-float-slow max-w-[210px] sm:max-w-none">
-                <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
-                  <Image
-                    src={PRODUCTS[0]?.images[0]?.url || "/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg"}
-                    alt={PRODUCTS[0]?.title || "White Concrete Tray And Ribbed Vase With Peony Candle"}
-                    fill
-                    className="object-cover"
-                  />
+                {/* Floating Product Mini-Card 1 (Positioned at bottom-left outside edge so candle base remains visible) */}
+                <div className="absolute -bottom-5 -left-3 sm:-bottom-7 sm:-left-8 lg:-left-12 bg-ivory/95 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl border border-gold/35 shadow-warm-lg flex items-center gap-2.5 z-20 animate-float-slow max-w-[195px] sm:max-w-[220px]">
+                  <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
+                    <Image
+                      src={PRODUCTS[0]?.images[0]?.url || "/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg"}
+                      alt={PRODUCTS[0]?.title || "White Concrete Tray And Ribbed Vase With Peony Candle"}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="pr-1 min-w-0">
+                    <p className="font-serif text-[11px] sm:text-xs font-bold text-deep leading-snug truncate max-w-[85px] sm:max-w-[110px]">
+                      {PRODUCTS[0]?.title}
+                    </p>
+                    <p className="text-[10px] text-primary font-bold">
+                      {formatPrice(PRODUCTS[0]?.basePrice || 549)}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => handleQuickAdd(PRODUCTS[0])}
+                    className="w-6 h-6 sm:w-6.5 sm:h-6.5 rounded-full bg-deep text-cream-50 flex items-center justify-center hover:bg-deep-dark shadow-sm shrink-0"
+                    title="Quick Add"
+                  >
+                    <Plus className="w-3 h-3" />
+                  </button>
                 </div>
-                <div className="pr-1 sm:pr-2 min-w-0">
-                  <p className="font-serif text-xs font-bold text-deep leading-snug truncate max-w-[100px] sm:max-w-[130px]">{PRODUCTS[0]?.title}</p>
-                  <p className="text-[10px] text-primary font-bold">{formatPrice(PRODUCTS[0]?.basePrice || 549)}</p>
-                </div>
-                <button
-                  onClick={() => handleQuickAdd(PRODUCTS[0])}
-                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-deep text-cream-50 flex items-center justify-center hover:bg-deep-dark shadow-sm shrink-0"
-                  title="Quick Add"
-                >
-                  <Plus className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                </button>
-              </div>
 
-              {/* Floating Product Mini-Card 2 (Right Overlap) */}
-              <div className="hidden md:flex absolute top-1/3 -right-4 lg:-right-6 bg-ivory/95 backdrop-blur-md p-3 rounded-2xl border border-gold/35 shadow-warm-lg items-center gap-3 z-20 animate-float-delayed">
-                <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
-                  <Image
-                    src={PRODUCTS[1]?.images[0]?.url || "/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg"}
-                    alt={PRODUCTS[1]?.title || "Pink Tulip Bouquet Decorative Candle"}
-                    fill
-                    className="object-cover"
-                  />
+                {/* Floating Product Mini-Card 2 (Positioned lower-right, completely clear of the top flame & candle swirl) */}
+                <div className="hidden md:flex absolute bottom-24 -right-5 sm:-right-8 lg:-right-12 bg-ivory/95 backdrop-blur-md p-2.5 sm:p-3 rounded-2xl border border-gold/35 shadow-warm-lg items-center gap-2.5 z-20 animate-float-delayed max-w-[220px]">
+                  <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
+                    <Image
+                      src={PRODUCTS[1]?.images[0]?.url || "/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg"}
+                      alt={PRODUCTS[1]?.title || "Pink Tulip Bouquet Decorative Candle"}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="pr-1 min-w-0">
+                    <p className="font-serif text-[11px] sm:text-xs font-bold text-deep leading-snug truncate max-w-[100px]">
+                      {PRODUCTS[1]?.title}
+                    </p>
+                    <p className="text-[10px] text-primary font-bold">
+                      {formatPrice(PRODUCTS[1]?.basePrice || 199)}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => handleQuickAdd(PRODUCTS[1])}
+                    className="w-6.5 h-6.5 rounded-full bg-deep text-cream-50 flex items-center justify-center hover:bg-deep-dark shadow-sm shrink-0"
+                    title="Quick Add"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                  </button>
                 </div>
-                <div className="pr-2 max-w-[130px]">
-                  <p className="font-serif text-xs font-bold text-deep leading-snug truncate">{PRODUCTS[1]?.title}</p>
-                  <p className="text-[10px] text-primary font-bold">{formatPrice(PRODUCTS[1]?.basePrice || 199)}</p>
-                </div>
-                <button
-                  onClick={() => handleQuickAdd(PRODUCTS[1])}
-                  className="w-7 h-7 rounded-full bg-deep text-cream-50 flex items-center justify-center hover:bg-deep-dark shadow-sm shrink-0"
-                  title="Quick Add"
-                >
-                  <Plus className="w-3.5 h-3.5" />
-                </button>
               </div>
             </div>
           </div>
