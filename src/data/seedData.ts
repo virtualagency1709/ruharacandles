@@ -33,7 +33,7 @@ export const CATEGORIES: Category[] = [
     name: 'Urli Candles',
     slug: 'urli-candles',
     description: 'Traditional metal & brass urlis filled with slow-burning aromatic wax for festivities.',
-    imageUrl: '/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg',
+    imageUrl: '/images/hero-candle.jpg',
     sortOrder: 4,
     isFeatured: true,
   },
@@ -696,8 +696,8 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-3-5in-metal-urli-candle-with-lotus-and-mogra-flower-1",
-        "url": "/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg",
-        "altText": "3.5In Metal Urli Candle With Lotus And Mogra Flower - Product Image Coming Soon",
+        "url": "/images/hero-candle.jpg",
+        "altText": "3.5In Metal Urli Candle With Lotus And Mogra Flower - Ruhara Luxury Candles",
         "isPrimary": true,
         "sortOrder": 1
       }
@@ -711,7 +711,7 @@ export const PRODUCTS: Product[] = [
         "price": 299,
         "mrp": 299,
         "stock": 25,
-        "imageUrl": "/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg"
+        "imageUrl": "/images/hero-candle.jpg"
       }
     ],
     "rating": 4.9,
@@ -3154,7 +3154,7 @@ export const BANNERS: Banner[] = [
     subtitle: 'Hand-poured pure soy wax candles & artisanal brass urlis for your sacred celebrations.',
     ctaText: 'Shop Festive Sale',
     ctaLink: '/collection/festival-candles',
-    desktopImage: '/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg',
+    desktopImage: '/images/hero-candle.jpg',
     section: 'HERO',
     sortOrder: 1,
     isActive: true,

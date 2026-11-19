@@ -153,7 +153,7 @@ export default function LuxuryHomePage() {
               {/* Main Arch-Masked Hero Image */}
               <div className="w-full max-w-[290px] xs:max-w-sm sm:max-w-md">
                 <ArchImage
-                  src="/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg"
+                  src="/images/hero-candle.jpg"
                   alt="Ruhara Royal Festive Urli Candle"
                   aspectRatio="portrait"
                   priority={true}
@@ -611,7 +611,7 @@ export default function LuxuryHomePage() {
             '/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg',
             '/placeholders/daisy-floating-candles-soy-wax-smokeless-long-lasting-decorati.svg',
             '/placeholders/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg',
-            '/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg',
+            '/images/hero-candle.jpg',
             '/placeholders/wine-rose-bear-shaped-decorative-candle.svg',
           ].map((url, i) => (
             <a
