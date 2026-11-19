@@ -33,7 +33,7 @@ export const CATEGORIES: Category[] = [
     name: 'Urli Candles',
     slug: 'urli-candles',
     description: 'Traditional metal & brass urlis filled with slow-burning aromatic wax for festivities.',
-    imageUrl: '/images/hero-candle.jpg',
+    imageUrl: '/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg',
     sortOrder: 4,
     isFeatured: true,
   },
@@ -696,8 +696,8 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-3-5in-metal-urli-candle-with-lotus-and-mogra-flower-1",
-        "url": "/images/hero-candle.jpg",
-        "altText": "3.5In Metal Urli Candle With Lotus And Mogra Flower - Ruhara Luxury Candles",
+        "url": "/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg",
+        "altText": "3.5In Metal Urli Candle With Lotus And Mogra Flower - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
       }
@@ -711,7 +711,7 @@ export const PRODUCTS: Product[] = [
         "price": 299,
         "mrp": 299,
         "stock": 25,
-        "imageUrl": "/images/hero-candle.jpg"
+        "imageUrl": "/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg"
       }
     ],
     "rating": 4.9,

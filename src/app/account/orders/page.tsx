@@ -44,7 +44,7 @@ export default function OrdersPage() {
                 variantName: 'Antique Gold Brass / 600g',
                 price: 1299,
                 quantity: 1,
-                imageUrl: '/images/hero-candle.jpg',
+                imageUrl: '/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg',
               },
             ],
             shippingAddress: {

@@ -154,7 +154,7 @@ export default function LuxuryHomePage() {
               <div className="w-full max-w-[290px] xs:max-w-sm sm:max-w-md">
                 <ArchImage
                   src="/images/hero-candle.jpg"
-                  alt="Ruhara Royal Festive Urli Candle"
+                  alt="Ruhara Artisanal Sculpted Soy Candle"
                   aspectRatio="portrait"
                   priority={true}
                   showGlow={true}
@@ -165,10 +165,10 @@ export default function LuxuryHomePage() {
                       Masterpiece
                     </span>
                     <h3 className="font-serif text-lg sm:text-2xl font-bold">
-                      Royal Festive Brass Urli
+                      Sculptural Ribbed Swirl Candle
                     </h3>
                     <p className="text-[11px] sm:text-xs text-cream-200/90 mt-0.5 sm:mt-1">
-                      Pure Marigold &amp; Oudh • 3 Crackling Wood Wicks
+                      100% Pure Botanical Soy Wax • Handcrafted Luxury
                     </p>
                   </div>
                 </ArchImage>
@@ -611,7 +611,7 @@ export default function LuxuryHomePage() {
             '/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg',
             '/placeholders/daisy-floating-candles-soy-wax-smokeless-long-lasting-decorati.svg',
             '/placeholders/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg',
-            '/images/hero-candle.jpg',
+            '/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg',
             '/placeholders/wine-rose-bear-shaped-decorative-candle.svg',
           ].map((url, i) => (
             <a
