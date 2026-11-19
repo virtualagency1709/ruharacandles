@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
 import { formatPrice, getFreeShippingProgress } from '@/lib/utils';
+import { DEFAULT_FRAGRANCES } from '@/data/seedData';
 
 export default function CartDrawer() {
   const {
@@ -25,6 +26,7 @@ export default function CartDrawer() {
     closeCartDrawer,
     removeItem,
     updateQuantity,
+    updateFragrance,
     getSubtotal,
     getDiscountAmount,
     getShippingFee,
@@ -139,7 +141,7 @@ export default function CartDrawer() {
           ) : (
             items.map((item) => (
               <div
-                key={`${item.productId}-${item.variantId || 'default'}`}
+                key={`${item.productId}-${item.selectedFragrance || 'default'}-${item.variantId || 'default'}`}
                 className="py-4 flex gap-3 sm:gap-4 items-start"
               >
                 {/* Thumbnail */}
@@ -163,7 +165,7 @@ export default function CartDrawer() {
                       {item.title}
                     </Link>
                     <button
-                      onClick={() => removeItem(item.productId, item.variantId)}
+                      onClick={() => removeItem(item.productId, item.variantId, item.selectedFragrance)}
                       className="text-deep/40 hover:text-red-600 transition-colors p-1"
                       title="Remove item"
                     >
@@ -171,14 +173,43 @@ export default function CartDrawer() {
                     </button>
                   </div>
 
-                  {item.variantName && (
+                  {item.variantName && item.variantName !== 'Standard Edition' && (
                     <p className="text-[11px] text-deep/60 mt-0.5">
                       {item.variantName}
                     </p>
                   )}
 
+                  {/* Selected Fragrance Display & In-Cart Changer */}
+                  <div className="flex items-center gap-1.5 mt-1.5 bg-cream-100/90 px-2.5 py-1 rounded-lg border border-gold/30 w-fit">
+                    <Sparkles className="w-3 h-3 text-gold shrink-0" />
+                    <span className="text-[10px] font-bold text-deep/70 uppercase tracking-wider">
+                      Fragrance:
+                    </span>
+                    <select
+                      value={item.selectedFragrance || item.scent || 'Rose'}
+                      onChange={(e) =>
+                        updateFragrance(
+                          item.productId,
+                          e.target.value,
+                          item.selectedFragrance || item.scent,
+                          item.variantId
+                        )
+                      }
+                      className="bg-ivory border border-gold/40 rounded text-xs font-bold text-primary px-2 py-0.5 focus:outline-none focus:border-gold cursor-pointer"
+                    >
+                      {(item.availableFragrances && item.availableFragrances.length > 0
+                        ? item.availableFragrances
+                        : DEFAULT_FRAGRANCES
+                      ).map((frag) => (
+                        <option key={frag} value={frag}>
+                          {frag}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
                   {/* Price */}
-                  <div className="flex items-baseline gap-2 mt-1">
+                  <div className="flex items-baseline gap-2 mt-1.5">
                     <span className="text-xs sm:text-sm font-bold text-deep">
                       {formatPrice(item.price)}
                     </span>
@@ -194,7 +225,7 @@ export default function CartDrawer() {
                     <div className="flex items-center border border-gold/30 rounded-lg bg-white overflow-hidden shadow-inner">
                       <button
                         onClick={() =>
-                          updateQuantity(item.productId, item.quantity - 1, item.variantId)
+                          updateQuantity(item.productId, item.quantity - 1, item.variantId, item.selectedFragrance)
                         }
                         className="p-1 px-2 text-deep hover:bg-cream-100 transition-colors"
                         aria-label="Decrease quantity"
@@ -206,7 +237,7 @@ export default function CartDrawer() {
                       </span>
                       <button
                         onClick={() =>
-                          updateQuantity(item.productId, item.quantity + 1, item.variantId)
+                          updateQuantity(item.productId, item.quantity + 1, item.variantId, item.selectedFragrance)
                         }
                         className="p-1 px-2 text-deep hover:bg-cream-100 transition-colors"
                         aria-label="Increase quantity"

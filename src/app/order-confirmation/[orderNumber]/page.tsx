@@ -75,6 +75,33 @@ export default function OrderConfirmationPage({ params }: OrderConfirmationPageP
             </div>
           </div>
 
+          {/* Ordered Items with Selected Fragrance */}
+          {order?.items && order.items.length > 0 && (
+            <div className="pt-4 border-t border-cream-200 text-left space-y-3">
+              <h3 className="font-serif text-xs font-bold text-deep uppercase tracking-wider">
+                Ordered Candles ({order.items.length})
+              </h3>
+              <div className="space-y-2">
+                {order.items.map((item: any, idx: number) => (
+                  <div
+                    key={idx}
+                    className="flex items-center justify-between p-3 rounded-xl bg-cream-100/60 border border-gold/25 text-xs"
+                  >
+                    <div>
+                      <span className="font-semibold text-deep block">{item.title}</span>
+                      <span className="text-[11px] text-primary font-bold">
+                        Fragrance: {item.selectedFragrance || item.fragrance || item.scent || 'Rose'} • Qty: {item.quantity}
+                      </span>
+                    </div>
+                    <span className="font-serif font-bold text-deep">
+                      {formatPrice(item.price * item.quantity)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Delivery & WhatsApp updates notice */}
           <div className="pt-4 border-t border-cream-200 text-left space-y-3 text-xs text-deep/80">
             <div className="flex items-center gap-2 text-emerald-800 font-semibold">

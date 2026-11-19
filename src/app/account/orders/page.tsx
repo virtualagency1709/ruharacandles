@@ -198,9 +198,9 @@ export default function OrdersPage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-serif text-sm font-bold text-deep truncate">{item.title}</p>
-                      {item.variantName && (
-                        <p className="text-[11px] text-deep/60">{item.variantName}</p>
-                      )}
+                      <p className="text-[11px] text-primary font-bold">
+                        Fragrance: {item.selectedFragrance || item.fragrance || item.scent || 'Rose'}
+                      </p>
                       <p className="text-xs text-deep/80 mt-0.5">
                         Qty: {item.quantity} × {formatPrice(item.price)}
                       </p>

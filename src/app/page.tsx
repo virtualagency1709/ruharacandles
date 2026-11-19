@@ -28,6 +28,7 @@ import { ArchImage } from '@/components/ui/ArchImage';
 import { RotatingSeal } from '@/components/ui/RotatingSeal';
 import { RatingStars } from '@/components/ui/RatingStars';
 import ProductCard from '@/components/store/ProductCard';
+import QuickViewModal from '@/components/store/QuickViewModal';
 import { useCartStore } from '@/store/cartStore';
 
 export default function LuxuryHomePage() {
@@ -45,6 +46,7 @@ export default function LuxuryHomePage() {
   // Newsletter state
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
+  const [quickViewProduct, setQuickViewProduct] = useState<typeof PRODUCTS[0] | null>(null);
 
   // Filtered Products for Bestseller Tabs
   const tabProducts = PRODUCTS.filter((p) => {
@@ -56,18 +58,9 @@ export default function LuxuryHomePage() {
   // Festive products
   const festiveProducts = PRODUCTS.filter((p) => p.categoryId === 'cat-4' || p.categoryId === 'cat-7').slice(0, 4);
 
-  // Quick add helper
+  // Quick add helper: opens modal for required fragrance selection
   const handleQuickAdd = (product: typeof PRODUCTS[0]) => {
-    addItem({
-      productId: product.id,
-      title: product.title,
-      slug: product.slug,
-      price: product.basePrice,
-      mrp: product.baseMrp,
-      imageUrl: product.images[0]?.url || '',
-      stock: 10,
-      quantity: 1,
-    });
+    setQuickViewProduct(product);
   };
 
   return (
@@ -680,6 +673,13 @@ export default function LuxuryHomePage() {
           )}
         </div>
       </section>
+
+      {/* Quick View Fragrance Selection Modal for Hero & Showcase Items */}
+      <QuickViewModal
+        product={quickViewProduct}
+        isOpen={Boolean(quickViewProduct)}
+        onClose={() => setQuickViewProduct(null)}
+      />
     </div>
   );
 }

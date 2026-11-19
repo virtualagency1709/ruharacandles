@@ -3,7 +3,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { Product, ProductImage } from '@/types';
-import { PRODUCTS } from '@/data/seedData';
+import { PRODUCTS, DEFAULT_FRAGRANCES, DEFAULT_FRAGRANCE_AVAILABILITY } from '@/data/seedData';
 
 interface ProductStoreState {
   customImages: Record<string, ProductImage[]>;
@@ -146,12 +146,18 @@ export function getMergedProducts(
 
       return {
         ...p,
+        availableFragrances: productOverride.availableFragrances || p.availableFragrances || [...DEFAULT_FRAGRANCES],
+        fragranceAvailability: productOverride.fragranceAvailability || p.fragranceAvailability || { ...DEFAULT_FRAGRANCE_AVAILABILITY },
         ...productOverride,
         images: effectiveImages,
       };
     });
 
-  const activeNewProducts = newProducts.filter((p) => !deletedSet.has(p.id));
+  const activeNewProducts = newProducts.filter((p) => !deletedSet.has(p.id)).map((p) => ({
+    ...p,
+    availableFragrances: p.availableFragrances || [...DEFAULT_FRAGRANCES],
+    fragranceAvailability: p.fragranceAvailability || { ...DEFAULT_FRAGRANCE_AVAILABILITY },
+  }));
 
   return [...activeNewProducts, ...mergedBase];
 }

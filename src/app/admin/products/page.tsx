@@ -19,7 +19,7 @@ import {
   CheckCircle2,
   AlertCircle
 } from 'lucide-react';
-import { PRODUCTS, CATEGORIES } from '@/data/seedData';
+import { PRODUCTS, CATEGORIES, DEFAULT_FRAGRANCES, DEFAULT_FRAGRANCE_AVAILABILITY } from '@/data/seedData';
 import { Product, ProductImage } from '@/types';
 import { formatPrice, calculateDiscount } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
@@ -253,7 +253,7 @@ export default function AdminProductsPage() {
                             <span className="font-serif font-bold text-deep block truncate max-w-xs text-xs sm:text-sm">
                               {prod.title}
                             </span>
-                            <div className="flex items-center gap-2 mt-0.5">
+                            <div className="flex items-center flex-wrap gap-2 mt-0.5">
                               <span className="text-[10px] text-deep/50 font-mono">
                                 SKU: {prod.sku || `RUH-${prod.id.slice(-6).toUpperCase()}`}
                               </span>
@@ -262,6 +262,9 @@ export default function AdminProductsPage() {
                                   {discount}% OFF
                                 </span>
                               )}
+                              <span className="text-[9px] font-semibold text-primary/80 bg-primary/10 px-1.5 py-0.5 rounded">
+                                {prod.availableFragrances?.length ?? 5} Fragrances
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -470,6 +473,9 @@ function EditProductModal({
   const [isNewArrival, setIsNewArrival] = useState(Boolean(product.isNewArrival));
   const [isFeatured, setIsFeatured] = useState(Boolean(product.isFeatured));
   const [isActive, setIsActive] = useState(product.isActive !== false);
+  const [fragranceAvailability, setFragranceAvailability] = useState<Record<string, boolean>>(
+    product.fragranceAvailability || DEFAULT_FRAGRANCE_AVAILABILITY
+  );
 
   const fileRef = useRef<HTMLInputElement | null>(null);
 
@@ -478,6 +484,10 @@ function EditProductModal({
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
     const matchedCategory = CATEGORIES.find((c) => c.slug === categorySlug);
+    const availableFragrances = Object.entries(fragranceAvailability)
+      .filter(([_, active]) => active)
+      .map(([name]) => name);
+
     onSave({
       title,
       name: title,
@@ -495,6 +505,8 @@ function EditProductModal({
       isNewArrival,
       isFeatured,
       isActive,
+      availableFragrances,
+      fragranceAvailability,
     });
   };
 
@@ -696,6 +708,51 @@ function EditProductModal({
             />
           </div>
 
+          {/* Fragrance Options Management */}
+          <div className="bg-ivory p-4 rounded-2xl border border-gold/25 space-y-2.5">
+            <div className="flex items-center justify-between">
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-deep block">
+                  Fragrance Options (Selectable by Customer)
+                </label>
+                <p className="text-[11px] text-deep/60">
+                  Toggle which fragrances are available for this candle.
+                </p>
+              </div>
+              <span className="text-[10px] font-bold text-primary px-2 py-0.5 bg-primary/10 rounded-full">
+                {DEFAULT_FRAGRANCES.filter((f) => fragranceAvailability[f] !== false).length} / {DEFAULT_FRAGRANCES.length} Active
+              </span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1">
+              {DEFAULT_FRAGRANCES.map((frag) => {
+                const isAvailable = fragranceAvailability[frag] !== false;
+                return (
+                  <label
+                    key={frag}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-xs font-medium cursor-pointer transition-all ${
+                      isAvailable
+                        ? 'bg-cream-50 border-gold/40 text-deep shadow-xs'
+                        : 'bg-cream-100/40 border-dashed border-gold/20 text-deep/40'
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={isAvailable}
+                      onChange={(e) => {
+                        setFragranceAvailability((prev) => ({
+                          ...prev,
+                          [frag]: e.target.checked,
+                        }));
+                      }}
+                      className="rounded text-primary accent-primary"
+                    />
+                    <span className="truncate">{frag}</span>
+                  </label>
+                );
+              })}
+            </div>
+          </div>
+
           {/* Badges / Checkboxes */}
           <div className="flex flex-wrap items-center gap-6 pt-2">
             <label className="flex items-center gap-2 text-xs text-deep cursor-pointer font-semibold">
@@ -770,6 +827,9 @@ function AddNewProductModal({ isOpen, onClose, onAdd }: AddNewProductModalProps)
   const [stock, setStock] = useState(25);
   const [description, setDescription] = useState('');
   const [uploadedPhotos, setUploadedPhotos] = useState<string[]>([]);
+  const [fragranceAvailability, setFragranceAvailability] = useState<Record<string, boolean>>(
+    DEFAULT_FRAGRANCE_AVAILABILITY
+  );
 
   if (!isOpen) return null;
 
@@ -781,6 +841,9 @@ function AddNewProductModal({ isOpen, onClose, onAdd }: AddNewProductModalProps)
       .replace(/(^-|-$)/g, '');
     const matchedCategory = CATEGORIES.find((c) => c.slug === categorySlug);
     const newId = `prod-custom-${Date.now()}`;
+    const availableFragrances = Object.entries(fragranceAvailability)
+      .filter(([_, active]) => active)
+      .map(([name]) => name);
 
     const images: ProductImage[] =
       uploadedPhotos.length > 0
@@ -831,6 +894,8 @@ function AddNewProductModal({ isOpen, onClose, onAdd }: AddNewProductModalProps)
           stock: Number(stock),
         },
       ],
+      availableFragrances,
+      fragranceAvailability,
       rating: 5.0,
       reviewCount: 1,
     });
@@ -941,6 +1006,46 @@ function AddNewProductModal({ isOpen, onClose, onAdd }: AddNewProductModalProps)
               onChange={(e) => setDescription(e.target.value)}
               className="w-full bg-white border border-gold/30 rounded-xl p-3 text-xs text-deep focus:outline-none focus:border-gold leading-relaxed"
             />
+          </div>
+
+          {/* Fragrance Options */}
+          <div className="bg-ivory p-3.5 rounded-2xl border border-gold/25 space-y-2">
+            <div className="flex items-center justify-between">
+              <label className="text-xs font-bold uppercase tracking-wider text-deep block">
+                Fragrance Options
+              </label>
+              <span className="text-[10px] font-bold text-primary px-2 py-0.5 bg-primary/10 rounded-full">
+                {DEFAULT_FRAGRANCES.filter((f) => fragranceAvailability[f] !== false).length} Active
+              </span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {DEFAULT_FRAGRANCES.map((frag) => {
+                const isAvailable = fragranceAvailability[frag] !== false;
+                return (
+                  <label
+                    key={frag}
+                    className={`flex items-center gap-2 px-2.5 py-1.5 rounded-xl border text-xs font-medium cursor-pointer transition-all ${
+                      isAvailable
+                        ? 'bg-cream-50 border-gold/40 text-deep shadow-xs'
+                        : 'bg-cream-100/40 border-dashed border-gold/20 text-deep/40'
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={isAvailable}
+                      onChange={(e) => {
+                        setFragranceAvailability((prev) => ({
+                          ...prev,
+                          [frag]: e.target.checked,
+                        }));
+                      }}
+                      className="rounded text-primary accent-primary"
+                    />
+                    <span className="truncate">{frag}</span>
+                  </label>
+                );
+              })}
+            </div>
           </div>
 
           <div className="flex items-center justify-end gap-3 pt-3 border-t border-gold/20">

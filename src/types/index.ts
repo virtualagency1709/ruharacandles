@@ -85,6 +85,9 @@ export interface Product {
   categorySlug?: string;
   images: ProductImage[]; // Product Images (with individual upload placeholders)
   variants: ProductVariant[];
+  availableFragrances?: string[]; // Available Fragrances list (Rose, Lavender, Ocean Breeze, Sandal, Jasmine)
+  selectedFragrance?: string; // Selected Fragrance
+  fragranceAvailability?: Record<string, boolean>; // Per-product fragrance availability map
   reviews?: Review[];
   rating?: number;
   reviewCount?: number;
@@ -117,6 +120,8 @@ export interface CartItem {
   quantity: number;
   stock: number;
   scent?: string;
+  selectedFragrance?: string; // e.g. 'Rose', 'Lavender', 'Ocean Breeze', 'Sandal', 'Jasmine'
+  availableFragrances?: string[];
   size?: string;
 }
 

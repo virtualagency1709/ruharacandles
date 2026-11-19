@@ -11,8 +11,9 @@ interface CartState {
   closeCartDrawer: () => void;
   toggleCartDrawer: () => void;
   addItem: (item: Omit<CartItem, 'quantity'> & { quantity?: number }) => void;
-  removeItem: (productId: string, variantId?: string) => void;
-  updateQuantity: (productId: string, quantity: number, variantId?: string) => void;
+  removeItem: (productId: string, variantId?: string, selectedFragrance?: string) => void;
+  updateQuantity: (productId: string, quantity: number, variantId?: string, selectedFragrance?: string) => void;
+  updateFragrance: (productId: string, newFragrance: string, oldFragrance?: string, variantId?: string) => void;
   applyCoupon: (code: string) => { success: boolean; message: string };
   removeCoupon: () => void;
   clearCart: () => void;
@@ -36,8 +37,12 @@ export const useCartStore = create<CartState>()(
 
       addItem: (item) => {
         const { items } = get();
+        const itemFragrance = item.selectedFragrance || item.scent || '';
         const existingIndex = items.findIndex(
-          (i) => i.productId === item.productId && i.variantId === item.variantId
+          (i) =>
+            i.productId === item.productId &&
+            (i.variantId || '') === (item.variantId || '') &&
+            (i.selectedFragrance || i.scent || '') === itemFragrance
         );
 
         const addQty = item.quantity || 1;
@@ -46,7 +51,7 @@ export const useCartStore = create<CartState>()(
           const updatedItems = [...items];
           const newQty = Math.min(
             updatedItems[existingIndex].quantity + addQty,
-            updatedItems[existingIndex].stock
+            updatedItems[existingIndex].stock || 99
           );
           updatedItems[existingIndex].quantity = newQty;
           set({ items: updatedItems, isCartDrawerOpen: true });
@@ -56,7 +61,8 @@ export const useCartStore = create<CartState>()(
               ...items,
               {
                 ...item,
-                quantity: Math.min(addQty, item.stock),
+                selectedFragrance: itemFragrance,
+                quantity: Math.min(addQty, item.stock || 99),
               },
             ],
             isCartDrawerOpen: true,
@@ -64,33 +70,92 @@ export const useCartStore = create<CartState>()(
         }
       },
 
-      removeItem: (productId, variantId) => {
+      removeItem: (productId, variantId, selectedFragrance) => {
         const { items } = get();
         set({
-          items: items.filter(
-            (i) => !(i.productId === productId && i.variantId === variantId)
-          ),
+          items: items.filter((i) => {
+            const matchProd = i.productId === productId;
+            const matchVar = variantId === undefined || (i.variantId || '') === (variantId || '');
+            const matchFrag =
+              selectedFragrance === undefined ||
+              (i.selectedFragrance || i.scent || '') === selectedFragrance;
+            return !(matchProd && matchVar && matchFrag);
+          }),
         });
       },
 
-      updateQuantity: (productId, quantity, variantId) => {
+      updateQuantity: (productId, quantity, variantId, selectedFragrance) => {
         const { items } = get();
         if (quantity <= 0) {
-          get().removeItem(productId, variantId);
+          get().removeItem(productId, variantId, selectedFragrance);
           return;
         }
 
         const updatedItems = items.map((i) => {
-          if (i.productId === productId && i.variantId === variantId) {
+          const matchProd = i.productId === productId;
+          const matchVar = variantId === undefined || (i.variantId || '') === (variantId || '');
+          const matchFrag =
+            selectedFragrance === undefined ||
+            (i.selectedFragrance || i.scent || '') === selectedFragrance;
+          if (matchProd && matchVar && matchFrag) {
             return {
               ...i,
-              quantity: Math.min(quantity, i.stock),
+              quantity: Math.min(quantity, i.stock || 99),
             };
           }
           return i;
         });
 
         set({ items: updatedItems });
+      },
+
+      updateFragrance: (productId, newFragrance, oldFragrance, variantId) => {
+        const { items } = get();
+        const oldFrag = oldFragrance || '';
+
+        // Find the specific item being modified
+        const targetIndex = items.findIndex(
+          (i) =>
+            i.productId === productId &&
+            (i.variantId || '') === (variantId || '') &&
+            (i.selectedFragrance || i.scent || '') === oldFrag
+        );
+
+        if (targetIndex === -1) return;
+
+        // Check if an item already exists with this new fragrance
+        const existingNewIndex = items.findIndex(
+          (i, idx) =>
+            idx !== targetIndex &&
+            i.productId === productId &&
+            (i.variantId || '') === (variantId || '') &&
+            (i.selectedFragrance || i.scent || '') === newFragrance
+        );
+
+        if (existingNewIndex > -1) {
+          // Merge quantities into existing item
+          const updatedItems = [...items];
+          updatedItems[existingNewIndex].quantity = Math.min(
+            updatedItems[existingNewIndex].quantity + updatedItems[targetIndex].quantity,
+            updatedItems[existingNewIndex].stock || 99
+          );
+          // Remove old item
+          updatedItems.splice(targetIndex, 1);
+          set({ items: updatedItems });
+        } else {
+          // Update fragrance
+          const updatedItems = items.map((i, idx) => {
+            if (idx === targetIndex) {
+              return {
+                ...i,
+                selectedFragrance: newFragrance,
+                scent: newFragrance,
+              };
+            }
+            return i;
+          });
+          set({ items: updatedItems });
+        }
       },
 
       applyCoupon: (code: string) => {

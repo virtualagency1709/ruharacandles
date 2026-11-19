@@ -41,20 +41,8 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
       window.location.href = `/product/${product.slug}`;
       return;
     }
-    addItem({
-      productId: product.id,
-      variantId: defaultVariant?.id,
-      title: product.title,
-      variantName: defaultVariant?.name,
-      slug: product.slug,
-      price: defaultVariant?.price ? Number(defaultVariant.price) : product.basePrice,
-      mrp: defaultVariant?.mrp ? Number(defaultVariant.mrp) : product.baseMrp,
-      imageUrl: primaryImg,
-      stock: defaultVariant?.stock || 10,
-      scent: defaultVariant?.scent,
-      size: defaultVariant?.size,
-      quantity: 1,
-    });
+    // Open Quick View Modal so customer can select their required fragrance
+    setIsQuickViewOpen(true);
   };
 
   const handleWishlistToggle = (e: React.MouseEvent) => {

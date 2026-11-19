@@ -1,5 +1,21 @@
 import { Category, Product, Banner, Coupon, Review } from '@/types';
 
+export const DEFAULT_FRAGRANCES = [
+  'Rose',
+  'Lavender',
+  'Ocean Breeze',
+  'Sandal',
+  'Jasmine',
+] as const;
+
+export const DEFAULT_FRAGRANCE_AVAILABILITY: Record<string, boolean> = {
+  Rose: true,
+  Lavender: true,
+  'Ocean Breeze': true,
+  Sandal: true,
+  Jasmine: true,
+};
+
 export const CATEGORIES: Category[] = [
   {
     id: 'cat-1',

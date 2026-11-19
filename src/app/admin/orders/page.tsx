@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ShoppingBag,
   Truck,
@@ -25,7 +25,7 @@ export default function AdminOrdersPage() {
       amount: 1299,
       status: 'SHIPPED',
       method: 'Razorpay',
-      items: 'Royal Festive Brass Urli (Qty 1)',
+      items: 'Royal Festive Brass Urli [Fragrance: Sandal] (Qty 1)',
       awb: 'BLUEDART-84920491',
     },
     {
@@ -36,7 +36,7 @@ export default function AdminOrdersPage() {
       amount: 2499,
       status: 'PACKED',
       method: 'Prepaid',
-      items: 'Grand Festive Gift Hamper (Qty 1)',
+      items: 'Grand Festive Gift Hamper [Fragrance: Rose] (Qty 1)',
       awb: 'PENDING_AWB',
     },
     {
@@ -47,10 +47,38 @@ export default function AdminOrdersPage() {
       amount: 699,
       status: 'CONFIRMED',
       method: 'COD',
-      items: 'Peony Bloom Concrete Jar (Qty 1)',
+      items: 'Peony Bloom Concrete Jar [Fragrance: Jasmine] (Qty 1)',
       awb: 'NOT_ASSIGNED',
     },
   ]);
+
+  useEffect(() => {
+    try {
+      const stored = JSON.parse(localStorage.getItem('ruhara_customer_orders') || '[]');
+      if (stored.length > 0) {
+        const mapped = stored.map((o: any) => ({
+          id: o.orderNumber,
+          customer: o.shippingAddress?.fullName || 'Guest Customer',
+          phone: o.shippingAddress?.phone || '+91 99999 99999',
+          address: `${o.shippingAddress?.street || ''}, ${o.shippingAddress?.city || ''} - ${o.shippingAddress?.pincode || ''}`,
+          amount: o.total || o.totalAmount || 0,
+          status: o.orderStatus || 'CONFIRMED',
+          method: o.paymentMethod || 'COD',
+          items: Array.isArray(o.items)
+            ? o.items.map((it: any) => `${it.title} [Fragrance: ${it.selectedFragrance || it.fragrance || it.scent || 'Rose'}] (Qty ${it.quantity})`).join(', ')
+            : 'Candle Package',
+          awb: o.awb || 'READY_TO_SHIP',
+        }));
+        setOrders((prev) => {
+          const existingIds = new Set(prev.map(p => p.id));
+          const newOrders = mapped.filter((m: any) => !existingIds.has(m.id));
+          return [...newOrders, ...prev];
+        });
+      }
+    } catch (e) {
+      console.error('Failed to load orders from localStorage:', e);
+    }
+  }, []);
 
   const handleCreateShipment = (orderId: string) => {
     setOrders(

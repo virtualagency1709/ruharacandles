@@ -1,16 +1,32 @@
-import { PRODUCTS, CATEGORIES, REVIEWS, COUPONS, BANNERS } from '@/data/seedData';
+import { PRODUCTS, CATEGORIES, REVIEWS, COUPONS, BANNERS, DEFAULT_FRAGRANCES, DEFAULT_FRAGRANCE_AVAILABILITY } from '@/data/seedData';
 import { Product, Category, Review, Coupon, Banner } from '@/types';
 
 export function getAllProducts(): Product[] {
-  return PRODUCTS;
+  return PRODUCTS.map((p) => ({
+    ...p,
+    availableFragrances: p.availableFragrances || [...DEFAULT_FRAGRANCES],
+    fragranceAvailability: p.fragranceAvailability || { ...DEFAULT_FRAGRANCE_AVAILABILITY },
+  }));
 }
 
 export function getProductBySlug(slug: string): Product | undefined {
-  return PRODUCTS.find((p) => p.slug === slug);
+  const p = PRODUCTS.find((p) => p.slug === slug);
+  if (!p) return undefined;
+  return {
+    ...p,
+    availableFragrances: p.availableFragrances || [...DEFAULT_FRAGRANCES],
+    fragranceAvailability: p.fragranceAvailability || { ...DEFAULT_FRAGRANCE_AVAILABILITY },
+  };
 }
 
 export function getProductById(id: string): Product | undefined {
-  return PRODUCTS.find((p) => p.id === id);
+  const p = PRODUCTS.find((p) => p.id === id);
+  if (!p) return undefined;
+  return {
+    ...p,
+    availableFragrances: p.availableFragrances || [...DEFAULT_FRAGRANCES],
+    fragranceAvailability: p.fragranceAvailability || { ...DEFAULT_FRAGRANCE_AVAILABILITY },
+  };
 }
 
 export function getProductsByCategory(categorySlug: string): Product[] {

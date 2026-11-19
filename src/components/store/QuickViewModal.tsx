@@ -10,6 +10,8 @@ import { useWishlistStore } from '@/store/wishlistStore';
 import { formatPrice, calculateDiscount } from '@/lib/utils';
 import { RatingStars } from '@/components/ui/RatingStars';
 import { Button } from '@/components/ui/Button';
+import FragranceSelector from '@/components/store/FragranceSelector';
+import { DEFAULT_FRAGRANCES } from '@/data/seedData';
 
 interface QuickViewModalProps {
   product: Product | null;
@@ -23,6 +25,8 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
 
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [selectedFragrance, setSelectedFragrance] = useState<string>('');
+  const [fragranceError, setFragranceError] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [addedAnimation, setAddedAnimation] = useState(false);
 
@@ -47,6 +51,13 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
   const discount = calculateDiscount(activeVariant.price, activeVariant.mrp);
 
   const handleAddToCart = () => {
+    // Validate required fragrance selection
+    if (!selectedFragrance) {
+      setFragranceError('Please select your preferred fragrance before adding this product to your cart.');
+      return;
+    }
+    setFragranceError(null);
+
     addItem({
       productId: product.id,
       variantId: activeVariant.id,
@@ -58,7 +69,9 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
       imageUrl: currentImg,
       stock: activeVariant.stock,
       quantity: quantity,
-      scent: activeVariant.scent,
+      scent: selectedFragrance,
+      selectedFragrance: selectedFragrance,
+      availableFragrances: product.availableFragrances || [...DEFAULT_FRAGRANCES],
       size: activeVariant.size,
     });
 
@@ -185,6 +198,20 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                 </div>
               </div>
             )}
+
+            {/* Fragrance Selector Section */}
+            <div className="border-t border-gold/20 pt-3">
+              <FragranceSelector
+                availableFragrances={product.availableFragrances}
+                fragranceAvailability={product.fragranceAvailability}
+                selectedFragrance={selectedFragrance}
+                onSelectFragrance={(f) => {
+                  setSelectedFragrance(f);
+                  setFragranceError(null);
+                }}
+                error={fragranceError}
+              />
+            </div>
 
             {/* Trust markers */}
             <div className="grid grid-cols-2 gap-2 pt-3 border-t border-gold/20 text-[11px] text-deep/70">

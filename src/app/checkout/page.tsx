@@ -100,7 +100,11 @@ export default function CheckoutPage() {
       const newOrder = {
         orderNumber,
         date: new Date().toISOString(),
-        items,
+        items: items.map((i) => ({
+          ...i,
+          selectedFragrance: i.selectedFragrance || i.scent || 'Rose',
+          fragrance: i.selectedFragrance || i.scent || 'Rose',
+        })),
         subtotal,
         discount,
         shippingFee: shipping,
@@ -375,18 +379,26 @@ export default function CheckoutPage() {
               {/* Items List preview */}
               <div className="max-h-60 overflow-y-auto divide-y divide-cream-200 pr-1 space-y-2">
                 {items.map((item) => (
-                  <div key={`${item.productId}-${item.variantId}`} className="pt-2 flex items-center gap-3">
+                  <div
+                    key={`${item.productId}-${item.selectedFragrance || 'default'}-${item.variantId || 'default'}`}
+                    className="pt-2 flex items-center gap-3"
+                  >
                     <div className="relative w-12 h-14 rounded-lg overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
-                      <Image src={item.imageUrl || `/placeholders/${item.slug}.svg` || '/logo.png'} alt={item.title} fill className="object-cover" />
+                      <Image
+                        src={item.imageUrl || `/placeholders/${item.slug}.svg` || '/logo.png'}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                      />
                       <span className="absolute top-0 right-0 bg-deep text-cream-50 text-[9px] font-bold w-4 h-4 rounded-bl flex items-center justify-center">
                         {item.quantity}
                       </span>
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-xs font-semibold text-deep truncate">{item.title}</p>
-                      {item.variantName && (
-                        <p className="text-[10px] text-deep/60">{item.variantName}</p>
-                      )}
+                      <p className="text-[10px] text-primary font-bold">
+                        Fragrance: {item.selectedFragrance || item.scent || 'Rose'}
+                      </p>
                     </div>
                     <span className="text-xs font-bold text-deep">
                       {formatPrice(item.price * item.quantity)}

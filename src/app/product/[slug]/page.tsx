@@ -31,6 +31,8 @@ import { RatingStars } from '@/components/ui/RatingStars';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import ProductCard from '@/components/store/ProductCard';
+import FragranceSelector from '@/components/store/FragranceSelector';
+import { DEFAULT_FRAGRANCES } from '@/data/seedData';
 
 interface ProductDetailPageProps {
   params: {
@@ -78,6 +80,8 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
+  const [selectedFragrance, setSelectedFragrance] = useState<string>('');
+  const [fragranceError, setFragranceError] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [pincode, setPincode] = useState('');
   const [pincodeStatus, setPincodeStatus] = useState<{
@@ -107,6 +111,15 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const relatedProducts = getRelatedProducts(product.id, product.categoryId, 4);
 
   const handleAddToCart = () => {
+    // Validate required fragrance selection
+    if (!selectedFragrance) {
+      setFragranceError('Please select your preferred fragrance before adding this product to your cart.');
+      const el = document.getElementById('fragrance-selector-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return false;
+    }
+    setFragranceError(null);
+
     addItem({
       productId: product.id,
       variantId: selectedVariant?.id,
@@ -117,15 +130,20 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
       mrp: currentMrp,
       imageUrl: images[0].url,
       stock: selectedVariant?.stock || 10,
-      scent: selectedVariant?.scent,
+      scent: selectedFragrance,
+      selectedFragrance: selectedFragrance,
+      availableFragrances: product.availableFragrances || [...DEFAULT_FRAGRANCES],
       size: selectedVariant?.size,
       quantity,
     });
+    return true;
   };
 
   const handleBuyNow = () => {
-    handleAddToCart();
-    router.push('/checkout');
+    const success = handleAddToCart();
+    if (success) {
+      router.push('/checkout');
+    }
   };
 
   const handleCheckPincode = (e: React.FormEvent) => {
@@ -266,8 +284,22 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
               <p className="text-[11px] text-deep/60">Inclusive of all taxes • Free Shipping above ₹999</p>
             </div>
 
-            {/* Variant Selector */}
-            {product.variants.length > 0 && (
+            {/* Fragrance Selector Section */}
+            <div id="fragrance-selector-section" className="border-t border-b border-gold/20 py-4 my-1">
+              <FragranceSelector
+                availableFragrances={product.availableFragrances}
+                fragranceAvailability={product.fragranceAvailability}
+                selectedFragrance={selectedFragrance}
+                onSelectFragrance={(f) => {
+                  setSelectedFragrance(f);
+                  setFragranceError(null);
+                }}
+                error={fragranceError}
+              />
+            </div>
+
+            {/* Variant Selector (if multiple size options exist) */}
+            {product.variants.length > 1 && (
               <div className="space-y-3">
                 <label className="text-xs font-bold uppercase tracking-wider text-deep/80 block">
                   Select Size &amp; Scent:
