@@ -208,7 +208,9 @@ export default function CollectionPage({ params }: CollectionPageProps) {
             >
               All Candles
             </Link>
-            {allCategories.map((cat) => (
+            {allCategories
+              .filter((cat) => cat.slug !== 'terracotta-candles')
+              .map((cat) => (
               <Link
                 key={cat.id}
                 href={`/collection/${cat.slug}`}

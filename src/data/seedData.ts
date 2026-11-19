@@ -84,14 +84,12 @@ export const CATEGORIES: Category[] = [
     id: 'cat-8',
     name: 'Home Decor',
     slug: 'home-decor',
-    description: 'Handcrafted ceramic vases, brass trays, pooja chowkis, and artisanal candle accessories.',
+    description: 'Handcrafted concrete vessels, trays, and artisanal candle accessories.',
     imageUrl: '/placeholders/concrete-tray-and-ribbed-vase-with-peony-candle.svg',
     sortOrder: 8,
     isFeatured: true,
     subcategories: [
-      { id: 'sub-1', name: 'Ceramic Vases', slug: 'vases' },
-      { id: 'sub-2', name: 'Artisanal Trays', slug: 'trays' },
-      { id: 'sub-3', name: 'Pooja Essentials', slug: 'pooja-essentials' },
+      { id: 'sub-concrete', name: 'Concrete Jar Candles', slug: 'concrete-jar-candles' },
     ],
   },
   {

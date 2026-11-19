@@ -269,7 +269,15 @@ export default function LuxuryHomePage() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
-          {CATEGORIES.slice(0, 6).map((cat) => (
+          {CATEGORIES.filter(
+            (c) =>
+              c.slug !== 'home-decor' &&
+              c.slug !== 'gift-hampers' &&
+              c.slug !== 'empty-jars-diy' &&
+              c.slug !== 'terracotta-candles'
+          )
+            .slice(0, 6)
+            .map((cat) => (
             <Link
               key={cat.id}
               href={`/collection/${cat.slug}`}

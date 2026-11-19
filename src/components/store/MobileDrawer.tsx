@@ -32,7 +32,8 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
     (c) =>
       c.slug !== 'home-decor' &&
       c.slug !== 'gift-hampers' &&
-      c.slug !== 'empty-jars-diy'
+      c.slug !== 'empty-jars-diy' &&
+      c.slug !== 'terracotta-candles'
   );
 
   return (
@@ -156,25 +157,11 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   All Home Decor
                 </Link>
                 <Link
-                  href="/collection/home-decor?type=vases"
+                  href="/collection/concrete-jar-candles"
                   onClick={onClose}
                   className="block px-3 py-2 text-xs text-deep/80 hover:text-primary hover:bg-cream-50 rounded-lg"
                 >
-                  Ceramic Vases
-                </Link>
-                <Link
-                  href="/collection/home-decor?type=trays"
-                  onClick={onClose}
-                  className="block px-3 py-2 text-xs text-deep/80 hover:text-primary hover:bg-cream-50 rounded-lg"
-                >
-                  Artisanal Brass Trays
-                </Link>
-                <Link
-                  href="/collection/home-decor?type=pooja-essentials"
-                  onClick={onClose}
-                  className="block px-3 py-2 text-xs text-deep/80 hover:text-primary hover:bg-cream-50 rounded-lg"
-                >
-                  Pooja Essentials
+                  Concrete Jar Candles
                 </Link>
               </div>
             )}

@@ -110,16 +110,24 @@ export default function Footer() {
               Shop Collections
             </h4>
             <ul className="space-y-2 text-xs text-cream-200/80">
-              {CATEGORIES.slice(0, 6).map((cat) => (
-                <li key={cat.id}>
-                  <Link
-                    href={`/collection/${cat.slug}`}
-                    className="hover:text-gold transition-colors block py-0.5"
-                  >
-                    {cat.name}
-                  </Link>
-                </li>
-              ))}
+              {CATEGORIES.filter(
+                (c) =>
+                  c.slug !== 'home-decor' &&
+                  c.slug !== 'gift-hampers' &&
+                  c.slug !== 'empty-jars-diy' &&
+                  c.slug !== 'terracotta-candles'
+              )
+                .slice(0, 6)
+                .map((cat) => (
+                  <li key={cat.id}>
+                    <Link
+                      href={`/collection/${cat.slug}`}
+                      className="hover:text-gold transition-colors block py-0.5"
+                    >
+                      {cat.name}
+                    </Link>
+                  </li>
+                ))}
               <li>
                 <Link
                   href="/collection/all"

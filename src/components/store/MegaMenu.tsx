@@ -13,7 +13,8 @@ export default function MegaMenu() {
     (c) =>
       c.slug !== 'home-decor' &&
       c.slug !== 'gift-hampers' &&
-      c.slug !== 'empty-jars-diy'
+      c.slug !== 'empty-jars-diy' &&
+      c.slug !== 'terracotta-candles'
   );
 
   const homeDecorCategory = CATEGORIES.find((c) => c.slug === 'home-decor');
@@ -157,15 +158,12 @@ export default function MegaMenu() {
                   >
                     All Home Decor
                   </Link>
-                  {homeDecorCategory?.subcategories?.map((sub) => (
-                    <Link
-                      key={sub.id}
-                      href={`/collection/home-decor?type=${sub.slug}`}
-                      className="block p-2 rounded-lg hover:bg-cream-50 transition-colors text-xs normal-case tracking-normal text-deep/80 hover:text-primary"
-                    >
-                      {sub.name}
-                    </Link>
-                  ))}
+                  <Link
+                    href="/collection/concrete-jar-candles"
+                    className="block p-2 rounded-lg hover:bg-cream-50 transition-colors text-xs normal-case tracking-normal text-deep/80 hover:text-primary"
+                  >
+                    Concrete Jar Candles
+                  </Link>
                   <div className="pt-2 border-t border-cream-200">
                     <Link
                       href="/product/heritage-brass-candle-snuffer-wick-trimmer-set"
