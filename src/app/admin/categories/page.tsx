@@ -29,7 +29,13 @@ export default function AdminCategoriesPage() {
             className="bg-ivory rounded-2xl border border-gold/25 p-4 shadow-warm-sm flex items-center gap-4"
           >
             <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-cream-200 flex-shrink-0 border border-gold/30">
-              <Image src={cat.imageUrl || ''} alt={cat.name} fill className="object-cover" />
+              <Image
+                src={cat.imageUrl || ''}
+                alt={cat.name}
+                fill
+                unoptimized={Boolean(cat.imageUrl?.endsWith('.svg'))}
+                className="object-cover"
+              />
             </div>
             <div className="flex-1 min-w-0">
               <h3 className="font-serif text-base font-bold text-deep truncate">{cat.name}</h3>

@@ -175,6 +175,7 @@ export default function LuxuryHomePage() {
                       src={PRODUCTS[0]?.images[0]?.url || "/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg"}
                       alt={PRODUCTS[0]?.title || "White Concrete Tray And Ribbed Vase With Peony Candle"}
                       fill
+                      unoptimized={true}
                       className="object-cover"
                     />
                   </div>
@@ -202,6 +203,7 @@ export default function LuxuryHomePage() {
                       src={PRODUCTS[1]?.images[0]?.url || "/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg"}
                       alt={PRODUCTS[1]?.title || "Pink Tulip Bouquet Decorative Candle"}
                       fill
+                      unoptimized={true}
                       className="object-cover"
                     />
                   </div>
@@ -288,6 +290,7 @@ export default function LuxuryHomePage() {
                   src={cat.imageUrl || ''}
                   alt={cat.name}
                   fill
+                  unoptimized={Boolean(cat.imageUrl?.endsWith('.svg'))}
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
@@ -370,9 +373,10 @@ export default function LuxuryHomePage() {
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-md aspect-[4/5] rounded-[160px_160px_24px_24px] overflow-hidden border-2 border-gold/40 shadow-2xl">
               <Image
-                src="/placeholders/scented-peony-flower-candle-with-premiu.svg"
+                src="/placeholders/scented-peony-flower-candle-for-home-decor.svg"
                 alt="Slow living candle ambiance"
                 fill
+                unoptimized={true}
                 className="object-cover"
               />
             </div>
@@ -559,6 +563,7 @@ export default function LuxuryHomePage() {
               src="/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg"
               alt="Curated gift hamper bundle"
               fill
+              unoptimized={true}
               className="object-cover"
             />
           </div>
@@ -632,7 +637,7 @@ export default function LuxuryHomePage() {
               rel="noopener noreferrer"
               className="relative aspect-square rounded-2xl overflow-hidden border border-gold/30 shadow-sm group"
             >
-              <Image src={url} alt="Ruhara candle inspiration" fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+              <Image src={url} alt="Ruhara candle inspiration" fill unoptimized={true} className="object-cover group-hover:scale-110 transition-transform duration-500" />
               <div className="absolute inset-0 bg-deep/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
                 <Instagram className="w-6 h-6" />
               </div>

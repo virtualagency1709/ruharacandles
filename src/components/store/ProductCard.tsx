@@ -66,6 +66,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             alt={product.title}
             fill
             priority={priority}
+            unoptimized={Boolean(typeof primaryImg === 'string' && primaryImg.endsWith('.svg'))}
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             className={`object-cover transition-all duration-700 ease-out ${
               isHovered && hoverImg !== primaryImg
@@ -80,6 +81,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               src={hoverImg}
               alt={`${product.title} lifestyle view`}
               fill
+              unoptimized={Boolean(typeof hoverImg === 'string' && hoverImg.endsWith('.svg'))}
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               className={`object-cover transition-all duration-700 ease-out absolute inset-0 ${
                 isHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-100'

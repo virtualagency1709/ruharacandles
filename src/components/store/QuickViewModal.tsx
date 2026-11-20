@@ -108,6 +108,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
               src={currentImg}
               alt={product.title}
               fill
+              unoptimized={Boolean(typeof currentImg === 'string' && currentImg.endsWith('.svg'))}
               className="object-cover transition-all duration-300"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
@@ -134,7 +135,13 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                     selectedImageIndex === i ? 'border-primary ring-2 ring-primary/20 scale-105' : 'border-gold/30 opacity-70'
                   }`}
                 >
-                  <Image src={img.url} alt="" fill className="object-cover" />
+                  <Image
+                    src={img.url}
+                    alt=""
+                    fill
+                    unoptimized={Boolean(typeof img.url === 'string' && img.url.endsWith('.svg'))}
+                    className="object-cover"
+                  />
                 </button>
               ))}
             </div>

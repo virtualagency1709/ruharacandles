@@ -134,9 +134,10 @@ export default function CartPage() {
                     {/* Thumbnail */}
                     <div className="relative w-20 h-24 sm:w-24 sm:h-28 rounded-xl overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20 shadow-inner">
                       <Image
-                        src={item.imageUrl || `/placeholders/${item.slug}.svg` || '/logo.png'}
+                        src={item.imageUrl || `/placeholders/${item.slug}.svg` || '/images/logo.svg'}
                         alt={item.title}
                         fill
+                        unoptimized={true}
                         className="object-cover"
                       />
                     </div>

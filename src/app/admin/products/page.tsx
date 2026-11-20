@@ -245,6 +245,7 @@ export default function AdminProductsPage() {
                               src={displayImg}
                               alt={prod.title}
                               fill
+                              unoptimized={Boolean(typeof displayImg === 'string' && displayImg.endsWith('.svg'))}
                               className="object-cover"
                               sizes="48px"
                             />
@@ -568,7 +569,13 @@ function EditProductModal({
                     img.isPrimary ? 'border-primary ring-2 ring-primary/20' : 'border-gold/30'
                   }`}
                 >
-                  <Image src={img.url} alt="" fill className="object-cover" />
+                  <Image
+                    src={img.url}
+                    alt=""
+                    fill
+                    unoptimized={Boolean(typeof img.url === 'string' && img.url.endsWith('.svg'))}
+                    className="object-cover"
+                  />
                   <div className="absolute inset-0 bg-deep/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 p-1">
                     {!img.isPrimary && (
                       <button

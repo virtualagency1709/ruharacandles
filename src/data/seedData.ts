@@ -22,7 +22,7 @@ export const CATEGORIES: Category[] = [
     name: 'Floral Candles',
     slug: 'floral-candles',
     description: 'Delicately handcrafted sculpted floral candles inspired by blossoming gardens.',
-    imageUrl: '/products/pink-tulip-bouquet-decorative-candle-with-green-base.jpg',
+    imageUrl: '/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg',
     sortOrder: 1,
     isFeatured: true,
   },
@@ -31,7 +31,7 @@ export const CATEGORIES: Category[] = [
     name: 'Glass Jar Candles',
     slug: 'glass-jar-candles',
     description: 'Premium amber & frosted glass jars with clean-burning pure soy wax and wooden wicks.',
-    imageUrl: '/products/pink-tulip-candle-in-glass.jpg',
+    imageUrl: '/placeholders/pink-tulip-candle-in-glass.svg',
     sortOrder: 2,
     isFeatured: true,
   },
@@ -40,7 +40,7 @@ export const CATEGORIES: Category[] = [
     name: 'Concrete Jar Candles',
     slug: 'concrete-jar-candles',
     description: 'Modern architectural concrete vessels hand-cast in earthy pastel tones.',
-    imageUrl: '/products/white-concrete-tray-and-ribbed-vase-with-peony-candle.jpg',
+    imageUrl: '/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg',
     sortOrder: 3,
     isFeatured: true,
   },
@@ -49,7 +49,7 @@ export const CATEGORIES: Category[] = [
     name: 'Urli Candles',
     slug: 'urli-candles',
     description: 'Traditional metal & brass urlis filled with slow-burning aromatic wax for festivities.',
-    imageUrl: '/products/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.jpg',
+    imageUrl: '/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg',
     sortOrder: 4,
     isFeatured: true,
   },
@@ -85,7 +85,7 @@ export const CATEGORIES: Category[] = [
     name: 'Home Decor',
     slug: 'home-decor',
     description: 'Handcrafted concrete vessels, trays, and artisanal candle accessories.',
-    imageUrl: '/products/concrete-tray-and-ribbed-vase-with-peony-candle.jpg',
+    imageUrl: '/placeholders/concrete-tray-and-ribbed-vase-with-peony-candle.svg',
     sortOrder: 8,
     isFeatured: true,
     subcategories: [
@@ -152,7 +152,7 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-white-concrete-tray-and-ribbed-vase-with-peony-candle-1",
-        "url": "/products/white-concrete-tray-and-ribbed-vase-with-peony-candle.jpg",
+        "url": "/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg",
         "altText": "White Concrete Tray And Ribbed Vase With Peony Candle - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
@@ -167,7 +167,7 @@ export const PRODUCTS: Product[] = [
         "price": 549,
         "mrp": 549,
         "stock": 25,
-        "imageUrl": "/products/white-concrete-tray-and-ribbed-vase-with-peony-candle.jpg"
+        "imageUrl": "/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg"
       }
     ],
     "rating": 4.9,
@@ -214,7 +214,7 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-pink-tulip-bouquet-decorative-candle-with-green-base-1",
-        "url": "/products/pink-tulip-bouquet-decorative-candle-with-green-base.jpg",
+        "url": "/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg",
         "altText": "Pink Tulip Bouquet Decorative Candle With Green Base - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
@@ -229,7 +229,7 @@ export const PRODUCTS: Product[] = [
         "price": 199,
         "mrp": 199,
         "stock": 25,
-        "imageUrl": "/products/pink-tulip-bouquet-decorative-candle-with-green-base.jpg"
+        "imageUrl": "/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg"
       }
     ],
     "rating": 4.9,
@@ -276,7 +276,7 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-daisy-floating-candles-soy-wax-smokeless-long-lasting-decorati-1",
-        "url": "/products/daisy-floating-candles-soy-wax-smokeless-long-lasting-decorati.jpg",
+        "url": "/placeholders/daisy-floating-candles-soy-wax-smokeless-long-lasting-decorati.svg",
         "altText": "Daisy Floating Candles Soy Wax Smokeless Long Lasting Decorati… - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
@@ -291,7 +291,7 @@ export const PRODUCTS: Product[] = [
         "price": 249,
         "mrp": 249,
         "stock": 25,
-        "imageUrl": "/products/daisy-floating-candles-soy-wax-smokeless-long-lasting-decorati.jpg"
+        "imageUrl": "/placeholders/daisy-floating-candles-soy-wax-smokeless-long-lasting-decorati.svg"
       }
     ],
     "rating": 4.9,
@@ -338,7 +338,7 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle-1",
-        "url": "/products/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.jpg",
+        "url": "/placeholders/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg",
         "altText": "Yellow Concrete Tray And Ribbed Vase With Lotus Jar Candle - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
@@ -353,7 +353,7 @@ export const PRODUCTS: Product[] = [
         "price": 549,
         "mrp": 549,
         "stock": 25,
-        "imageUrl": "/products/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.jpg"
+        "imageUrl": "/placeholders/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg"
       }
     ],
     "rating": 4.9,
@@ -400,7 +400,7 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-concrete-tray-and-ribbed-vase-with-peony-candle-1",
-        "url": "/products/concrete-tray-and-ribbed-vase-with-peony-candle.jpg",
+        "url": "/placeholders/concrete-tray-and-ribbed-vase-with-peony-candle.svg",
         "altText": "Concrete Tray And Ribbed Vase With Peony Candle - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
@@ -415,7 +415,7 @@ export const PRODUCTS: Product[] = [
         "price": 449,
         "mrp": 449,
         "stock": 25,
-        "imageUrl": "/products/concrete-tray-and-ribbed-vase-with-peony-candle.jpg"
+        "imageUrl": "/placeholders/concrete-tray-and-ribbed-vase-with-peony-candle.svg"
       }
     ],
     "rating": 4.9,
@@ -462,7 +462,7 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-green-concrete-tray-and-ribbed-vase-with-lotus-jar-candle-1",
-        "url": "/products/green-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.jpg",
+        "url": "/placeholders/green-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg",
         "altText": "Green Concrete Tray And Ribbed Vase With Lotus Jar Candle - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
@@ -477,7 +477,7 @@ export const PRODUCTS: Product[] = [
         "price": 549,
         "mrp": 549,
         "stock": 25,
-        "imageUrl": "/products/green-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.jpg"
+        "imageUrl": "/placeholders/green-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg"
       }
     ],
     "rating": 4.9,
@@ -524,7 +524,7 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-pink-tulip-candle-in-glass-1",
-        "url": "/products/pink-tulip-candle-in-glass.jpg",
+        "url": "/placeholders/pink-tulip-candle-in-glass.svg",
         "altText": "Pink Tulip Candle In Glass - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
@@ -539,7 +539,7 @@ export const PRODUCTS: Product[] = [
         "price": 599,
         "mrp": 599,
         "stock": 25,
-        "imageUrl": "/products/pink-tulip-candle-in-glass.jpg"
+        "imageUrl": "/placeholders/pink-tulip-candle-in-glass.svg"
       }
     ],
     "rating": 4.9,
@@ -586,7 +586,7 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-yellow-tulip-bouquet-decorative-candle-with-green-base-1",
-        "url": "/products/yellow-tulip-bouquet-decorative-candle-with-green-base.jpg",
+        "url": "/placeholders/yellow-tulip-bouquet-decorative-candle-with-green-base.svg",
         "altText": "Yellow Tulip Bouquet Decorative Candle With Green Base - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
@@ -601,7 +601,7 @@ export const PRODUCTS: Product[] = [
         "price": 199,
         "mrp": 199,
         "stock": 25,
-        "imageUrl": "/products/yellow-tulip-bouquet-decorative-candle-with-green-base.jpg"
+        "imageUrl": "/placeholders/yellow-tulip-bouquet-decorative-candle-with-green-base.svg"
       }
     ],
     "rating": 4.9,
@@ -648,7 +648,7 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-yellow-tulip-candle-in-glass-1",
-        "url": "/products/yellow-tulip-candle-in-glass.jpg",
+        "url": "/placeholders/yellow-tulip-candle-in-glass.svg",
         "altText": "Yellow Tulip Candle In Glass - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
@@ -663,7 +663,7 @@ export const PRODUCTS: Product[] = [
         "price": 599,
         "mrp": 599,
         "stock": 25,
-        "imageUrl": "/products/yellow-tulip-candle-in-glass.jpg"
+        "imageUrl": "/placeholders/yellow-tulip-candle-in-glass.svg"
       }
     ],
     "rating": 4.9,
@@ -710,7 +710,7 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-3-5in-metal-urli-candle-with-lotus-and-mogra-flower-1",
-        "url": "/products/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.jpg",
+        "url": "/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg",
         "altText": "3.5In Metal Urli Candle With Lotus And Mogra Flower - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
@@ -725,7 +725,7 @@ export const PRODUCTS: Product[] = [
         "price": 299,
         "mrp": 299,
         "stock": 25,
-        "imageUrl": "/products/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.jpg"
+        "imageUrl": "/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg"
       }
     ],
     "rating": 4.9,
@@ -958,7 +958,7 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-concrete-mirror-jar-with-yellow-jasmine-flower-1",
-        "url": "/products/concrete-mirror-jar-with-yellow-jasmine-flower.jpg",
+        "url": "/placeholders/concrete-mirror-jar-with-yellow-jasmine-flower.svg",
         "altText": "Concrete Mirror Jar With Yellow Jasmine Flower - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
@@ -973,7 +973,7 @@ export const PRODUCTS: Product[] = [
         "price": 299,
         "mrp": 299,
         "stock": 25,
-        "imageUrl": "/products/concrete-mirror-jar-with-yellow-jasmine-flower.jpg"
+        "imageUrl": "/placeholders/concrete-mirror-jar-with-yellow-jasmine-flower.svg"
       }
     ],
     "rating": 4.9,
@@ -1020,7 +1020,7 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-scented-peony-flower-candle-for-home-decor-1",
-        "url": "/products/scented-peony-flower-candle-for-home-decor.jpg",
+        "url": "/placeholders/scented-peony-flower-candle-for-home-decor.svg",
         "altText": "Scented Peony Flower Candle For Home Decor - Product Image Coming Soon",
         "isPrimary": true,
         "sortOrder": 1
@@ -1035,7 +1035,7 @@ export const PRODUCTS: Product[] = [
         "price": 249,
         "mrp": 249,
         "stock": 25,
-        "imageUrl": "/products/scented-peony-flower-candle-for-home-decor.jpg"
+        "imageUrl": "/placeholders/scented-peony-flower-candle-for-home-decor.svg"
       }
     ],
     "rating": 4.9,

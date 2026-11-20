@@ -157,6 +157,7 @@ export default function Header() {
                               src={product.images[0]?.url || ''}
                               alt={product.title}
                               fill
+                              unoptimized={Boolean(product.images[0]?.url?.endsWith('.svg'))}
                               className="object-cover"
                             />
                           </div>
@@ -296,6 +297,7 @@ export default function Header() {
                           src={product.images[0]?.url || ''}
                           alt={product.title}
                           fill
+                          unoptimized={Boolean(product.images[0]?.url?.endsWith('.svg'))}
                           className="object-cover"
                         />
                       </div>

@@ -385,9 +385,10 @@ export default function CheckoutPage() {
                   >
                     <div className="relative w-12 h-14 rounded-lg overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
                       <Image
-                        src={item.imageUrl || `/placeholders/${item.slug}.svg` || '/logo.png'}
+                        src={item.imageUrl || `/placeholders/${item.slug}.svg` || '/images/logo.svg'}
                         alt={item.title}
                         fill
+                        unoptimized={true}
                         className="object-cover"
                       />
                       <span className="absolute top-0 right-0 bg-deep text-cream-50 text-[9px] font-bold w-4 h-4 rounded-bl flex items-center justify-center">

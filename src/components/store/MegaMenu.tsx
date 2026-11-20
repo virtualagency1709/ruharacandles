@@ -85,6 +85,7 @@ export default function MegaMenu() {
                               src={cat.imageUrl || ''}
                               alt={cat.name}
                               fill
+                              unoptimized={Boolean(cat.imageUrl?.endsWith('.svg'))}
                               className="object-cover"
                             />
                           </div>
@@ -116,9 +117,10 @@ export default function MegaMenu() {
                     </div>
                     <div className="relative h-28 w-full rounded-xl overflow-hidden mb-3 shadow-inner">
                       <Image
-                        src="https://images.unsplash.com/photo-1608755728617-aefab37d2edd?q=80&w=800&auto=format&fit=crop"
+                        src="/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg"
                         alt="Royal Festive Brass Urli"
                         fill
+                        unoptimized={true}
                         className="object-cover"
                       />
                     </div>

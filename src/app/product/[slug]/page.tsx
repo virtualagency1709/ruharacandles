@@ -191,6 +191,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                 alt={product.title}
                 fill
                 priority
+                unoptimized={Boolean(typeof (images[selectedImageIndex]?.url || images[0]?.url) === 'string' && (images[selectedImageIndex]?.url || images[0]?.url).endsWith('.svg'))}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover transition-all duration-500"
               />
@@ -231,6 +232,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                       src={img.url}
                       alt={`${product.title} thumbnail ${idx + 1}`}
                       fill
+                      unoptimized={Boolean(typeof img.url === 'string' && img.url.endsWith('.svg'))}
                       className="object-cover"
                     />
                   </button>

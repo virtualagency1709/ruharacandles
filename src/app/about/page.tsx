@@ -33,6 +33,7 @@ export default function AboutPage() {
               src="/placeholders/scented-peony-flower-candle-with-premiu.svg"
               alt="Artisan pouring soy wax in Delhi NCR studio"
               fill
+              unoptimized={true}
               className="object-cover"
             />
           </div>

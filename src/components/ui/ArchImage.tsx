@@ -55,6 +55,7 @@ export function ArchImage({
           alt={alt}
           fill
           priority={priority}
+          unoptimized={Boolean(typeof src === 'string' && src.endsWith('.svg'))}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />

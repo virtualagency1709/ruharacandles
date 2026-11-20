@@ -31,7 +31,13 @@ export default function AdminBannersPage() {
             className="bg-ivory rounded-2xl border border-gold/25 p-5 shadow-warm-sm flex flex-col md:flex-row items-center gap-6"
           >
             <div className="relative w-full md:w-56 h-32 rounded-xl overflow-hidden bg-cream-200 flex-shrink-0 border border-gold/30">
-              <Image src={b.desktopImage} alt={b.title} fill className="object-cover" />
+              <Image
+                src={b.desktopImage}
+                alt={b.title}
+                fill
+                unoptimized={Boolean(b.desktopImage?.endsWith('.svg'))}
+                className="object-cover"
+              />
             </div>
             <div className="flex-1 space-y-1.5 text-xs">
               <span className="text-[10px] font-bold text-primary uppercase tracking-wider">
