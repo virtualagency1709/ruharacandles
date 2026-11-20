@@ -2958,7 +2958,7 @@ export const PRODUCTS: Product[] = [
         "price": 299,
         "mrp": 399,
         "stock": 30,
-        "scent": "French Lavender",
+        "scent": "Lavender",
         "imageUrl": "/placeholders/lavender-and-dried-botanical-wardrobe-wax-sachet-pack-of-2.svg"
       }
     ],
@@ -3022,7 +3022,7 @@ export const PRODUCTS: Product[] = [
         "price": 249,
         "mrp": 349,
         "stock": 25,
-        "scent": "Damask Rose & Oud",
+        "scent": "Rose",
         "imageUrl": "/placeholders/rose-petal-and-cardamom-scented-wardrobe-wax-sachet.svg"
       }
     ],
@@ -3086,7 +3086,7 @@ export const PRODUCTS: Product[] = [
         "price": 279,
         "mrp": 349,
         "stock": 20,
-        "scent": "Mysore Sandalwood",
+        "scent": "Sandal",
         "imageUrl": "/placeholders/mysore-sandalwood-and-marigold-botanical-wax-sachet.svg"
       }
     ],
@@ -3150,7 +3150,7 @@ export const PRODUCTS: Product[] = [
         "price": 299,
         "mrp": 399,
         "stock": 22,
-        "scent": "Zesty Marigold & Citrus",
+        "scent": "Ocean Breeze",
         "imageUrl": "/placeholders/zesty-citrus-blossom-and-cinnamon-wardrobe-wax-sachet.svg"
       }
     ],
@@ -3177,7 +3177,7 @@ export const BANNERS: Banner[] = [
   {
     id: 'banner-2',
     title: 'Pure Aromatherapy & Sacred Woods',
-    subtitle: 'Calm your soul with French Lavender, Mysore Sandalwood & Madurai Jasmine.',
+    subtitle: 'Calm your soul with Rose, Lavender, Ocean Breeze, Sandal & Jasmine.',
     ctaText: 'Explore Scented Jars',
     ctaLink: '/collection/glass-jar-candles',
     desktopImage: '/placeholders/transparent-glass-jar-with-decorative-candle.svg',

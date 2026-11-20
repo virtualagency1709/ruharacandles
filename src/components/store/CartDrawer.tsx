@@ -199,7 +199,7 @@ export default function CartDrawer() {
                       className="bg-ivory border border-gold/40 rounded text-xs font-bold text-primary px-2 py-0.5 focus:outline-none focus:border-gold cursor-pointer"
                     >
                       {(item.availableFragrances && item.availableFragrances.length > 0
-                        ? item.availableFragrances
+                        ? item.availableFragrances.filter((f) => (DEFAULT_FRAGRANCES as readonly string[]).includes(f))
                         : DEFAULT_FRAGRANCES
                       ).map((frag) => (
                         <option key={frag} value={frag}>

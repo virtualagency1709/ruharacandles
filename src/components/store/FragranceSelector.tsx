@@ -15,11 +15,11 @@ interface FragranceSelectorProps {
 
 // Subtle luxury descriptors & accent colors for the 5 signature fragrances
 const FRAGRANCE_DETAILS: Record<string, { desc: string; accent: string }> = {
-  Rose: { desc: 'Damask Rose & Floral Notes', accent: '#D9777F' },
-  Lavender: { desc: 'French Calming Lavender', accent: '#8E7DBE' },
+  Rose: { desc: 'Delicate Floral Petals', accent: '#D9777F' },
+  Lavender: { desc: 'Calming Botanical Herb', accent: '#8E7DBE' },
   'Ocean Breeze': { desc: 'Crisp Marine Sea Salt', accent: '#5A9BB5' },
-  Sandal: { desc: 'Sacred Mysore Sandalwood', accent: '#C88A3B' },
-  Jasmine: { desc: 'Madurai Night Jasmine', accent: '#D8A94A' },
+  Sandal: { desc: 'Warm Sacred Wood', accent: '#C88A3B' },
+  Jasmine: { desc: 'Fresh Blooming Blossom', accent: '#D8A94A' },
 };
 
 export default function FragranceSelector({
@@ -30,9 +30,12 @@ export default function FragranceSelector({
   error,
   className = '',
 }: FragranceSelectorProps) {
+  const filteredAvailable = availableFragrances?.filter((f) =>
+    (DEFAULT_FRAGRANCES as readonly string[]).includes(f)
+  );
   const fragrances =
-    availableFragrances && availableFragrances.length > 0
-      ? availableFragrances
+    filteredAvailable && filteredAvailable.length > 0
+      ? filteredAvailable
       : [...DEFAULT_FRAGRANCES];
 
   return (

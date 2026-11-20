@@ -304,7 +304,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             {product.variants.length > 1 && (
               <div className="space-y-3">
                 <label className="text-xs font-bold uppercase tracking-wider text-deep/80 block">
-                  Select Size &amp; Scent:
+                  Select Option:
                 </label>
                 <div className="flex flex-wrap gap-2.5">
                   {product.variants.map((v, idx) => {

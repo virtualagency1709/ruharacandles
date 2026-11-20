@@ -27,17 +27,13 @@ interface CollectionPageProps {
   };
 }
 
-const ALL_SCENTS = [
-  'French Lavender',
-  'Mysore Sandalwood',
-  'Madurai Jasmine',
-  'Vanilla & Cinnamon',
-  'Cardamom & Saffron',
-  'Damask Rose & Oud',
-  'Peony & Rose',
-  'Zesty Marigold & Citrus',
-  'Pine & Cedar',
-];
+const ALL_FRAGRANCES = [
+  'Rose',
+  'Lavender',
+  'Ocean Breeze',
+  'Sandal',
+  'Jasmine',
+] as const;
 
 export default function CollectionPage({ params }: CollectionPageProps) {
   const currentSlug = params.slug || 'all';
@@ -85,11 +81,25 @@ export default function CollectionPage({ params }: CollectionPageProps) {
     // Price filter
     list = list.filter((p) => p.basePrice >= minPrice && p.basePrice <= maxPrice);
 
-    // Scent filter
+    // Fragrance filter (matches standardized fragrances offered by product)
     if (selectedScents.length > 0) {
-      list = list.filter((p) =>
-        p.variants.some((v) => v.scent && selectedScents.includes(v.scent))
-      );
+      list = list.filter((p) => {
+        const hasAvailableFragrance = selectedScents.some((frag) => {
+          if (p.fragranceAvailability && p.fragranceAvailability[frag] === false) {
+            return false;
+          }
+          if (p.availableFragrances && p.availableFragrances.length > 0) {
+            return p.availableFragrances.includes(frag);
+          }
+          return true;
+        });
+
+        const hasVariantScent = p.variants.some(
+          (v) => v.scent && selectedScents.includes(v.scent)
+        );
+
+        return hasAvailableFragrance || hasVariantScent;
+      });
     }
 
     // Stock filter
@@ -332,26 +342,26 @@ export default function CollectionPage({ params }: CollectionPageProps) {
               />
             </div>
 
-            {/* Fragrance / Scent Notes */}
+            {/* Select Fragrance Filter */}
             <div className="space-y-2.5 pt-4 border-t border-cream-200">
               <label className="text-xs font-bold uppercase tracking-wider text-deep/80 block">
-                Botanical Scent Notes
+                Select Fragrance
               </label>
-              <div className="space-y-1.5 max-h-52 overflow-y-auto pr-1">
-                {ALL_SCENTS.map((scent) => {
+              <div className="space-y-2">
+                {ALL_FRAGRANCES.map((scent) => {
                   const isChecked = selectedScents.includes(scent);
                   return (
                     <label
                       key={scent}
-                      className="flex items-center gap-2 text-xs text-deep/80 hover:text-deep cursor-pointer"
+                      className="flex items-center gap-2.5 text-xs text-deep/85 hover:text-deep cursor-pointer py-0.5"
                     >
                       <input
                         type="checkbox"
                         checked={isChecked}
                         onChange={() => toggleScent(scent)}
-                        className="rounded border-gold/40 text-primary focus:ring-primary accent-primary"
+                        className="rounded border-gold/40 text-primary focus:ring-primary accent-primary w-3.5 h-3.5"
                       />
-                      <span>{scent}</span>
+                      <span className="font-medium">{scent}</span>
                     </label>
                   );
                 })}
@@ -439,21 +449,21 @@ export default function CollectionPage({ params }: CollectionPageProps) {
               />
             </div>
 
-            {/* Scents */}
+            {/* Select Fragrance */}
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-deep/80 block">
-                Fragrance Notes
+                Select Fragrance
               </label>
-              <div className="grid grid-cols-2 gap-2">
-                {ALL_SCENTS.map((scent) => {
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {ALL_FRAGRANCES.map((scent) => {
                   const isChecked = selectedScents.includes(scent);
                   return (
                     <button
                       key={scent}
                       onClick={() => toggleScent(scent)}
-                      className={`p-2 rounded-xl text-[11px] font-medium border text-left truncate transition-colors ${isChecked
-                        ? 'bg-primary text-cream-50 border-primary'
-                        : 'bg-ivory text-deep border-gold/30'
+                      className={`p-2.5 rounded-xl text-xs font-semibold border text-left truncate transition-colors ${isChecked
+                        ? 'bg-primary text-cream-50 border-primary shadow-xs'
+                        : 'bg-ivory text-deep border-gold/30 hover:border-gold'
                         }`}
                     >
                       {scent}

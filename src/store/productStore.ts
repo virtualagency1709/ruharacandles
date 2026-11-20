@@ -121,6 +121,12 @@ export const useProductStore = create<ProductStoreState>()(
   )
 );
 
+const sanitizeFragrances = (frags?: string[]): string[] => {
+  if (!frags || !Array.isArray(frags)) return [...DEFAULT_FRAGRANCES];
+  const filtered = frags.filter((f) => (DEFAULT_FRAGRANCES as readonly string[]).includes(f));
+  return filtered.length > 0 ? filtered : [...DEFAULT_FRAGRANCES];
+};
+
 /**
  * Helper function to merge static seed products with dynamic admin overrides and custom uploaded images
  */
@@ -144,9 +150,11 @@ export function getMergedProducts(
           ? [...uploadedImages, ...(p.images || []).filter((img) => !uploadedImages.some((u) => u.url === img.url))]
           : p.images;
 
+      const rawFragrances = productOverride.availableFragrances || p.availableFragrances || [...DEFAULT_FRAGRANCES];
+
       return {
         ...p,
-        availableFragrances: productOverride.availableFragrances || p.availableFragrances || [...DEFAULT_FRAGRANCES],
+        availableFragrances: sanitizeFragrances(rawFragrances),
         fragranceAvailability: productOverride.fragranceAvailability || p.fragranceAvailability || { ...DEFAULT_FRAGRANCE_AVAILABILITY },
         ...productOverride,
         images: effectiveImages,
@@ -155,7 +163,7 @@ export function getMergedProducts(
 
   const activeNewProducts = newProducts.filter((p) => !deletedSet.has(p.id)).map((p) => ({
     ...p,
-    availableFragrances: p.availableFragrances || [...DEFAULT_FRAGRANCES],
+    availableFragrances: sanitizeFragrances(p.availableFragrances),
     fragranceAvailability: p.fragranceAvailability || { ...DEFAULT_FRAGRANCE_AVAILABILITY },
   }));
 

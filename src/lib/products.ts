@@ -30,12 +30,19 @@ export function getProductById(id: string): Product | undefined {
 }
 
 export function getProductsByCategory(categorySlug: string): Product[] {
-  if (categorySlug === 'all' || categorySlug === 'all-candles' || categorySlug === 'candles') return PRODUCTS;
-  if (categorySlug === 'bestsellers') return PRODUCTS.filter((p) => p.isBestseller);
-  if (categorySlug === 'new-arrivals') return PRODUCTS.filter((p) => p.isNewArrival);
-  if (categorySlug === 'featured') return PRODUCTS.filter((p) => p.isFeatured);
+  let list = PRODUCTS;
+  if (categorySlug === 'bestsellers') list = PRODUCTS.filter((p) => p.isBestseller);
+  else if (categorySlug === 'new-arrivals') list = PRODUCTS.filter((p) => p.isNewArrival);
+  else if (categorySlug === 'featured') list = PRODUCTS.filter((p) => p.isFeatured);
+  else if (categorySlug !== 'all' && categorySlug !== 'all-candles' && categorySlug !== 'candles') {
+    list = PRODUCTS.filter((p) => p.categorySlug === categorySlug);
+  }
   
-  return PRODUCTS.filter((p) => p.categorySlug === categorySlug);
+  return list.map((p) => ({
+    ...p,
+    availableFragrances: (p.availableFragrances || [...DEFAULT_FRAGRANCES]).filter((f) => (DEFAULT_FRAGRANCES as readonly string[]).includes(f)),
+    fragranceAvailability: p.fragranceAvailability || { ...DEFAULT_FRAGRANCE_AVAILABILITY },
+  }));
 }
 
 export function getCategoryBySlug(slug: string): Category | undefined {
@@ -122,11 +129,19 @@ export function getFilteredProducts({
   // Price filter
   list = list.filter((p) => p.basePrice >= minPrice && p.basePrice <= maxPrice);
 
-  // Scent filter
+  // Fragrance filter
   if (scents.length > 0) {
-    list = list.filter((p) =>
-      p.variants.some((v) => v.scent && scents.includes(v.scent))
-    );
+    list = list.filter((p) => {
+      const hasAvailableFragrance = scents.some((frag) => {
+        if (p.fragranceAvailability && p.fragranceAvailability[frag] === false) return false;
+        if (p.availableFragrances && p.availableFragrances.length > 0) {
+          return p.availableFragrances.includes(frag);
+        }
+        return true;
+      });
+      const hasVariantScent = p.variants.some((v) => v.scent && scents.includes(v.scent));
+      return hasAvailableFragrance || hasVariantScent;
+    });
   }
 
   // Stock filter

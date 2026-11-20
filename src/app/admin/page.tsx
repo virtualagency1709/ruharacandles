@@ -58,7 +58,7 @@ export default function AdminDashboardPage() {
       amount: 899,
       status: 'DELIVERED',
       method: 'Razorpay',
-      items: 'Mysore Sandalwood Bowl',
+      items: 'Sandal Bowl [Fragrance: Sandal] (Qty 1)',
       date: 'Yesterday',
     },
   ]);
