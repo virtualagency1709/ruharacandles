@@ -31,7 +31,7 @@ export const CATEGORIES: Category[] = [
     name: 'Glass Jar Candles',
     slug: 'glass-jar-candles',
     description: 'Premium amber & frosted glass jars with clean-burning pure soy wax and wooden wicks.',
-    imageUrl: '/placeholders/pink-tulip-candle-in-glass.svg',
+    imageUrl: '/images/tulip-bouquet-jar-candle.jpg',
     sortOrder: 2,
     isFeatured: true,
   },
@@ -524,8 +524,8 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-pink-tulip-candle-in-glass-1",
-        "url": "/placeholders/pink-tulip-candle-in-glass.svg",
-        "altText": "Pink Tulip Candle In Glass - Product Image Coming Soon",
+        "url": "/images/tulip-bouquet-jar-candle.jpg",
+        "altText": "Pink Tulip Candle In Glass - Handcrafted Tulip Bouquet Jar Candle",
         "isPrimary": true,
         "sortOrder": 1
       }
@@ -539,7 +539,7 @@ export const PRODUCTS: Product[] = [
         "price": 599,
         "mrp": 599,
         "stock": 25,
-        "imageUrl": "/placeholders/pink-tulip-candle-in-glass.svg"
+        "imageUrl": "/images/tulip-bouquet-jar-candle.jpg"
       }
     ],
     "rating": 4.9,
@@ -3180,7 +3180,7 @@ export const BANNERS: Banner[] = [
     subtitle: 'Calm your soul with Rose, Lavender, Ocean Breeze, Sandal & Jasmine.',
     ctaText: 'Explore Scented Jars',
     ctaLink: '/collection/glass-jar-candles',
-    desktopImage: '/placeholders/transparent-glass-jar-with-decorative-candle.svg',
+    desktopImage: '/images/tulip-bouquet-jar-candle.jpg',
     section: 'HERO',
     sortOrder: 2,
     isActive: true,
