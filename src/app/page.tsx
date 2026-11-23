@@ -626,7 +626,7 @@ export default function LuxuryHomePage() {
             '/images/concrete-tray-lotus-ribbed-jar-candle.jpg',
             '/images/red-tulip-candle-in-glass.jpg',
             '/placeholders/daisy-floating-candles-soy-wax-smokeless-long-lasting-decorati.svg',
-            '/placeholders/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg',
+            '/images/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.jpg',
             '/images/peacock-urli-candle-yellow.jpg',
             '/placeholders/wine-rose-bear-shaped-decorative-candle.svg',
           ].map((url, i) => (

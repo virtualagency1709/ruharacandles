@@ -338,13 +338,22 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle-1",
-        "url": "/placeholders/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg",
-        "altText": "Yellow Concrete Tray And Ribbed Vase With Lotus Jar Candle - Product Image Coming Soon",
+        "url": "/images/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.jpg",
+        "altText": "Yellow Concrete Tray And Ribbed Vase With Lotus Jar Candle - Concrete Bowl Floral Candle",
         "isPrimary": true,
         "sortOrder": 1
+      },
+      {
+        "id": "img-yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle-2",
+        "url": "/images/concrete-jar-with-pink-plumeria-candle.jpg",
+        "altText": "Concrete Bowl Floral Candle - Pink Blossom Edition",
+        "isPrimary": false,
+        "sortOrder": 2
       }
     ],
-    "gallery": [],
+    "gallery": [
+      "/images/concrete-jar-with-pink-plumeria-candle.jpg"
+    ],
     "variants": [
       {
         "id": "var-yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle-std",
@@ -353,7 +362,7 @@ export const PRODUCTS: Product[] = [
         "price": 549,
         "mrp": 549,
         "stock": 25,
-        "imageUrl": "/placeholders/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg"
+        "imageUrl": "/images/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.jpg"
       }
     ],
     "rating": 4.9,
@@ -2544,9 +2553,18 @@ export const PRODUCTS: Product[] = [
         "altText": "Concrete Jar With Pink Plumeria Candle - Concrete Bowl Floral Candle",
         "isPrimary": true,
         "sortOrder": 1
+      },
+      {
+        "id": "img-concrete-jar-with-pink-plumeria-candle-2",
+        "url": "/images/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.jpg",
+        "altText": "Concrete Bowl Floral Candle - Yellow Blossom Edition",
+        "isPrimary": false,
+        "sortOrder": 2
       }
     ],
-    "gallery": [],
+    "gallery": [
+      "/images/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.jpg"
+    ],
     "variants": [
       {
         "id": "var-concrete-jar-with-pink-plumeria-candle-std",
