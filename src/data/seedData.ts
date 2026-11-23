@@ -2540,8 +2540,8 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-concrete-jar-with-pink-plumeria-candle-1",
-        "url": "/placeholders/concrete-jar-with-pink-plumeria-candle.svg",
-        "altText": "Concrete Jar With Pink Plumeria Candle - Product Image Coming Soon",
+        "url": "/images/concrete-jar-with-pink-plumeria-candle.jpg",
+        "altText": "Concrete Jar With Pink Plumeria Candle - Concrete Bowl Floral Candle",
         "isPrimary": true,
         "sortOrder": 1
       }
@@ -2555,7 +2555,7 @@ export const PRODUCTS: Product[] = [
         "price": 449,
         "mrp": 449,
         "stock": 25,
-        "imageUrl": "/placeholders/concrete-jar-with-pink-plumeria-candle.svg"
+        "imageUrl": "/images/concrete-jar-with-pink-plumeria-candle.jpg"
       }
     ],
     "rating": 4.9,
