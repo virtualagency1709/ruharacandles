@@ -30,7 +30,7 @@ export default function AboutPage() {
           {/* Left: Image with Arch mask */}
           <div className="relative aspect-[4/5] rounded-[80px_80px_20px_20px] sm:rounded-[140px_140px_24px_24px] overflow-hidden border-2 border-gold/40 shadow-warm-lg max-w-md mx-auto w-full">
             <Image
-              src="/placeholders/scented-peony-flower-candle-with-premiu.svg"
+              src="/images/peony-candle-set-of-3.jpg"
               alt="Artisan pouring soy wax in Delhi NCR studio"
               fill
               unoptimized={true}

@@ -10,7 +10,7 @@ export function getAllProducts(): Product[] {
 }
 
 export function getProductBySlug(slug: string): Product | undefined {
-  const p = PRODUCTS.find((p) => p.slug === slug);
+  const p = PRODUCTS.find((p) => p.slug === slug || (slug === 'scented-peony-flower-candle-for-home-decor' && p.slug === 'peony-candle-set-of-3'));
   if (!p) return undefined;
   return {
     ...p,

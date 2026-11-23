@@ -190,7 +190,7 @@ export default function OrdersPage() {
                   <div key={i} className="flex items-center gap-4">
                     <div className="relative w-14 h-16 rounded-lg overflow-hidden bg-cream-100 flex-shrink-0 border border-gold/20">
                       <Image
-                        src={item.imageUrl || '/placeholders/scented-peony-flower-candle-for-home-decor.svg'}
+                        src={item.imageUrl || '/images/peony-candle-set-of-3.jpg'}
                         alt={item.title}
                         fill
                         unoptimized={true}

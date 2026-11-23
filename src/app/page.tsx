@@ -373,7 +373,7 @@ export default function LuxuryHomePage() {
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-md aspect-[4/5] rounded-[160px_160px_24px_24px] overflow-hidden border-2 border-gold/40 shadow-2xl">
               <Image
-                src="/placeholders/scented-peony-flower-candle-for-home-decor.svg"
+                src="/images/peony-candle-set-of-3.jpg"
                 alt="Slow living candle ambiance"
                 fill
                 unoptimized={true}

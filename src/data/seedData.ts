@@ -22,7 +22,7 @@ export const CATEGORIES: Category[] = [
     name: 'Floral Candles',
     slug: 'floral-candles',
     description: 'Delicately handcrafted sculpted floral candles inspired by blossoming gardens.',
-    imageUrl: '/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg',
+    imageUrl: '/images/peony-candle-set-of-3.jpg',
     sortOrder: 1,
     isFeatured: true,
   },
@@ -1034,11 +1034,11 @@ export const PRODUCTS: Product[] = [
   },
   {
     "id": "prod-ruh-15",
-    "title": "Scented Peony Flower Candle For Home Decor",
-    "name": "Scented Peony Flower Candle For Home Decor",
-    "slug": "scented-peony-flower-candle-for-home-decor",
+    "title": "Peony Candle (Set of 3)",
+    "name": "Peony Candle (Set of 3)",
+    "slug": "peony-candle-set-of-3",
     "subtitle": "Floral Candles · 100% Pure Soy Wax",
-    "description": "Handcrafted with meticulous artisanal care in India, the Scented Peony Flower Candle For Home Decor is hand-poured using 100% pure botanical soy wax infused with delicate natural essential oils. Features a clean-burning lead-free cotton wick that casts a warm, soothing radiance.",
+    "description": "Handcrafted with meticulous artisanal care in India, the Peony Candle (Set of 3) features three exquisitely sculpted botanical soy wax peony blossoms in delicate pastel hues (soft rose pink, French lilac mauve, and creamy ivory white). Hand-poured using 100% pure organic botanical soy wax infused with delicate natural essential oils and lead-free cotton wicks that cast a soothing, romantic radiance.",
     "burnTime": "30-45 Hours",
     "waxType": "100% Pure Natural Soy Wax",
     "careInstructions": "Trim cotton wick to 1/4 inch before lighting. Allow wax to melt evenly to the rim on first burn. Keep out of drafts.",
@@ -1070,9 +1070,9 @@ export const PRODUCTS: Product[] = [
     "categorySlug": "floral-candles",
     "images": [
       {
-        "id": "img-scented-peony-flower-candle-for-home-decor-1",
-        "url": "/placeholders/scented-peony-flower-candle-for-home-decor.svg",
-        "altText": "Scented Peony Flower Candle For Home Decor - Product Image Coming Soon",
+        "id": "img-peony-candle-set-of-3-1",
+        "url": "/images/peony-candle-set-of-3.jpg",
+        "altText": "Peony Candle (Set of 3) - Handcrafted Botanical Soy Wax Candles",
         "isPrimary": true,
         "sortOrder": 1
       }
@@ -1080,13 +1080,13 @@ export const PRODUCTS: Product[] = [
     "gallery": [],
     "variants": [
       {
-        "id": "var-scented-peony-flower-candle-for-home-decor-std",
+        "id": "var-peony-candle-set-of-3-std",
         "sku": "RUH-15-FLO-STD",
-        "name": "Standard Edition",
+        "name": "Set of 3 (Pink, Mauve & Ivory)",
         "price": 249,
         "mrp": 249,
         "stock": 25,
-        "imageUrl": "/placeholders/scented-peony-flower-candle-for-home-decor.svg"
+        "imageUrl": "/images/peony-candle-set-of-3.jpg"
       }
     ],
     "rating": 4.9,
@@ -2168,8 +2168,8 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-scented-peony-flower-candle-for-home-decor-pink-white-1",
-        "url": "/placeholders/scented-peony-flower-candle-for-home-decor-pink-white.svg",
-        "altText": "Scented Peony Flower Candle For Home Decor (pink/white) - Product Image Coming Soon",
+        "url": "/images/peony-candle-set-of-3.jpg",
+        "altText": "Scented Peony Flower Candle For Home Decor (pink/white) - Handcrafted Botanical Soy Wax",
         "isPrimary": true,
         "sortOrder": 1
       }
@@ -2183,7 +2183,7 @@ export const PRODUCTS: Product[] = [
         "price": 199,
         "mrp": 199,
         "stock": 25,
-        "imageUrl": "/placeholders/scented-peony-flower-candle-for-home-decor-pink-white.svg"
+        "imageUrl": "/images/peony-candle-set-of-3.jpg"
       }
     ],
     "rating": 4.9,
