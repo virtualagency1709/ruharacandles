@@ -624,7 +624,7 @@ export default function LuxuryHomePage() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {[
             '/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg',
-            '/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg',
+            '/images/red-tulip-candle-in-glass.jpg',
             '/placeholders/daisy-floating-candles-soy-wax-smokeless-long-lasting-decorati.svg',
             '/placeholders/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg',
             '/images/peacock-urli-candle-yellow.jpg',

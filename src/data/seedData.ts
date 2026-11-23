@@ -528,9 +528,18 @@ export const PRODUCTS: Product[] = [
         "altText": "Pink Tulip Candle In Glass - Handcrafted Tulip Bouquet Jar Candle",
         "isPrimary": true,
         "sortOrder": 1
+      },
+      {
+        "id": "img-pink-tulip-candle-in-glass-2",
+        "url": "/images/red-tulip-candle-in-glass.jpg",
+        "altText": "Tulip Bouquet Candle - Red Blossom Edition",
+        "isPrimary": false,
+        "sortOrder": 2
       }
     ],
-    "gallery": [],
+    "gallery": [
+      "/images/red-tulip-candle-in-glass.jpg"
+    ],
     "variants": [
       {
         "id": "var-pink-tulip-candle-in-glass-std",
@@ -1161,8 +1170,8 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-red-tulip-bouquet-decorative-candle-1",
-        "url": "/placeholders/red-tulip-bouquet-decorative-candle.svg",
-        "altText": "Red Tulip Bouquet Decorative Candle - Product Image Coming Soon",
+        "url": "/images/red-tulip-bouquet-candle.jpg",
+        "altText": "Red Tulip Bouquet Decorative Candle - Handcrafted Botanical Soy Wax",
         "isPrimary": true,
         "sortOrder": 1
       }
@@ -1176,7 +1185,7 @@ export const PRODUCTS: Product[] = [
         "price": 199,
         "mrp": 199,
         "stock": 25,
-        "imageUrl": "/placeholders/red-tulip-bouquet-decorative-candle.svg"
+        "imageUrl": "/images/red-tulip-bouquet-candle.jpg"
       }
     ],
     "rating": 4.9,
@@ -1497,13 +1506,22 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-red-tulip-candle-in-glass-1",
-        "url": "/placeholders/red-tulip-candle-in-glass.svg",
-        "altText": "Red Tulip Candle In Glass - Product Image Coming Soon",
+        "url": "/images/red-tulip-candle-in-glass.jpg",
+        "altText": "Red Tulip Candle In Glass - Handcrafted Red Tulip Bouquet Jar Candle",
         "isPrimary": true,
         "sortOrder": 1
+      },
+      {
+        "id": "img-red-tulip-candle-in-glass-2",
+        "url": "/images/tulip-bouquet-jar-candle.jpg",
+        "altText": "Tulip Bouquet Candle - Pink Blossom Edition",
+        "isPrimary": false,
+        "sortOrder": 2
       }
     ],
-    "gallery": [],
+    "gallery": [
+      "/images/tulip-bouquet-jar-candle.jpg"
+    ],
     "variants": [
       {
         "id": "var-red-tulip-candle-in-glass-std",
@@ -1512,7 +1530,7 @@ export const PRODUCTS: Product[] = [
         "price": 599,
         "mrp": 599,
         "stock": 25,
-        "imageUrl": "/placeholders/red-tulip-candle-in-glass.svg"
+        "imageUrl": "/images/red-tulip-candle-in-glass.jpg"
       }
     ],
     "rating": 4.9,
