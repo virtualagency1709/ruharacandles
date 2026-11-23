@@ -214,13 +214,30 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-pink-tulip-bouquet-decorative-candle-with-green-base-1",
-        "url": "/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg",
-        "altText": "Pink Tulip Bouquet Decorative Candle With Green Base - Product Image Coming Soon",
+        "url": "/images/pink-tulip-bouquet-candle.jpg",
+        "altText": "Pink Tulip Bouquet Decorative Candle - Handcrafted Botanical Soy Wax",
         "isPrimary": true,
         "sortOrder": 1
+      },
+      {
+        "id": "img-pink-tulip-bouquet-decorative-candle-with-green-base-2",
+        "url": "/images/red-tulip-bouquet-candle.jpg",
+        "altText": "Tulip Bouquet Decorative Candle - Red Blossom Edition",
+        "isPrimary": false,
+        "sortOrder": 2
+      },
+      {
+        "id": "img-pink-tulip-bouquet-decorative-candle-with-green-base-3",
+        "url": "/images/yellow-tulip-bouquet-candle.jpg",
+        "altText": "Tulip Bouquet Decorative Candle - Yellow Blossom Edition",
+        "isPrimary": false,
+        "sortOrder": 3
       }
     ],
-    "gallery": [],
+    "gallery": [
+      "/images/red-tulip-bouquet-candle.jpg",
+      "/images/yellow-tulip-bouquet-candle.jpg"
+    ],
     "variants": [
       {
         "id": "var-pink-tulip-bouquet-decorative-candle-with-green-base-std",
@@ -229,7 +246,7 @@ export const PRODUCTS: Product[] = [
         "price": 199,
         "mrp": 199,
         "stock": 25,
-        "imageUrl": "/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg"
+        "imageUrl": "/images/pink-tulip-bouquet-candle.jpg"
       }
     ],
     "rating": 4.9,
