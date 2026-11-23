@@ -117,7 +117,7 @@ export default function MegaMenu() {
                     </div>
                     <div className="relative h-28 w-full rounded-xl overflow-hidden mb-3 shadow-inner">
                       <Image
-                        src="/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg"
+                        src="/images/peacock-urli-candle-yellow.jpg"
                         alt="Royal Festive Brass Urli"
                         fill
                         unoptimized={true}
@@ -125,7 +125,7 @@ export default function MegaMenu() {
                       />
                     </div>
                     <Link
-                      href="/product/royal-festive-brass-urli-candle"
+                      href="/collection/urli-candles"
                       className="w-full text-center py-2 bg-primary text-cream-50 rounded-lg text-[11px] font-medium tracking-normal hover:bg-primary-hover transition-colors normal-case"
                     >
                       Shop Featured Urli

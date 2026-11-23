@@ -49,7 +49,7 @@ export const CATEGORIES: Category[] = [
     name: 'Urli Candles',
     slug: 'urli-candles',
     description: 'Traditional metal & brass urlis filled with slow-burning aromatic wax for festivities.',
-    imageUrl: '/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg',
+    imageUrl: '/images/peacock-urli-candle-yellow.jpg',
     sortOrder: 4,
     isFeatured: true,
   },
@@ -710,13 +710,30 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-3-5in-metal-urli-candle-with-lotus-and-mogra-flower-1",
-        "url": "/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg",
-        "altText": "3.5In Metal Urli Candle With Lotus And Mogra Flower - Product Image Coming Soon",
+        "url": "/images/peacock-urli-candle-teal.jpg",
+        "altText": "Metal Urli Candle With Lotus And Mogra Flower - Peacock Urli (7in)",
         "isPrimary": true,
         "sortOrder": 1
+      },
+      {
+        "id": "img-3-5in-metal-urli-candle-with-lotus-and-mogra-flower-2",
+        "url": "/images/peacock-urli-candle-yellow.jpg",
+        "altText": "Peacock Urli Candle - Sunflower Edition",
+        "isPrimary": false,
+        "sortOrder": 2
+      },
+      {
+        "id": "img-3-5in-metal-urli-candle-with-lotus-and-mogra-flower-3",
+        "url": "/images/peacock-urli-candle-pink.jpg",
+        "altText": "Peacock Urli Candle - Pink Floral Edition",
+        "isPrimary": false,
+        "sortOrder": 3
       }
     ],
-    "gallery": [],
+    "gallery": [
+      "/images/peacock-urli-candle-yellow.jpg",
+      "/images/peacock-urli-candle-pink.jpg"
+    ],
     "variants": [
       {
         "id": "var-3-5in-metal-urli-candle-with-lotus-and-mogra-flower-std",
@@ -725,7 +742,7 @@ export const PRODUCTS: Product[] = [
         "price": 299,
         "mrp": 299,
         "stock": 25,
-        "imageUrl": "/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg"
+        "imageUrl": "/images/peacock-urli-candle-teal.jpg"
       }
     ],
     "rating": 4.9,
@@ -1206,13 +1223,22 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-3-5in-metal-urli-withred-daisy-candle-1",
-        "url": "/placeholders/3-5in-metal-urli-withred-daisy-candle.svg",
-        "altText": "3.5In Metal Urli Withred Daisy Candle - Product Image Coming Soon",
+        "url": "/images/peacock-urli-candle-pink.jpg",
+        "altText": "3.5In Metal Urli Withred Daisy Candle - Peacock Urli (7in)",
         "isPrimary": true,
         "sortOrder": 1
+      },
+      {
+        "id": "img-3-5in-metal-urli-withred-daisy-candle-2",
+        "url": "/images/peacock-urli-candle-yellow.jpg",
+        "altText": "Peacock Urli Candle - Golden Sunflower",
+        "isPrimary": false,
+        "sortOrder": 2
       }
     ],
-    "gallery": [],
+    "gallery": [
+      "/images/peacock-urli-candle-yellow.jpg"
+    ],
     "variants": [
       {
         "id": "var-3-5in-metal-urli-withred-daisy-candle-std",
@@ -1221,7 +1247,7 @@ export const PRODUCTS: Product[] = [
         "price": 299,
         "mrp": 299,
         "stock": 25,
-        "imageUrl": "/placeholders/3-5in-metal-urli-withred-daisy-candle.svg"
+        "imageUrl": "/images/peacock-urli-candle-pink.jpg"
       }
     ],
     "rating": 4.9,
@@ -1268,13 +1294,30 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-metal-round-urli-candle-1",
-        "url": "/placeholders/metal-round-urli-candle.svg",
-        "altText": "Metal Round Urli Candle - Product Image Coming Soon",
+        "url": "/images/peacock-urli-candle-yellow.jpg",
+        "altText": "Metal Round Urli Candle - Peacock Urli (7in) Golden Sunflower Edition",
         "isPrimary": true,
         "sortOrder": 1
+      },
+      {
+        "id": "img-metal-round-urli-candle-2",
+        "url": "/images/peacock-urli-candle-pink.jpg",
+        "altText": "Peacock Urli Candle - Pink Floral Edition",
+        "isPrimary": false,
+        "sortOrder": 2
+      },
+      {
+        "id": "img-metal-round-urli-candle-3",
+        "url": "/images/peacock-urli-candle-teal.jpg",
+        "altText": "Peacock Urli Candle - Lotus Edition",
+        "isPrimary": false,
+        "sortOrder": 3
       }
     ],
-    "gallery": [],
+    "gallery": [
+      "/images/peacock-urli-candle-pink.jpg",
+      "/images/peacock-urli-candle-teal.jpg"
+    ],
     "variants": [
       {
         "id": "var-metal-round-urli-candle-std",
@@ -1283,7 +1326,7 @@ export const PRODUCTS: Product[] = [
         "price": 599,
         "mrp": 599,
         "stock": 25,
-        "imageUrl": "/placeholders/metal-round-urli-candle.svg"
+        "imageUrl": "/images/peacock-urli-candle-yellow.jpg"
       }
     ],
     "rating": 4.9,
@@ -2570,13 +2613,30 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-6-5in-metal-urli-candle-1",
-        "url": "/placeholders/6-5in-metal-urli-candle.svg",
-        "altText": "6.5In Metal Urli Candle - Product Image Coming Soon",
+        "url": "/images/peacock-urli-candle-yellow.jpg",
+        "altText": "6.5In Metal Urli Candle - Peacock Urli (7in) Golden Sunflower Edition",
         "isPrimary": true,
         "sortOrder": 1
+      },
+      {
+        "id": "img-6-5in-metal-urli-candle-2",
+        "url": "/images/peacock-urli-candle-teal.jpg",
+        "altText": "Peacock Urli Candle - Lotus Edition",
+        "isPrimary": false,
+        "sortOrder": 2
+      },
+      {
+        "id": "img-6-5in-metal-urli-candle-3",
+        "url": "/images/peacock-urli-candle-pink.jpg",
+        "altText": "Peacock Urli Candle - Pink Floral Edition",
+        "isPrimary": false,
+        "sortOrder": 3
       }
     ],
-    "gallery": [],
+    "gallery": [
+      "/images/peacock-urli-candle-teal.jpg",
+      "/images/peacock-urli-candle-pink.jpg"
+    ],
     "variants": [
       {
         "id": "var-6-5in-metal-urli-candle-std",
@@ -2585,7 +2645,7 @@ export const PRODUCTS: Product[] = [
         "price": 499,
         "mrp": 499,
         "stock": 25,
-        "imageUrl": "/placeholders/6-5in-metal-urli-candle.svg"
+        "imageUrl": "/images/peacock-urli-candle-yellow.jpg"
       }
     ],
     "rating": 4.9,

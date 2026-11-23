@@ -285,7 +285,7 @@ export default function DesignSystemPage() {
             </span>
             <div className="w-full max-w-xs">
               <ArchImage
-                src="/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg"
+                src="/images/peacock-urli-candle-yellow.jpg"
                 alt="Urli Candle in Arch Mask"
                 aspectRatio="portrait"
                 showGlow={true}

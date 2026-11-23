@@ -627,7 +627,7 @@ export default function LuxuryHomePage() {
             '/placeholders/pink-tulip-bouquet-decorative-candle-with-green-base.svg',
             '/placeholders/daisy-floating-candles-soy-wax-smokeless-long-lasting-decorati.svg',
             '/placeholders/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg',
-            '/placeholders/3-5in-metal-urli-candle-with-lotus-and-mogra-flower.svg',
+            '/images/peacock-urli-candle-yellow.jpg',
             '/placeholders/wine-rose-bear-shaped-decorative-candle.svg',
           ].map((url, i) => (
             <a
