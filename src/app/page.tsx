@@ -560,7 +560,7 @@ export default function LuxuryHomePage() {
           {/* Visual Bundle Showcase */}
           <div className="lg:col-span-6 relative aspect-square rounded-2xl overflow-hidden bg-cream-200 border border-gold/30 shadow-inner">
             <Image
-              src="/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg"
+              src="/images/concrete-tray-lotus-ribbed-jar-candle.jpg"
               alt="Curated gift hamper bundle"
               fill
               unoptimized={true}
@@ -623,7 +623,7 @@ export default function LuxuryHomePage() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {[
-            '/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg',
+            '/images/concrete-tray-lotus-ribbed-jar-candle.jpg',
             '/images/red-tulip-candle-in-glass.jpg',
             '/placeholders/daisy-floating-candles-soy-wax-smokeless-long-lasting-decorati.svg',
             '/placeholders/yellow-concrete-tray-and-ribbed-vase-with-lotus-jar-candle.svg',

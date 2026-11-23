@@ -40,7 +40,7 @@ export const CATEGORIES: Category[] = [
     name: 'Concrete Jar Candles',
     slug: 'concrete-jar-candles',
     description: 'Modern architectural concrete vessels hand-cast in earthy pastel tones.',
-    imageUrl: '/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg',
+    imageUrl: '/images/concrete-tray-lotus-ribbed-jar-candle.jpg',
     sortOrder: 3,
     isFeatured: true,
   },
@@ -115,11 +115,11 @@ export const CATEGORIES: Category[] = [
 export const PRODUCTS: Product[] = [
   {
     "id": "prod-ruh-01",
-    "title": "White Concrete Tray And Ribbed Vase With Peony Candle",
-    "name": "White Concrete Tray And Ribbed Vase With Peony Candle",
+    "title": "Concrete Tray with Lotus & Ribbed Jar Candle",
+    "name": "Concrete Tray with Lotus & Ribbed Jar Candle",
     "slug": "white-concrete-tray-and-ribbed-vase-with-peony-candle",
     "subtitle": "Concrete Jar Candles · 100% Pure Soy Wax",
-    "description": "Handcrafted with meticulous artisanal care in India, the White Concrete Tray And Ribbed Vase With Peony Candle is hand-poured using 100% pure botanical soy wax infused with delicate natural essential oils. Features a clean-burning lead-free cotton wick that casts a warm, soothing radiance.",
+    "description": "Handcrafted with meticulous artisanal care in India, the Concrete Tray with Lotus & Ribbed Jar Candle features an elegant hand-cast concrete oval tray pairing a sculpted lotus blossom candle with an artisanal fluted ribbed jar candle topped with real botanical dried rose petals. Hand-poured using 100% pure organic botanical soy wax infused with delicate natural essential oils and lead-free cotton wicks.",
     "burnTime": "30-45 Hours",
     "waxType": "100% Pure Natural Soy Wax",
     "careInstructions": "Trim cotton wick to 1/4 inch before lighting. Allow wax to melt evenly to the rim on first burn. Keep out of drafts.",
@@ -152,8 +152,8 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-white-concrete-tray-and-ribbed-vase-with-peony-candle-1",
-        "url": "/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg",
-        "altText": "White Concrete Tray And Ribbed Vase With Peony Candle - Product Image Coming Soon",
+        "url": "/images/concrete-tray-lotus-ribbed-jar-candle.jpg",
+        "altText": "Concrete Tray with Lotus & Ribbed Jar Candle - Handcrafted Botanical Soy Wax",
         "isPrimary": true,
         "sortOrder": 1
       }
@@ -167,7 +167,7 @@ export const PRODUCTS: Product[] = [
         "price": 549,
         "mrp": 549,
         "stock": 25,
-        "imageUrl": "/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg"
+        "imageUrl": "/images/concrete-tray-lotus-ribbed-jar-candle.jpg"
       }
     ],
     "rating": 4.9,
@@ -400,8 +400,8 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-concrete-tray-and-ribbed-vase-with-peony-candle-1",
-        "url": "/placeholders/concrete-tray-and-ribbed-vase-with-peony-candle.svg",
-        "altText": "Concrete Tray And Ribbed Vase With Peony Candle - Product Image Coming Soon",
+        "url": "/images/concrete-tray-lotus-ribbed-jar-candle.jpg",
+        "altText": "Concrete Tray with Lotus & Ribbed Jar Candle - Handcrafted Soy Wax",
         "isPrimary": true,
         "sortOrder": 1
       }
@@ -415,7 +415,7 @@ export const PRODUCTS: Product[] = [
         "price": 449,
         "mrp": 449,
         "stock": 25,
-        "imageUrl": "/placeholders/concrete-tray-and-ribbed-vase-with-peony-candle.svg"
+        "imageUrl": "/images/concrete-tray-lotus-ribbed-jar-candle.jpg"
       }
     ],
     "rating": 4.9,

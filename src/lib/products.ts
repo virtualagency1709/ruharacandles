@@ -10,7 +10,7 @@ export function getAllProducts(): Product[] {
 }
 
 export function getProductBySlug(slug: string): Product | undefined {
-  const p = PRODUCTS.find((p) => p.slug === slug || (slug === 'scented-peony-flower-candle-for-home-decor' && p.slug === 'peony-candle-set-of-3'));
+  const p = PRODUCTS.find((p) => p.slug === slug || (slug === 'scented-peony-flower-candle-for-home-decor' && p.slug === 'peony-candle-set-of-3') || (slug === 'concrete-tray-with-lotus-and-ribbed-jar-candle' && p.slug === 'white-concrete-tray-and-ribbed-vase-with-peony-candle'));
   if (!p) return undefined;
   return {
     ...p,
@@ -74,7 +74,7 @@ export function getCategoryBySlug(slug: string): Category | undefined {
       name: 'New Arrivals',
       slug: 'new-arrivals',
       description: 'The latest artisanal batch poured with seasonal botanical essences and fresh sculptural designs.',
-      imageUrl: '/placeholders/white-concrete-tray-and-ribbed-vase-with-peony-candle.svg',
+      imageUrl: '/images/concrete-tray-lotus-ribbed-jar-candle.jpg',
       sortOrder: 0,
       isFeatured: true,
     };
