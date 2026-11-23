@@ -535,10 +535,18 @@ export const PRODUCTS: Product[] = [
         "altText": "Tulip Bouquet Candle - Red Blossom Edition",
         "isPrimary": false,
         "sortOrder": 2
+      },
+      {
+        "id": "img-pink-tulip-candle-in-glass-3",
+        "url": "/images/yellow-tulip-candle-in-glass.jpg",
+        "altText": "Tulip Bouquet Candle - Yellow Blossom Edition",
+        "isPrimary": false,
+        "sortOrder": 3
       }
     ],
     "gallery": [
-      "/images/red-tulip-candle-in-glass.jpg"
+      "/images/red-tulip-candle-in-glass.jpg",
+      "/images/yellow-tulip-candle-in-glass.jpg"
     ],
     "variants": [
       {
@@ -595,8 +603,8 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-yellow-tulip-bouquet-decorative-candle-with-green-base-1",
-        "url": "/placeholders/yellow-tulip-bouquet-decorative-candle-with-green-base.svg",
-        "altText": "Yellow Tulip Bouquet Decorative Candle With Green Base - Product Image Coming Soon",
+        "url": "/images/yellow-tulip-bouquet-candle.jpg",
+        "altText": "Yellow Tulip Bouquet Decorative Candle With Green Base - Handcrafted Soy Wax",
         "isPrimary": true,
         "sortOrder": 1
       }
@@ -610,7 +618,7 @@ export const PRODUCTS: Product[] = [
         "price": 199,
         "mrp": 199,
         "stock": 25,
-        "imageUrl": "/placeholders/yellow-tulip-bouquet-decorative-candle-with-green-base.svg"
+        "imageUrl": "/images/yellow-tulip-bouquet-candle.jpg"
       }
     ],
     "rating": 4.9,
@@ -657,13 +665,30 @@ export const PRODUCTS: Product[] = [
     "images": [
       {
         "id": "img-yellow-tulip-candle-in-glass-1",
-        "url": "/placeholders/yellow-tulip-candle-in-glass.svg",
-        "altText": "Yellow Tulip Candle In Glass - Product Image Coming Soon",
+        "url": "/images/yellow-tulip-candle-in-glass.jpg",
+        "altText": "Yellow Tulip Candle In Glass - Handcrafted Yellow Tulip Bouquet Jar Candle",
         "isPrimary": true,
         "sortOrder": 1
+      },
+      {
+        "id": "img-yellow-tulip-candle-in-glass-2",
+        "url": "/images/tulip-bouquet-jar-candle.jpg",
+        "altText": "Tulip Bouquet Candle - Pink Blossom Edition",
+        "isPrimary": false,
+        "sortOrder": 2
+      },
+      {
+        "id": "img-yellow-tulip-candle-in-glass-3",
+        "url": "/images/red-tulip-candle-in-glass.jpg",
+        "altText": "Tulip Bouquet Candle - Red Blossom Edition",
+        "isPrimary": false,
+        "sortOrder": 3
       }
     ],
-    "gallery": [],
+    "gallery": [
+      "/images/tulip-bouquet-jar-candle.jpg",
+      "/images/red-tulip-candle-in-glass.jpg"
+    ],
     "variants": [
       {
         "id": "var-yellow-tulip-candle-in-glass-std",
@@ -672,7 +697,7 @@ export const PRODUCTS: Product[] = [
         "price": 599,
         "mrp": 599,
         "stock": 25,
-        "imageUrl": "/placeholders/yellow-tulip-candle-in-glass.svg"
+        "imageUrl": "/images/yellow-tulip-candle-in-glass.jpg"
       }
     ],
     "rating": 4.9,
@@ -1517,10 +1542,18 @@ export const PRODUCTS: Product[] = [
         "altText": "Tulip Bouquet Candle - Pink Blossom Edition",
         "isPrimary": false,
         "sortOrder": 2
+      },
+      {
+        "id": "img-red-tulip-candle-in-glass-3",
+        "url": "/images/yellow-tulip-candle-in-glass.jpg",
+        "altText": "Tulip Bouquet Candle - Yellow Blossom Edition",
+        "isPrimary": false,
+        "sortOrder": 3
       }
     ],
     "gallery": [
-      "/images/tulip-bouquet-jar-candle.jpg"
+      "/images/tulip-bouquet-jar-candle.jpg",
+      "/images/yellow-tulip-candle-in-glass.jpg"
     ],
     "variants": [
       {
